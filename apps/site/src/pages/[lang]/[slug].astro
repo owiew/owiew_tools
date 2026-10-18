@@ -1,0 +1,50 @@
+---
+/**
+ * Redirecionamento estático do link curto `/<idioma>/<slug>/` para o caminho
+ * canônico `/<idioma>/<categoria>/<slug>/`, para que o link curto nunca dê 404.
+ *
+ * O quê: HTML mínimo, sem layout: canonical apontando o destino, `meta refresh`
+ * imediato, `noindex` e um link visível (quem não executa refresh clica). Fica
+ * fora do sitemap (o sitemap só lista as páginas canônicas).
+ * Onde: build estático (`getStaticPaths`: uma página por ferramenta e idioma).
+ * Fluxo do dado: registry (ferramentas e categorias) -> `toolPath` -> HTML.
+ * Sem JS, sem rede, sem efeitos.
+ */
+import { LANGS, HTML_LANG, type Lang } from "../../i18n/locales";
+import { CATEGORIES, TOOLS } from "../../lib/registry";
+import { absolute, toolPath } from "../../lib/urls";
+
+/**
+ * Uma entrada por ferramenta e idioma; reprova o build se o slug curto de uma
+ * ferramenta colidir com o slug de uma categoria do mesmo idioma (a categoria
+ * ganharia a rota e o link curto da ferramenta voltaria a dar 404).
+ */
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    TOOLS.map((tool) => {
+      const category = CATEGORIES.find((c) => c.id === tool.meta.category)!;
+      const slug = tool.meta.i18n[lang].slug;
+      if (CATEGORIES.some((c) => c.i18n[lang].slug === slug)) {
+        throw new Error(`slug curto "${slug}" (${lang}) colide com uma categoria`);
+      }
+      return { params: { lang, slug }, props: { lang, to: toolPath(tool, category, lang), name: tool.meta.i18n[lang].name } };
+    }),
+  );
+}
+const { lang, to, name } = Astro.props as { lang: Lang; to: string; name: string };
+---
+
+<!doctype html>
+<html lang={HTML_LANG[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{name} | owiew tools</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={absolute(to)} />
+    <meta http-equiv="refresh" content={`0;url=${to}`} />
+  </head>
+  <body>
+    <p><a href={to}>{name}</a></p>
+  </body>
+</html>

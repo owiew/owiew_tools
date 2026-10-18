@@ -3,7 +3,8 @@
  * canonical da página bate com a <loc>, os alternates do sitemap são os mesmos
  * do HTML, páginas noindex não estão no sitemap, todo link interno do HTML
  * resolve para arquivo, e o robots.txt aponta o sitemap. Falha (exit 1) em
- * qualquer divergência. Uso: `npm run check:sitemap` (depois do build).
+ * qualquer divergência. Também confere os links curtos `/<idioma>/<slug>/`
+ * (redirect estático, noindex, fora do sitemap). Uso: `npm run check:sitemap` (depois do build).
  */
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
@@ -56,6 +57,27 @@ for (const u of urls) {
   for (const a of smAlt) if (!locs.has(a.split("=")[1]) && !urls.some((x) => x.includes(`<loc>${a.split("=")[1]}</loc>`))) errors.push(`${loc}: alternate sem entrada própria (${a})`);
 }
 
+// Links curtos: toda página de ferramenta (3 segmentos) tem `/<idioma>/<slug>/` em dist/, com canonical
+// para o destino, refresh imediato, noindex e link visível, e NUNCA está no sitemap.
+let shorts = 0;
+for (const loc of locs) {
+  const parts = loc.replace(SITE, "").split("/").filter(Boolean);
+  if (parts.length !== 3) continue;
+  const [lang, , slug] = parts;
+  const canonical = loc.replace(SITE, "");
+  const short = `/${lang}/${slug}/`;
+  shorts++;
+  if (locs.has(`${SITE}${short}`)) errors.push(`${short}: link curto está no sitemap`);
+  const file = fileFor(short);
+  if (!file) { errors.push(`${short}: link curto sem página em dist/`); continue; }
+  const html = readFileSync(file, "utf8");
+  if (!html.includes(`<link rel="canonical" href="${loc}"`)) errors.push(`${short}: canonical não aponta ${loc}`);
+  if (!html.includes(`<meta http-equiv="refresh" content="0;url=${canonical}"`)) errors.push(`${short}: sem meta refresh para ${canonical}`);
+  if (!/<meta name="robots" content="noindex/.test(html)) errors.push(`${short}: link curto sem noindex`);
+  if (!html.includes(`<a href="${canonical}">`)) errors.push(`${short}: sem link visível para ${canonical}`);
+}
+if (shorts === 0) errors.push("nenhuma página de ferramenta no sitemap: a checagem de links curtos não rodou");
+
 let links = 0;
 for (const f of htmlFiles(dist)) {
   const html = readFileSync(f, "utf8");
@@ -72,4 +94,4 @@ if (errors.length) {
   for (const e of errors) console.error(`erro: ${e}`);
   process.exit(1);
 }
-console.log(`check:sitemap ok (${urls.length} URLs, ${links} links internos verificados)`);
+console.log(`check:sitemap ok (${urls.length} URLs, ${shorts} links curtos, ${links} links internos verificados)`);
