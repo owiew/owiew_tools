@@ -1,0 +1,17 @@
+/* Estimador de tráfego orgânico: números alinhados à direita e campo de cenário compacto. */
+.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.org-value {
+  max-width: 14rem;
+}
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.org-line {
+  display: block;
+}

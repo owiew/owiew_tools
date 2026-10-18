@@ -1,0 +1,33 @@
+{
+  "id": "organic-traffic",
+  "category": "utilities",
+  "icon": "chart-line",
+  "order": 140,
+  "related": ["utm-builder", "roas-calculator", "qr-utm"],
+  "i18n": {
+    "pt-br": {
+      "slug": "estimador-de-trafego-organico",
+      "name": "Estimador de tráfego orgânico",
+      "title": "Estimador de tráfego orgânico por posição no Google",
+      "description": "Estime cliques orgânicos pelo volume de busca e pela posição, com curva de CTR documentada, e simule o ganho de subir no Google. Grátis, no seu navegador.",
+      "summary": "Descubra quantos cliques uma palavra-chave rende em cada posição do Google e quanto tráfego você ganha ao subir no ranking.",
+      "keywords": ["estimador de tráfego orgânico", "ctr por posição", "calculadora de tráfego seo", "tráfego orgânico por posição", "ctr google", "estimar tráfego seo", "volume de busca"]
+    },
+    "en": {
+      "slug": "organic-traffic-estimator",
+      "name": "Organic traffic estimator",
+      "title": "Organic traffic estimator by Google ranking position",
+      "description": "Estimate organic clicks from search volume and position, using a documented CTR curve, and simulate the gain from moving up in Google. Free, in your browser.",
+      "summary": "Find out how many clicks a keyword earns at each Google position and how much traffic you gain by moving up the ranking.",
+      "keywords": ["organic traffic estimator", "ctr by position", "seo traffic calculator", "organic traffic by position", "google ctr", "estimate seo traffic", "search volume"]
+    },
+    "es": {
+      "slug": "estimador-de-trafico-organico",
+      "name": "Estimador de tráfico orgánico",
+      "title": "Estimador de tráfico orgánico por posición en Google",
+      "description": "Estima clics orgánicos con el volumen de búsqueda y la posición, con una curva de CTR documentada, y simula la ganancia de subir en Google. Gratis, en tu navegador.",
+      "summary": "Descubre cuántos clics rinde una palabra clave en cada posición de Google y cuánto tráfico ganas al subir en el ranking.",
+      "keywords": ["estimador de tráfico orgánico", "ctr por posición", "calculadora de tráfico seo", "tráfico orgánico por posición", "ctr google", "estimar tráfico seo", "volumen de búsqueda"]
+    }
+  }
+}

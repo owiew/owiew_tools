@@ -98,7 +98,7 @@ describe("buildWhatsappLink", () => {
     expect(buildWhatsappLink({ ...base, message: "a".repeat(1000) }).ok).toBe(true);
   });
   it("emoji e unicode fazem ida e volta sem perda", () => {
-    const msg = "Olá 👋 こんにちは ñ";
+    const msg = "Olá \u{1F44B} こんにちは ñ";
     const r = buildWhatsappLink({ ...base, message: msg });
     if (!r.ok) throw new Error(r.error);
     expect(decodeURIComponent(r.value.link.split("?text=")[1] ?? "")).toBe(msg);

@@ -1,0 +1,15 @@
+---
+/**
+ * Monta a ilha do Estimador de tráfego orgânico. Onde: rota de ferramenta
+ * (registry via import.meta.glob). Entrada: idioma da página.
+ */
+import { type Lang } from "../../src/i18n/locales";
+import OrganicTraffic from "./Ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<OrganicTraffic client:load lang={lang} />
