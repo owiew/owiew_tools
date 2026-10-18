@@ -1,0 +1,33 @@
+{
+  "id": "keyword-cleaner",
+  "category": "keywords",
+  "icon": "list-filter",
+  "order": 110,
+  "related": ["keyword-combiner", "ad-preview", "utm-builder"],
+  "i18n": {
+    "pt-br": {
+      "slug": "limpador-de-palavras-chave",
+      "name": "Limpador de palavras-chave e negativas",
+      "title": "Limpador de palavras-chave e gerador de negativas",
+      "description": "Remova duplicadas, normalize, tire acentos, agrupe por termo e gere palavras-chave negativas a partir dos termos de pesquisa. Exporta CSV. Grátis e local.",
+      "summary": "Deixe a lista de palavras-chave limpa (sem duplicadas, sem símbolos proibidos) e descubra negativas nos termos de pesquisa que não convertem.",
+      "keywords": ["limpador de palavras-chave", "remover palavras-chave duplicadas", "gerador de palavras-chave negativas", "negativar termos de pesquisa", "remover acentos", "agrupar palavras-chave"]
+    },
+    "en": {
+      "slug": "keyword-cleaner",
+      "name": "Keyword cleaner and negative keyword generator",
+      "title": "Keyword cleaner and negative keyword generator",
+      "description": "Remove duplicates, normalize, strip accents, group by term and generate negative keywords from your search terms report. Exports CSV. Free, in your browser.",
+      "summary": "Get a clean keyword list (no duplicates, no forbidden symbols) and find negatives in search terms that do not convert.",
+      "keywords": ["keyword cleaner", "remove duplicate keywords", "negative keyword generator", "negative keywords from search terms", "remove accents", "group keywords"]
+    },
+    "es": {
+      "slug": "limpiador-de-palabras-clave",
+      "name": "Limpiador de palabras clave y negativas",
+      "title": "Limpiador de palabras clave y generador de negativas",
+      "description": "Quita duplicadas, normaliza, elimina acentos, agrupa por término y genera palabras clave negativas a partir de los términos de búsqueda. Exporta CSV. Gratis y local.",
+      "summary": "Deja limpia la lista de palabras clave (sin duplicadas ni símbolos prohibidos) y descubre negativas en los términos de búsqueda que no convierten.",
+      "keywords": ["limpiador de palabras clave", "quitar palabras clave duplicadas", "generador de palabras clave negativas", "negativizar términos de búsqueda", "quitar acentos", "agrupar palabras clave"]
+    }
+  }
+}

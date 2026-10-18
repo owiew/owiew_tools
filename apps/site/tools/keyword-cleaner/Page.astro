@@ -1,0 +1,15 @@
+---
+/**
+ * Monta a ilha da ferramenta Limpador de palavras-chave. Onde: rota de ferramenta (registry via
+ * import.meta.glob). Entrada: idioma da página.
+ */
+import { type Lang } from "../../src/i18n/locales";
+import KeywordCleaner from "./Ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<KeywordCleaner client:load lang={lang} />
