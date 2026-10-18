@@ -1,0 +1,108 @@
+---
+/**
+ * Página de ferramenta: cabeçalho, selo de privacidade, ilha de UI da
+ * ferramenta, como usar, fórmula, exemplos, FAQ e relacionadas, com JSON-LD
+ * (WebApplication, FAQPage, HowTo, BreadcrumbList). Rota: /<lang>/<cat>/<slug>/.
+ */
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import { Icon } from "../../../components/Icon";
+import ToolCard from "../../../components/ToolCard.astro";
+import Base from "../../../layouts/Base.astro";
+import { LANGS, type Lang } from "../../../i18n/locales";
+import { ui } from "../../../i18n/ui";
+import { breadcrumbLd, faqLd, howToLd, webApplicationLd } from "../../../lib/jsonld";
+import { CATEGORIES, TOOLS, relatedOf } from "../../../lib/registry";
+import { type Category, type Tool } from "../../../lib/types";
+import { alternatesOf, categoryPath, homePath, toolPath } from "../../../lib/urls";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    TOOLS.map((tool) => {
+      const category = CATEGORIES.find((c) => c.id === tool.meta.category)!;
+      return { params: { lang, category: category.i18n[lang].slug, tool: tool.meta.i18n[lang].slug }, props: { lang, tool, category } };
+    }),
+  );
+}
+const { lang, tool, category } = Astro.props as { lang: Lang; tool: Tool; category: Category };
+const t = ui(lang);
+const i = tool.meta.i18n[lang];
+const content = tool.content[lang];
+const Page = tool.Page as (props: { lang: Lang }) => unknown;
+const path = toolPath(tool, category, lang);
+const crumbs = [
+  { name: t.breadcrumbHome, path: homePath(lang) },
+  { name: category.i18n[lang].name, path: categoryPath(category, lang) },
+  { name: i.name, path },
+];
+const related = relatedOf(tool);
+---
+
+<Base
+  lang={lang}
+  title={i.title}
+  description={i.description}
+  path={path}
+  alternates={alternatesOf((l) => toolPath(tool, category, l))}
+  ogImage={`/og/${lang}/${tool.meta.id}.png`}
+  activeCategory={category.id}
+  jsonLd={[
+    webApplicationLd({ name: i.name, description: i.description, path, lang }),
+    breadcrumbLd(crumbs),
+    howToLd(content),
+    faqLd(content),
+  ]}
+>
+  <div class="wrap">
+    <header class="page-head">
+      <Breadcrumb lang={lang} items={crumbs} />
+      <h1>{i.title}</h1>
+      <p class="lead">{i.summary}</p>
+      <p class="privacy-chip"><Icon name="shield-check" size={18} />{t.privacy}</p>
+    </header>
+
+    <section class="card" aria-labelledby="ferramenta">
+      <h2 id="ferramenta" class="sr-only">{i.name}</h2>
+      <Page lang={lang} />
+    </section>
+
+    <section class="section prose" aria-labelledby="como-usar">
+      <h2 id="como-usar">{content.howTo.name}</h2>
+      {content.intro?.map((p) => <p>{p}</p>)}
+      <ol>
+        {content.howTo.steps.map((s) => <li><strong>{s.name}</strong>{s.text}</li>)}
+      </ol>
+      <p class="hint">{t.privacyLong}</p>
+    </section>
+
+    <section class="section prose" aria-labelledby="formula">
+      <h2 id="formula">{content.formula.title}</h2>
+      {content.formula.paragraphs.map((p) => <p>{p}</p>)}
+      {
+        content.formula.items && (
+          <ul class="formula-list">
+            {content.formula.items.map((f) => <li><strong>{f.label}</strong><code>{f.expr}</code></li>)}
+          </ul>
+        )
+      }
+    </section>
+
+    <section class="section prose" aria-labelledby="exemplos">
+      <h2 id="exemplos">{t.examples}</h2>
+      {content.examples.map((e) => <div><h3>{e.title}</h3><p>{e.text}</p></div>)}
+    </section>
+
+    <section class="section faq" aria-labelledby="faq">
+      <h2 id="faq">{t.faq}</h2>
+      {content.faq.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    </section>
+
+    {
+      related.length > 0 && (
+        <section class="section" aria-labelledby="relacionadas">
+          <h2 id="relacionadas">{t.related}</h2>
+          <div class="grid">{related.map((r) => <ToolCard tool={r} lang={lang} />)}</div>
+        </section>
+      )
+    }
+  </div>
+</Base>

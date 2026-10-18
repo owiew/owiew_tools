@@ -1,0 +1,125 @@
+{
+  "pt-br": {
+    "intro": [
+      "Link de campanha quebrado não dá erro: ele só atribui a venda à origem errada. O inspetor desmonta qualquer URL em parâmetros legíveis e aponta os deslizes mais comuns de UTM antes de você publicar o anúncio."
+    ],
+    "howTo": {
+      "name": "Como inspecionar uma URL",
+      "steps": [
+        { "name": "Cole o link completo. ", "text": "Pode vir direto do anúncio, do e-mail ou da barra do navegador. Com ou sem https://." },
+        { "name": "Leia os alertas. ", "text": "Erros aparecem primeiro, depois atenção e informação. Cada alerta diz qual parâmetro está envolvido e por que importa." },
+        { "name": "Confira a tabela de parâmetros. ", "text": "Veja o valor já decodificado, o tipo (UTM, identificador de clique ou outro) e a plataforma de cada identificador." },
+        { "name": "Use o codec quando precisar. ", "text": "Cole um trecho para codificar ou decodificar percent-encoding, por exemplo para ler um valor com %C3%A7 ou preparar um parâmetro com acento." }
+      ]
+    },
+    "formula": {
+      "title": "O que o inspetor verifica",
+      "paragraphs": [
+        "A análise é feita só com o texto que você colou, no seu navegador. Nenhuma requisição é feita para a URL, então a ferramenta não abre o link nem segue redirecionamentos.",
+        "Estas são as verificações, na ordem em que aparecem no relatório:"
+      ],
+      "items": [
+        { "label": "UTM duplicada ou conflitante", "expr": "utm_source=a&utm_source=b → erro; utm_source=a&utm_source=a → atenção" },
+        { "label": "Maiúscula, espaço e vazio", "expr": "utm_campaign=Verao%20Quente → maiúscula e espaço" },
+        { "label": "UTM obrigatória ausente", "expr": "utm_source sem utm_medium e utm_campaign → atenção" },
+        { "label": "Fragmento", "expr": "https://site.com/#?utm_source=x → não chega ao servidor" },
+        { "label": "Identificadores de clique", "expr": "gclid, gbraid, wbraid, fbclid, ttclid, msclkid, twclid, li_fat_id, epik, yclid" }
+      ]
+    },
+    "examples": [
+      { "title": "Link com a UTM repetida", "text": "https://loja.com/?utm_source=google&utm_medium=cpc&utm_source=Google: o inspetor marca conflito em utm_source (dois valores) e maiúscula no segundo. Mantenha uma única ocorrência em minúsculas." },
+      { "title": "Clique vindo de anúncio da Meta", "text": "Um link com fbclid=IwAR... mostra Meta como plataforma. O fbclid é adicionado pela Meta no clique e não deve ser copiado para links que você publica." },
+      { "title": "Valor com acento", "text": "utm_campaign=promo%C3%A7%C3%A3o aparece decodificado como promoção. Para evitar parâmetros ilegíveis em relatórios, use o gerador de UTM com remoção de acentos." }
+    ],
+    "faq": [
+      { "q": "O que é gclid e quem coloca na URL?", "a": "O gclid é o identificador de clique do Google Ads. O Google o acrescenta sozinho ao link quando a marcação automática da conta está ligada, e ele permite atribuir conversões ao clique no anúncio." },
+      { "q": "Qual a diferença entre gclid, gbraid e wbraid?", "a": "O gclid vale para cliques web comuns. O wbraid e o gbraid são usados pelo Google Ads quando o clique envolve web e app, no contexto de privacidade do iOS, e substituem o gclid nesses casos." },
+      { "q": "O fbclid, o ttclid e o msclkid precisam ficar no link?", "a": "Sim, quando vierem do clique. São identificadores gerados por Meta, TikTok e Microsoft Advertising para ligar o clique à conversão. Não os remova nem os copie para links que você mesmo publica." },
+      { "q": "Por que o inspetor reclama de UTM em maiúscula?", "a": "Porque o GA4 diferencia maiúsculas de minúsculas nos valores. Facebook e facebook viram duas origens diferentes no relatório. Padronize em minúsculas." },
+      { "q": "A ferramenta abre o link ou segue redirecionamentos?", "a": "Não. Ela só lê o texto colado. Por isso não consegue dizer para onde o link redireciona nem se a página existe." },
+      { "q": "Minha URL fica registrada em algum lugar?", "a": "Não. A análise acontece no navegador, a página é configurada para não fazer requisições a terceiros e nada do que você cola é salvo." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "A broken campaign link throws no error: it just credits the sale to the wrong source. The inspector breaks any URL into readable parameters and flags the most common UTM slips before you publish the ad."
+    ],
+    "howTo": {
+      "name": "How to inspect a URL",
+      "steps": [
+        { "name": "Paste the full link. ", "text": "It can come straight from the ad, the email or the browser bar. With or without https://." },
+        { "name": "Read the warnings. ", "text": "Errors come first, then warnings and info. Each one names the parameter involved and why it matters." },
+        { "name": "Check the parameter table. ", "text": "See the decoded value, the type (UTM, click identifier or other) and the platform behind each identifier." },
+        { "name": "Use the codec when needed. ", "text": "Paste a snippet to encode or decode percent-encoding, for example to read a value with %C3%A7 or to prepare a parameter with accents." }
+      ]
+    },
+    "formula": {
+      "title": "What the inspector checks",
+      "paragraphs": [
+        "The analysis uses only the text you pasted, in your browser. No request is made to the URL, so the tool does not open the link or follow redirects.",
+        "These are the checks, in the order they appear in the report:"
+      ],
+      "items": [
+        { "label": "Duplicate or conflicting UTM", "expr": "utm_source=a&utm_source=b → error; utm_source=a&utm_source=a → warning" },
+        { "label": "Uppercase, space and empty", "expr": "utm_campaign=Summer%20Sale → uppercase and space" },
+        { "label": "Missing required UTM", "expr": "utm_source without utm_medium and utm_campaign → warning" },
+        { "label": "Fragment", "expr": "https://site.com/#?utm_source=x → never reaches the server" },
+        { "label": "Click identifiers", "expr": "gclid, gbraid, wbraid, fbclid, ttclid, msclkid, twclid, li_fat_id, epik, yclid" }
+      ]
+    },
+    "examples": [
+      { "title": "Link with a repeated UTM", "text": "https://shop.com/?utm_source=google&utm_medium=cpc&utm_source=Google: the inspector flags a conflict on utm_source (two values) and uppercase on the second. Keep a single lowercase occurrence." },
+      { "title": "Click from a Meta ad", "text": "A link with fbclid=IwAR... shows Meta as the platform. Meta adds fbclid on click and it should not be copied into links you publish." },
+      { "title": "Value with accents", "text": "utm_campaign=promo%C3%A7%C3%A3o shows decoded as promoção. To avoid unreadable parameters in reports, use the UTM builder with accent removal." }
+    ],
+    "faq": [
+      { "q": "What is gclid and who adds it to the URL?", "a": "gclid is the Google Ads click identifier. Google adds it to the link by itself when the account's auto-tagging is on, and it lets conversions be attributed to the ad click." },
+      { "q": "What is the difference between gclid, gbraid and wbraid?", "a": "gclid covers regular web clicks. wbraid and gbraid are used by Google Ads when a click involves web and app, in the context of iOS privacy, and they stand in for gclid in those cases." },
+      { "q": "Should fbclid, ttclid and msclkid stay on the link?", "a": "Yes, when they come from the click. They are identifiers generated by Meta, TikTok and Microsoft Advertising to tie the click to the conversion. Do not remove them or copy them into links you publish yourself." },
+      { "q": "Why does the inspector complain about uppercase UTMs?", "a": "Because GA4 is case-sensitive on values. Facebook and facebook become two different sources in the report. Standardize on lowercase." },
+      { "q": "Does the tool open the link or follow redirects?", "a": "No. It only reads the pasted text. So it cannot tell where the link redirects to or whether the page exists." },
+      { "q": "Is my URL recorded anywhere?", "a": "No. The analysis runs in the browser, the page is configured not to make requests to third parties, and nothing you paste is saved." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Un enlace de campaña roto no da error: simplemente atribuye la venta al origen equivocado. El inspector desarma cualquier URL en parámetros legibles y señala los descuidos más comunes de UTM antes de que publiques el anuncio."
+    ],
+    "howTo": {
+      "name": "Cómo inspeccionar una URL",
+      "steps": [
+        { "name": "Pega el enlace completo. ", "text": "Puede venir del anuncio, del correo o de la barra del navegador. Con o sin https://." },
+        { "name": "Lee las alertas. ", "text": "Los errores aparecen primero, luego atención e información. Cada alerta indica el parámetro involucrado y por qué importa." },
+        { "name": "Revisa la tabla de parámetros. ", "text": "Mira el valor ya decodificado, el tipo (UTM, identificador de clic u otro) y la plataforma de cada identificador." },
+        { "name": "Usa el codec cuando lo necesites. ", "text": "Pega un fragmento para codificar o decodificar percent-encoding, por ejemplo para leer un valor con %C3%A7 o preparar un parámetro con acentos." }
+      ]
+    },
+    "formula": {
+      "title": "Qué verifica el inspector",
+      "paragraphs": [
+        "El análisis usa solo el texto que pegaste, en tu navegador. No se hace ninguna solicitud a la URL, así que la herramienta no abre el enlace ni sigue redirecciones.",
+        "Estas son las verificaciones, en el orden en que aparecen en el informe:"
+      ],
+      "items": [
+        { "label": "UTM duplicada o conflictiva", "expr": "utm_source=a&utm_source=b → error; utm_source=a&utm_source=a → atención" },
+        { "label": "Mayúscula, espacio y vacío", "expr": "utm_campaign=Rebajas%20Verano → mayúscula y espacio" },
+        { "label": "UTM obligatoria ausente", "expr": "utm_source sin utm_medium ni utm_campaign → atención" },
+        { "label": "Fragmento", "expr": "https://sitio.com/#?utm_source=x → no llega al servidor" },
+        { "label": "Identificadores de clic", "expr": "gclid, gbraid, wbraid, fbclid, ttclid, msclkid, twclid, li_fat_id, epik, yclid" }
+      ]
+    },
+    "examples": [
+      { "title": "Enlace con UTM repetida", "text": "https://tienda.com/?utm_source=google&utm_medium=cpc&utm_source=Google: el inspector marca conflicto en utm_source (dos valores) y mayúscula en el segundo. Deja una sola aparición en minúsculas." },
+      { "title": "Clic de un anuncio de Meta", "text": "Un enlace con fbclid=IwAR... muestra Meta como plataforma. Meta agrega el fbclid en el clic y no debe copiarse a enlaces que tú publicas." },
+      { "title": "Valor con acentos", "text": "utm_campaign=promo%C3%A7%C3%A3o aparece decodificado como promoção. Para evitar parámetros ilegibles en los informes, usa el generador de UTM con eliminación de acentos." }
+    ],
+    "faq": [
+      { "q": "¿Qué es gclid y quién lo agrega a la URL?", "a": "El gclid es el identificador de clic de Google Ads. Google lo agrega solo al enlace cuando el etiquetado automático de la cuenta está activo, y permite atribuir conversiones al clic en el anuncio." },
+      { "q": "¿Cuál es la diferencia entre gclid, gbraid y wbraid?", "a": "El gclid sirve para clics web comunes. wbraid y gbraid los usa Google Ads cuando el clic involucra web y app, en el contexto de privacidad de iOS, y sustituyen al gclid en esos casos." },
+      { "q": "¿fbclid, ttclid y msclkid deben quedarse en el enlace?", "a": "Sí, cuando vienen del clic. Son identificadores generados por Meta, TikTok y Microsoft Advertising para vincular el clic con la conversión. No los quites ni los copies a enlaces que publicas tú mismo." },
+      { "q": "¿Por qué el inspector se queja de UTM en mayúscula?", "a": "Porque GA4 distingue mayúsculas de minúsculas en los valores. Facebook y facebook pasan a ser dos orígenes distintos en el informe. Estandariza en minúsculas." },
+      { "q": "¿La herramienta abre el enlace o sigue redirecciones?", "a": "No. Solo lee el texto pegado. Por eso no puede decir a dónde redirige el enlace ni si la página existe." },
+      { "q": "¿Mi URL queda registrada en algún lugar?", "a": "No. El análisis ocurre en el navegador, la página está configurada para no hacer solicitudes a terceros y nada de lo que pegas se guarda." }
+    ]
+  }
+}

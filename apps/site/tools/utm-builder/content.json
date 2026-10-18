@@ -1,0 +1,125 @@
+{
+  "pt-br": {
+    "intro": [
+      "UTM são parâmetros que você acrescenta ao final de um link para que o Google Analytics e outras ferramentas saibam de onde veio cada visita. Quando cada pessoa do time escreve do seu jeito, os relatórios se fragmentam em Google, google e google-ads. Esta ferramenta aplica um padrão único a todos os links."
+    ],
+    "howTo": {
+      "name": "Como gerar um link com UTM",
+      "steps": [
+        { "name": "Cole a URL de destino. ", "text": "Pode ser com ou sem https://. Parâmetros que já existem na URL e o trecho depois do # são preservados." },
+        { "name": "Preencha origem, mídia e campanha. ", "text": "São os três campos que toda análise precisa. Termo, conteúdo e ID são opcionais e servem para separar palavras-chave, criativos e campanhas internas." },
+        { "name": "Confira o padrão de nomenclatura. ", "text": "Escolha minúsculas, remoção de acentos e o separador. Clique em Salvar este padrão para o navegador lembrar na próxima visita." },
+        { "name": "Copie o link ou gere em lote. ", "text": "Na aba Em lote, cole uma URL por linha ou um CSV com colunas, confira os erros linha a linha e exporte o resultado em CSV." }
+      ]
+    },
+    "formula": {
+      "title": "Como o padrão de nomenclatura funciona",
+      "paragraphs": [
+        "Cada valor passa pelas mesmas etapas, sempre na mesma ordem. O resultado é estável: aplicar o padrão a um valor que já está limpo não muda nada.",
+        "A URL final é montada com os parâmetros existentes primeiro e as UTM depois. Se a URL já tinha alguma utm_ que você está definindo, ela é substituída e a ferramenta avisa."
+      ],
+      "items": [
+        { "label": "1. Minúsculas", "expr": "Black Friday → black friday" },
+        { "label": "2. Sem acento", "expr": "promoção de verão → promocao de verao" },
+        { "label": "3. Separador no lugar de espaços e símbolos", "expr": "promocao de verao! → promocao-de-verao" },
+        { "label": "4. Montagem", "expr": "destino?utm_source=…&utm_medium=…&utm_campaign=…#fragmento" }
+      ]
+    },
+    "examples": [
+      { "title": "Anúncio de busca no Google", "text": "Destino loja.com/tenis, origem Google, mídia CPC, campanha Black Friday 2026. Resultado: https://loja.com/tenis?utm_source=google&utm_medium=cpc&utm_campaign=black-friday-2026." },
+      { "title": "Newsletter com dois botões", "text": "Use o mesmo utm_campaign nos dois links e diferencie por utm_content, por exemplo botao-topo e botao-rodape. Assim o relatório mostra qual botão levou mais cliques." },
+      { "title": "Cem links de uma planilha", "text": "Cole as URLs na aba Em lote, uma por linha, e preencha origem, mídia e campanha como valores padrão. Ou cole um CSV com colunas url, source, medium, campaign: a coluna da linha vence o valor padrão. Exporte e suba o CSV na sua ferramenta de mídia." }
+    ],
+    "faq": [
+      { "q": "O que é UTM e para que serve?", "a": "UTM (Urchin Tracking Module) são parâmetros como utm_source, utm_medium e utm_campaign colocados no fim de uma URL. Quando alguém clica, o Google Analytics lê esses valores e atribui a visita à origem, à mídia e à campanha informadas." },
+      { "q": "Maiúsculas e minúsculas fazem diferença?", "a": "Fazem. O GA4 diferencia Google de google, e isso divide o mesmo tráfego em linhas separadas do relatório. Por isso o padrão recomendado converte tudo para minúsculas." },
+      { "q": "Quais parâmetros são obrigatórios?", "a": "Esta ferramenta exige utm_source, utm_medium e utm_campaign, o conjunto mínimo para qualquer análise de campanha. utm_term, utm_content e utm_id são opcionais." },
+      { "q": "Posso usar UTM em links internos do meu site?", "a": "Não é recomendado. Ao clicar num link interno com UTM, a origem original da visita pode ser sobrescrita pela nova, e você perde a informação de como a pessoa chegou ao site." },
+      { "q": "Como o UTM convive com o gclid do Google Ads?", "a": "O Google Ads acrescenta o gclid sozinho quando a marcação automática está ligada, e isso costuma prevalecer sobre UTM manual no GA4. Mantenha a marcação automática nos anúncios do Google e use UTM nas demais origens, como e-mail, redes sociais e parceiros." },
+      { "q": "Meus links e dados são enviados para algum servidor?", "a": "Não. A geração acontece no seu navegador, e a página é configurada para não fazer requisições a terceiros. O único dado guardado é o padrão de nomenclatura, no armazenamento local do seu navegador, e só se você clicar em Salvar." },
+      { "q": "O CSV exportado é seguro para abrir no Excel?", "a": "Sim. Células que começam com =, +, - ou @ recebem um apóstrofo na frente para que a planilha trate o conteúdo como texto e não como fórmula. É a proteção contra CSV injection." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "UTMs are parameters you add to the end of a link so Google Analytics and other tools know where each visit came from. When everyone on the team writes them differently, reports split into Google, google and google-ads. This tool applies one pattern to every link."
+    ],
+    "howTo": {
+      "name": "How to build a link with UTM",
+      "steps": [
+        { "name": "Paste the destination URL. ", "text": "With or without https://. Parameters already in the URL and anything after the # are preserved." },
+        { "name": "Fill in source, medium and campaign. ", "text": "These are the three fields every analysis needs. Term, content and ID are optional and help separate keywords, creatives and internal campaigns." },
+        { "name": "Check the naming rules. ", "text": "Choose lowercase, accent removal and the separator. Click Save these rules so the browser remembers them next time." },
+        { "name": "Copy the link or build in bulk. ", "text": "In the Batch tab, paste one URL per line or a CSV with columns, review errors line by line and export the result as CSV." }
+      ]
+    },
+    "formula": {
+      "title": "How the naming rules work",
+      "paragraphs": [
+        "Each value goes through the same steps, always in the same order. The result is stable: applying the rules to an already clean value changes nothing.",
+        "The final URL keeps existing parameters first and adds the UTMs after them. If the URL already had a utm_ parameter you are setting, it is replaced and the tool tells you."
+      ],
+      "items": [
+        { "label": "1. Lowercase", "expr": "Black Friday → black friday" },
+        { "label": "2. No accents", "expr": "promoção de verão → promocao de verao" },
+        { "label": "3. Separator in place of spaces and symbols", "expr": "promocao de verao! → promocao-de-verao" },
+        { "label": "4. Assembly", "expr": "destination?utm_source=…&utm_medium=…&utm_campaign=…#fragment" }
+      ]
+    },
+    "examples": [
+      { "title": "Google search ad", "text": "Destination shop.com/sneakers, source Google, medium CPC, campaign Black Friday 2026. Result: https://shop.com/sneakers?utm_source=google&utm_medium=cpc&utm_campaign=black-friday-2026." },
+      { "title": "Newsletter with two buttons", "text": "Use the same utm_campaign on both links and tell them apart with utm_content, for example top-button and footer-button. The report then shows which button got more clicks." },
+      { "title": "One hundred links from a spreadsheet", "text": "Paste the URLs in the Batch tab, one per line, and set source, medium and campaign as default values. Or paste a CSV with url, source, medium, campaign columns: the row's column beats the default. Export and upload the CSV to your ad tool." }
+    ],
+    "faq": [
+      { "q": "What is a UTM and what is it for?", "a": "UTM (Urchin Tracking Module) parameters such as utm_source, utm_medium and utm_campaign sit at the end of a URL. When someone clicks, Google Analytics reads them and attributes the visit to the source, medium and campaign you set." },
+      { "q": "Does uppercase versus lowercase matter?", "a": "Yes. GA4 treats Google and google as different values, which splits the same traffic across separate report rows. That is why the recommended rules convert everything to lowercase." },
+      { "q": "Which parameters are required?", "a": "This tool requires utm_source, utm_medium and utm_campaign, the minimum set for any campaign analysis. utm_term, utm_content and utm_id are optional." },
+      { "q": "Can I use UTMs on internal links on my site?", "a": "It is not recommended. Clicking an internal link with a UTM can overwrite the visit's original source with the new one, and you lose how the person actually reached the site." },
+      { "q": "How do UTMs work alongside the Google Ads gclid?", "a": "Google Ads adds the gclid by itself when auto-tagging is on, and it usually takes precedence over manual UTMs in GA4. Keep auto-tagging on for Google ads and use UTMs for other sources such as email, social and partners." },
+      { "q": "Are my links and data sent to any server?", "a": "No. Building happens in your browser, and the page is configured not to make requests to third parties. The only stored data is the naming rules in your browser's local storage, and only if you click Save." },
+      { "q": "Is the exported CSV safe to open in Excel?", "a": "Yes. Cells that start with =, +, - or @ get an apostrophe in front so the spreadsheet treats the content as text, not a formula. This is protection against CSV injection." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Las UTM son parámetros que se agregan al final de un enlace para que Google Analytics y otras herramientas sepan de dónde vino cada visita. Cuando cada persona del equipo las escribe a su manera, los informes se fragmentan en Google, google y google-ads. Esta herramienta aplica un patrón único a todos los enlaces."
+    ],
+    "howTo": {
+      "name": "Cómo generar un enlace con UTM",
+      "steps": [
+        { "name": "Pega la URL de destino. ", "text": "Con o sin https://. Los parámetros que ya existen en la URL y lo que viene después del # se conservan." },
+        { "name": "Completa origen, medio y campaña. ", "text": "Son los tres campos que todo análisis necesita. Término, contenido e ID son opcionales y sirven para separar palabras clave, creatividades y campañas internas." },
+        { "name": "Revisa las reglas de nomenclatura. ", "text": "Elige minúsculas, quitar acentos y el separador. Haz clic en Guardar estas reglas para que el navegador las recuerde la próxima vez." },
+        { "name": "Copia el enlace o genera en lote. ", "text": "En la pestaña En lote, pega una URL por línea o un CSV con columnas, revisa los errores línea por línea y exporta el resultado en CSV." }
+      ]
+    },
+    "formula": {
+      "title": "Cómo funcionan las reglas de nomenclatura",
+      "paragraphs": [
+        "Cada valor pasa por los mismos pasos, siempre en el mismo orden. El resultado es estable: aplicar las reglas a un valor ya limpio no cambia nada.",
+        "La URL final conserva primero los parámetros existentes y agrega las UTM después. Si la URL ya tenía algún utm_ que estás definiendo, se reemplaza y la herramienta te avisa."
+      ],
+      "items": [
+        { "label": "1. Minúsculas", "expr": "Black Friday → black friday" },
+        { "label": "2. Sin acentos", "expr": "promoción de verano → promocion de verano" },
+        { "label": "3. Separador en lugar de espacios y símbolos", "expr": "promocion de verano! → promocion-de-verano" },
+        { "label": "4. Armado", "expr": "destino?utm_source=…&utm_medium=…&utm_campaign=…#fragmento" }
+      ]
+    },
+    "examples": [
+      { "title": "Anuncio de búsqueda en Google", "text": "Destino tienda.com/zapatillas, origen Google, medio CPC, campaña Black Friday 2026. Resultado: https://tienda.com/zapatillas?utm_source=google&utm_medium=cpc&utm_campaign=black-friday-2026." },
+      { "title": "Newsletter con dos botones", "text": "Usa el mismo utm_campaign en los dos enlaces y diferéncialos con utm_content, por ejemplo boton-superior y boton-pie. Así el informe muestra qué botón recibió más clics." },
+      { "title": "Cien enlaces desde una hoja de cálculo", "text": "Pega las URLs en la pestaña En lote, una por línea, y define origen, medio y campaña como valores predeterminados. O pega un CSV con columnas url, source, medium, campaign: la columna de la fila gana al valor predeterminado. Exporta y sube el CSV a tu herramienta de medios." }
+    ],
+    "faq": [
+      { "q": "¿Qué es una UTM y para qué sirve?", "a": "Las UTM (Urchin Tracking Module) son parámetros como utm_source, utm_medium y utm_campaign al final de una URL. Cuando alguien hace clic, Google Analytics los lee y atribuye la visita al origen, medio y campaña indicados." },
+      { "q": "¿Importan las mayúsculas y minúsculas?", "a": "Sí. GA4 distingue Google de google, y eso divide el mismo tráfico en filas distintas del informe. Por eso las reglas recomendadas convierten todo a minúsculas." },
+      { "q": "¿Qué parámetros son obligatorios?", "a": "Esta herramienta exige utm_source, utm_medium y utm_campaign, el conjunto mínimo para cualquier análisis de campaña. utm_term, utm_content y utm_id son opcionales." },
+      { "q": "¿Puedo usar UTM en enlaces internos de mi sitio?", "a": "No se recomienda. Al hacer clic en un enlace interno con UTM, el origen original de la visita puede ser sobrescrito por el nuevo, y pierdes cómo llegó realmente la persona al sitio." },
+      { "q": "¿Cómo conviven las UTM con el gclid de Google Ads?", "a": "Google Ads agrega el gclid por sí solo cuando el etiquetado automático está activo, y suele prevalecer sobre las UTM manuales en GA4. Mantén el etiquetado automático en los anuncios de Google y usa UTM en los demás orígenes, como correo, redes sociales y socios." },
+      { "q": "¿Mis enlaces y datos se envían a algún servidor?", "a": "No. La generación ocurre en tu navegador y la página está configurada para no hacer solicitudes a terceros. El único dato guardado son las reglas de nomenclatura, en el almacenamiento local de tu navegador, y solo si haces clic en Guardar." },
+      { "q": "¿El CSV exportado es seguro para abrir en Excel?", "a": "Sí. Las celdas que empiezan con =, +, - o @ reciben un apóstrofo delante para que la hoja de cálculo trate el contenido como texto y no como fórmula. Es la protección contra CSV injection." }
+    ]
+  }
+}

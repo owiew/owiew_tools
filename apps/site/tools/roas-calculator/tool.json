@@ -1,0 +1,33 @@
+{
+  "id": "roas-calculator",
+  "category": "calculators",
+  "icon": "trending-up",
+  "order": 40,
+  "related": ["utm-builder", "cpa-ltv", "ab-test"],
+  "i18n": {
+    "pt-br": {
+      "slug": "calculadora-de-roas",
+      "name": "Calculadora de ROAS",
+      "title": "Calculadora de ROAS, ROAS de equilíbrio e lucro",
+      "description": "Calcule ROAS, ROAS de equilíbrio (1 ÷ margem), margem de contribuição e lucro depois da mídia. Contas em centavos, sem erro de arredondamento. Grátis.",
+      "summary": "Descubra se a campanha dá lucro: ROAS, ROAS mínimo para empatar, margem de contribuição e lucro depois da mídia.",
+      "keywords": ["roas", "retorno sobre investimento em anúncios", "roas de equilíbrio", "break even", "margem de contribuição", "lucro", "tráfego pago", "roi"]
+    },
+    "en": {
+      "slug": "roas-calculator",
+      "name": "ROAS calculator",
+      "title": "ROAS, break-even ROAS and profit calculator",
+      "description": "Calculate ROAS, break-even ROAS (1 ÷ margin), contribution margin and profit after ad spend. Math done in cents, with no rounding drift. Free.",
+      "summary": "Find out whether a campaign makes money: ROAS, the ROAS you need to break even, contribution margin and profit after ad spend.",
+      "keywords": ["roas", "return on ad spend", "break-even roas", "break even", "contribution margin", "profit", "paid media", "roi"]
+    },
+    "es": {
+      "slug": "calculadora-de-roas",
+      "name": "Calculadora de ROAS",
+      "title": "Calculadora de ROAS, ROAS de equilibrio y ganancia",
+      "description": "Calcula ROAS, ROAS de equilibrio (1 ÷ margen), margen de contribución y ganancia después de la inversión. Cuentas en centavos, sin errores de redondeo. Gratis.",
+      "summary": "Descubre si la campaña deja ganancia: ROAS, ROAS mínimo para empatar, margen de contribución y ganancia después de la inversión.",
+      "keywords": ["roas", "retorno de la inversión publicitaria", "roas de equilibrio", "punto de equilibrio", "margen de contribución", "ganancia", "tráfico pago", "roi"]
+    }
+  }
+}

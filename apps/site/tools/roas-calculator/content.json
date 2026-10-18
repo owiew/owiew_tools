@@ -1,0 +1,128 @@
+{
+  "pt-br": {
+    "intro": [
+      "ROAS alto não é sinônimo de lucro. Uma campanha com ROAS 3 dá prejuízo se a margem do produto for de 25%, e uma com ROAS 2 pode ser ótima se a margem for de 70%. Esta calculadora cruza o retorno da mídia com a sua margem para dizer se a conta fecha."
+    ],
+    "howTo": {
+      "name": "Como calcular o ROAS e o lucro da campanha",
+      "steps": [
+        { "name": "Informe a receita atribuída. ", "text": "Use o valor de vendas que a plataforma ou o seu analytics atribui aos anúncios no período." },
+        { "name": "Informe o investimento em mídia. ", "text": "Some o que foi gasto nos anúncios no mesmo período e na mesma moeda." },
+        { "name": "Informe a margem de contribuição. ", "text": "É o percentual da receita que sobra depois do custo do produto, impostos, frete e taxas de pagamento, antes de pagar a mídia." },
+        { "name": "Leia o veredito. ", "text": "Compare o ROAS com o ROAS de equilíbrio. Acima dele há lucro; abaixo, prejuízo. O lucro e a receita necessária para empatar aparecem em valores." }
+      ]
+    },
+    "formula": {
+      "title": "Como o cálculo funciona",
+      "paragraphs": [
+        "Todo dinheiro é tratado em centavos inteiros e os arredondamentos usam aritmética de inteiros, então o resultado não sofre com os erros de casas decimais de ponto flutuante. A margem é tratada em centésimos de ponto percentual.",
+        "O ROAS de equilíbrio é o menor ROAS em que a campanha não dá prejuízo. Ele só depende da margem."
+      ],
+      "items": [
+        { "label": "ROAS", "expr": "receita ÷ investimento" },
+        { "label": "ROAS de equilíbrio", "expr": "1 ÷ margem de contribuição" },
+        { "label": "Margem de contribuição", "expr": "receita × margem" },
+        { "label": "Lucro depois da mídia", "expr": "receita × margem − investimento" },
+        { "label": "Receita para empatar", "expr": "investimento ÷ margem" }
+      ]
+    },
+    "examples": [
+      { "title": "Campanha lucrativa", "text": "Receita de R$ 10.000, investimento de R$ 2.500 e margem de 40%. O ROAS é 4,00x e o de equilíbrio é 2,50x. A margem de contribuição é R$ 4.000 e o lucro depois da mídia é R$ 1.500." },
+      { "title": "ROAS que parece bom, mas dá prejuízo", "text": "Receita de R$ 9.000, investimento de R$ 3.000 e margem de 25%. O ROAS é 3,00x, porém o de equilíbrio é 4,00x. A margem de contribuição é R$ 2.250 e o resultado é um prejuízo de R$ 750." },
+      { "title": "Margem alta aceita ROAS baixo", "text": "Para um produto digital com margem de 80%, o ROAS de equilíbrio é 1,25x. Uma campanha com ROAS 2,00x já devolve R$ 0,60 de lucro para cada R$ 1,00 investido." }
+    ],
+    "faq": [
+      { "q": "O que é ROAS?", "a": "ROAS (Return on Ad Spend) é a receita gerada para cada unidade de moeda investida em anúncios. Um ROAS de 4,00x significa R$ 4,00 de receita para cada R$ 1,00 gasto em mídia." },
+      { "q": "O que é o ROAS de equilíbrio?", "a": "É o ROAS mínimo para a campanha não dar prejuízo, calculado como 1 dividido pela margem de contribuição. Com margem de 40%, é 2,50x: abaixo disso, a receita não cobre custo do produto e mídia." },
+      { "q": "Qual a diferença entre ROAS e ROI?", "a": "O ROAS compara a receita com o gasto em mídia. O ROI compara o lucro com o total investido, incluindo outros custos. O ROAS não considera custo do produto; por isso é preciso olhar a margem." },
+      { "q": "O que entra na margem de contribuição?", "a": "A receita menos os custos que variam com cada venda: custo do produto, impostos sobre a venda, frete e taxas de pagamento. Custos fixos, como salários e aluguel, não entram. A mídia também não entra aqui, porque é o que estamos avaliando." },
+      { "q": "Qual é um bom ROAS?", "a": "Depende da margem. Não existe número universal: um bom ROAS é o que fica acima do seu ROAS de equilíbrio com folga para cobrir custos fixos e deixar lucro." },
+      { "q": "Por que os cálculos usam centavos?", "a": "Porque números decimais em ponto flutuante acumulam erros minúsculos, como 0,1 + 0,2 resultar em 0,30000000000000004. Em centavos inteiros as contas fecham exatamente." },
+      { "q": "Meus números são enviados para algum lugar?", "a": "Não. O cálculo acontece no seu navegador, a página é configurada para não fazer requisições a terceiros e nada do que você digita é salvo." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "A high ROAS does not mean profit. A campaign with a ROAS of 3 loses money if the product margin is 25%, and one with a ROAS of 2 can be great at a 70% margin. This calculator combines ad return with your margin to tell you whether the numbers work."
+    ],
+    "howTo": {
+      "name": "How to calculate campaign ROAS and profit",
+      "steps": [
+        { "name": "Enter the attributed revenue. ", "text": "Use the sales value the platform or your analytics attributes to the ads in the period." },
+        { "name": "Enter the ad spend. ", "text": "Add up what was spent on ads in the same period and the same currency." },
+        { "name": "Enter the contribution margin. ", "text": "It is the share of revenue left after product cost, taxes, shipping and payment fees, before paying for ads." },
+        { "name": "Read the verdict. ", "text": "Compare ROAS with break-even ROAS. Above it there is profit; below it, a loss. Profit and the revenue needed to break even appear as amounts." }
+      ]
+    },
+    "formula": {
+      "title": "How the calculation works",
+      "paragraphs": [
+        "All money is handled in whole cents and rounding uses integer arithmetic, so the result does not suffer from floating-point decimal errors. The margin is handled in hundredths of a percentage point.",
+        "Break-even ROAS is the lowest ROAS at which the campaign does not lose money. It depends only on the margin."
+      ],
+      "items": [
+        { "label": "ROAS", "expr": "revenue ÷ ad spend" },
+        { "label": "Break-even ROAS", "expr": "1 ÷ contribution margin" },
+        { "label": "Contribution margin", "expr": "revenue × margin" },
+        { "label": "Profit after ad spend", "expr": "revenue × margin − ad spend" },
+        { "label": "Revenue to break even", "expr": "ad spend ÷ margin" }
+      ]
+    },
+    "examples": [
+      { "title": "Profitable campaign", "text": "Revenue of $10,000, ad spend of $2,500 and a 40% margin. ROAS is 4.00x and break-even is 2.50x. Contribution margin is $4,000 and profit after ad spend is $1,500." },
+      { "title": "A ROAS that looks good but loses money", "text": "Revenue of $9,000, ad spend of $3,000 and a 25% margin. ROAS is 3.00x, but break-even is 4.00x. Contribution margin is $2,250 and the result is a $750 loss." },
+      { "title": "A high margin tolerates a low ROAS", "text": "For a digital product with an 80% margin, break-even ROAS is 1.25x. A campaign at 2.00x already returns $0.60 of profit for every $1.00 invested." }
+    ],
+    "faq": [
+      { "q": "What is ROAS?", "a": "ROAS (Return on Ad Spend) is the revenue generated for each unit of currency invested in ads. A ROAS of 4.00x means $4.00 of revenue for every $1.00 spent on ads." },
+      { "q": "What is break-even ROAS?", "a": "It is the minimum ROAS for the campaign not to lose money, calculated as 1 divided by the contribution margin. With a 40% margin it is 2.50x: below that, revenue does not cover product cost and ad spend." },
+      { "q": "What is the difference between ROAS and ROI?", "a": "ROAS compares revenue with ad spend. ROI compares profit with the total invested, including other costs. ROAS ignores product cost, which is why you also need to look at margin." },
+      { "q": "What goes into the contribution margin?", "a": "Revenue minus the costs that vary with each sale: product cost, sales taxes, shipping and payment fees. Fixed costs such as salaries and rent are left out. Ad spend is left out too, because it is what we are evaluating." },
+      { "q": "What is a good ROAS?", "a": "It depends on the margin. There is no universal number: a good ROAS is one that sits above your break-even ROAS with room to cover fixed costs and leave profit." },
+      { "q": "Why does the math use cents?", "a": "Because floating-point decimals accumulate tiny errors, such as 0.1 + 0.2 giving 0.30000000000000004. In whole cents the numbers add up exactly." },
+      { "q": "Are my numbers sent anywhere?", "a": "No. The calculation runs in your browser, the page is configured not to make requests to third parties, and nothing you type is saved." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Un ROAS alto no es sinónimo de ganancia. Una campaña con ROAS 3 pierde dinero si el margen del producto es del 25%, y una con ROAS 2 puede ser excelente con un margen del 70%. Esta calculadora cruza el retorno de la inversión con tu margen para decirte si la cuenta cierra."
+    ],
+    "howTo": {
+      "name": "Cómo calcular el ROAS y la ganancia de la campaña",
+      "steps": [
+        { "name": "Indica los ingresos atribuidos. ", "text": "Usa el valor de ventas que la plataforma o tu analítica atribuye a los anuncios en el período." },
+        { "name": "Indica la inversión en medios. ", "text": "Suma lo gastado en anuncios en el mismo período y en la misma moneda." },
+        { "name": "Indica el margen de contribución. ", "text": "Es el porcentaje de los ingresos que queda después del costo del producto, impuestos, envío y comisiones de pago, antes de pagar los medios." },
+        { "name": "Lee el veredicto. ", "text": "Compara el ROAS con el ROAS de equilibrio. Por encima hay ganancia; por debajo, pérdida. La ganancia y los ingresos necesarios para empatar aparecen en valores." }
+      ]
+    },
+    "formula": {
+      "title": "Cómo funciona el cálculo",
+      "paragraphs": [
+        "Todo el dinero se maneja en centavos enteros y los redondeos usan aritmética de enteros, así que el resultado no sufre los errores de decimales del punto flotante. El margen se maneja en centésimas de punto porcentual.",
+        "El ROAS de equilibrio es el menor ROAS en el que la campaña no pierde dinero. Depende solo del margen."
+      ],
+      "items": [
+        { "label": "ROAS", "expr": "ingresos ÷ inversión" },
+        { "label": "ROAS de equilibrio", "expr": "1 ÷ margen de contribución" },
+        { "label": "Margen de contribución", "expr": "ingresos × margen" },
+        { "label": "Ganancia después de la inversión", "expr": "ingresos × margen − inversión" },
+        { "label": "Ingresos para empatar", "expr": "inversión ÷ margen" }
+      ]
+    },
+    "examples": [
+      { "title": "Campaña rentable", "text": "Ingresos de 10.000, inversión de 2.500 y margen del 40%. El ROAS es 4,00x y el de equilibrio es 2,50x. El margen de contribución es 4.000 y la ganancia después de la inversión es 1.500." },
+      { "title": "Un ROAS que parece bueno pero da pérdida", "text": "Ingresos de 9.000, inversión de 3.000 y margen del 25%. El ROAS es 3,00x, pero el de equilibrio es 4,00x. El margen de contribución es 2.250 y el resultado es una pérdida de 750." },
+      { "title": "Un margen alto tolera un ROAS bajo", "text": "Para un producto digital con margen del 80%, el ROAS de equilibrio es 1,25x. Una campaña con ROAS 2,00x ya devuelve 0,60 de ganancia por cada 1,00 invertido." }
+    ],
+    "faq": [
+      { "q": "¿Qué es el ROAS?", "a": "El ROAS (Return on Ad Spend) son los ingresos generados por cada unidad de moneda invertida en anuncios. Un ROAS de 4,00x significa 4,00 de ingresos por cada 1,00 gastado en medios." },
+      { "q": "¿Qué es el ROAS de equilibrio?", "a": "Es el ROAS mínimo para que la campaña no pierda dinero, calculado como 1 dividido por el margen de contribución. Con un margen del 40% es 2,50x: por debajo, los ingresos no cubren el costo del producto ni la inversión." },
+      { "q": "¿Cuál es la diferencia entre ROAS y ROI?", "a": "El ROAS compara los ingresos con el gasto en medios. El ROI compara la ganancia con el total invertido, incluyendo otros costos. El ROAS no considera el costo del producto, por eso hay que mirar también el margen." },
+      { "q": "¿Qué entra en el margen de contribución?", "a": "Los ingresos menos los costos que varían con cada venta: costo del producto, impuestos sobre la venta, envío y comisiones de pago. Los costos fijos, como sueldos y alquiler, no entran. La inversión en medios tampoco, porque es lo que estamos evaluando." },
+      { "q": "¿Cuál es un buen ROAS?", "a": "Depende del margen. No existe un número universal: un buen ROAS es el que queda por encima de tu ROAS de equilibrio con holgura para cubrir costos fijos y dejar ganancia." },
+      { "q": "¿Por qué las cuentas usan centavos?", "a": "Porque los decimales en punto flotante acumulan errores diminutos, como 0,1 + 0,2 dando 0,30000000000000004. En centavos enteros las cuentas cierran exactamente." },
+      { "q": "¿Mis números se envían a algún lugar?", "a": "No. El cálculo ocurre en tu navegador, la página está configurada para no hacer solicitudes a terceros y nada de lo que escribes se guarda." }
+    ]
+  }
+}

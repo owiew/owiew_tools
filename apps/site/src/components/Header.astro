@@ -1,0 +1,56 @@
+---
+/**
+ * Cabeçalho: marca, navegação por categoria, busca, idioma e tema.
+ * Onde: layout base de toda página. Entradas: idioma, caminhos alternativos
+ * (mesma página nos outros idiomas) e id da categoria ativa.
+ */
+import { HTML_LANG, LANGS, type Lang } from "../i18n/locales";
+import { ui } from "../i18n/ui";
+import { CATEGORIES } from "../lib/registry";
+import { categoryPath, homePath } from "../lib/urls";
+import { ToolIcon } from "./ToolIcon";
+import Search from "./Search.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+interface Props {
+  lang: Lang;
+  alternates: Record<Lang, string>;
+  activeCategory?: string | undefined;
+}
+const { lang, alternates, activeCategory } = Astro.props;
+const t = ui(lang);
+const LABEL: Record<Lang, string> = { "pt-br": "PT", en: "EN", es: "ES" };
+---
+
+<header class="site-header">
+  <div class="wrap header-grid">
+    <a class="brand" href={homePath(lang)}>owiew <span>tools</span></a>
+    <nav class="cat-nav" aria-label={t.navLabel}>
+      <ul>
+        {
+          CATEGORIES.map((c) => (
+            <li>
+              <a href={categoryPath(c, lang)} aria-current={activeCategory === c.id ? "page" : undefined}>
+                <ToolIcon name={c.icon} size={18} />
+                {c.i18n[lang].name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <Search lang={lang} />
+    <div class="actions">
+      <nav class="lang-nav" aria-label={t.langLabel}>
+        {
+          LANGS.map((l) => (
+            <a href={alternates[l]} hreflang={HTML_LANG[l]} lang={HTML_LANG[l]} aria-current={l === lang ? "true" : undefined}>
+              {LABEL[l]}
+            </a>
+          ))
+        }
+      </nav>
+      <ThemeToggle lang={lang} />
+    </div>
+  </div>
+</header>

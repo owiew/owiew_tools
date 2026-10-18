@@ -1,0 +1,50 @@
+---
+/**
+ * Botão de alternância de tema claro/escuro.
+ * Onde: cabeçalho. Entrada: idioma (rótulos). O estado inicial já vem do
+ * script inline do <head> (data-theme resolvido do sistema ou do localStorage).
+ */
+import { type Lang } from "../i18n/locales";
+import { ui } from "../i18n/ui";
+import { Icon } from "./Icon";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = ui(lang);
+---
+
+<button
+  type="button"
+  class="btn btn-quiet theme-btn"
+  data-theme-toggle
+  data-to-dark={t.themeToDark}
+  data-to-light={t.themeToLight}
+  aria-label={t.themeToDark}
+>
+  <Icon name="moon" class="i-moon" />
+  <Icon name="sun" class="i-sun" />
+</button>
+
+<script>
+  // O quê: troca data-theme em <html> e lembra a escolha (try/catch: o storage pode estar bloqueado).
+  // Onde: clique no botão de tema. Fluxo: clique -> data-theme -> localStorage (só neste navegador).
+  const button = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  const root = document.documentElement;
+  const label = (): void => {
+    const dark = root.dataset["theme"] === "dark";
+    button?.setAttribute("aria-label", dark ? (button.dataset["toLight"] ?? "") : (button.dataset["toDark"] ?? ""));
+  };
+  label();
+  button?.addEventListener("click", () => {
+    const next = root.dataset["theme"] === "dark" ? "light" : "dark";
+    root.dataset["theme"] = next;
+    try {
+      localStorage.setItem("owiew-tools-theme", next);
+    } catch {
+      // Storage indisponível (janela privada): a troca vale só nesta página.
+    }
+    label();
+  });
+</script>

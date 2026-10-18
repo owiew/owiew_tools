@@ -1,0 +1,33 @@
+{
+  "id": "url-inspector",
+  "category": "links",
+  "icon": "scan-search",
+  "order": 20,
+  "related": ["utm-builder", "campaign-naming"],
+  "i18n": {
+    "pt-br": {
+      "slug": "inspetor-de-url",
+      "name": "Inspetor de URL",
+      "title": "Inspetor de URL: parâmetros, UTM e gclid, fbclid, ttclid",
+      "description": "Cole uma URL e veja cada parâmetro. Aponta UTM duplicada, conflitante, em maiúscula ou com espaço e identifica gclid, fbclid, ttclid e msclkid. Roda no navegador.",
+      "summary": "Cole qualquer link de campanha e veja os parâmetros, os erros de UTM e os identificadores de clique de cada plataforma.",
+      "keywords": ["url", "parâmetros", "query string", "utm duplicada", "gclid", "fbclid", "ttclid", "msclkid", "wbraid", "gbraid", "encode", "decode", "codificar"]
+    },
+    "en": {
+      "slug": "url-inspector",
+      "name": "URL inspector",
+      "title": "URL inspector: parameters, UTM and gclid, fbclid, ttclid",
+      "description": "Paste a URL and see every parameter. Flags duplicate, conflicting, uppercase or spaced UTMs and identifies gclid, fbclid, ttclid and msclkid. Runs in your browser.",
+      "summary": "Paste any campaign link and see its parameters, UTM mistakes and each platform's click identifiers.",
+      "keywords": ["url", "parameters", "query string", "duplicate utm", "gclid", "fbclid", "ttclid", "msclkid", "wbraid", "gbraid", "encode", "decode"]
+    },
+    "es": {
+      "slug": "inspector-de-url",
+      "name": "Inspector de URL",
+      "title": "Inspector de URL: parámetros, UTM y gclid, fbclid, ttclid",
+      "description": "Pega una URL y mira cada parámetro. Señala UTM duplicadas, conflictivas, en mayúscula o con espacio e identifica gclid, fbclid, ttclid y msclkid. Corre en tu navegador.",
+      "summary": "Pega cualquier enlace de campaña y mira sus parámetros, los errores de UTM y los identificadores de clic de cada plataforma.",
+      "keywords": ["url", "parámetros", "query string", "utm duplicada", "gclid", "fbclid", "ttclid", "msclkid", "wbraid", "gbraid", "codificar", "decodificar"]
+    }
+  }
+}

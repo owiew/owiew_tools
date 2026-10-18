@@ -1,0 +1,42 @@
+---
+/**
+ * Raiz "/": redireciona para o idioma padrão por HTML estático (meta refresh
+ * + link, sem JS obrigatório). Um script opcional escolhe en/es pelo idioma do
+ * navegador. Onde: primeiro acesso a tools.owiew.com. Fluxo: refresh -> /pt-br/.
+ */
+import { HTML_LANG, LANGS, SITE_URL } from "../i18n/locales";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'" />
+    <title>owiew tools</title>
+    <meta name="description" content="Ferramentas gratuitas para tráfego pago e campanhas. Free tools for paid media. Herramientas gratuitas para tráfico pago." />
+    <link rel="canonical" href={`${SITE_URL}/pt-br/`} />
+    {LANGS.map((l) => <link rel="alternate" hreflang={HTML_LANG[l]} href={`${SITE_URL}/${l}/`} />)}
+    <link rel="alternate" hreflang="x-default" href={`${SITE_URL}/pt-br/`} />
+    <meta http-equiv="refresh" content="0; url=/pt-br/" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      // Opcional: usa o idioma do navegador. Sem JS vale o refresh para pt-br.
+      (() => {
+        const l = (navigator.language || "").toLowerCase();
+        if (l.startsWith("en")) location.replace("/en/");
+        else if (l.startsWith("es")) location.replace("/es/");
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="wrap" style="padding-block: 4rem">
+      <h1>owiew tools</h1>
+      <p style="margin-top: 1rem">
+        <a href="/pt-br/">Português</a> · <a href="/en/">English</a> · <a href="/es/">Español</a>
+      </p>
+    </main>
+  </body>
+</html>

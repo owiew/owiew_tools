@@ -1,0 +1,35 @@
+---
+/**
+ * Página 404 neutra de idioma (o servidor estático não sabe o idioma do
+ * caminho inexistente). Mostra a mensagem nos três idiomas com links de volta.
+ */
+import "../styles/global.css";
+import { LANGS, HTML_LANG } from "../i18n/locales";
+import { ui } from "../i18n/ui";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'" />
+    <title>404 | owiew tools</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main class="wrap" style="padding-block: 4rem">
+      <h1>404</h1>
+      <div class="stack" style="margin-top: 1.5rem">
+        {
+          LANGS.map((l) => (
+            <p lang={HTML_LANG[l]}>
+              {ui(l).notFound.text} <a href={`/${l}/`}>{ui(l).notFound.back}</a>
+            </p>
+          ))
+        }
+      </div>
+    </main>
+  </body>
+</html>

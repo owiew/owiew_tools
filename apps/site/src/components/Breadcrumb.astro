@@ -1,0 +1,29 @@
+---
+/**
+ * Trilha de navegação visual (o BreadcrumbList do JSON-LD usa os mesmos itens).
+ * Entradas: idioma e itens; o último é a página atual (sem link).
+ */
+import { type Lang } from "../i18n/locales";
+import { ui } from "../i18n/ui";
+import { Icon } from "./Icon";
+
+interface Props {
+  lang: Lang;
+  items: readonly { name: string; path: string }[];
+}
+const { lang, items } = Astro.props;
+const t = ui(lang);
+---
+
+<nav class="breadcrumb" aria-label={t.breadcrumbLabel}>
+  <ol>
+    {
+      items.map((it, i) => (
+        <li>
+          {i < items.length - 1 ? <a href={it.path}>{it.name}</a> : <span aria-current="page">{it.name}</span>}
+          {i < items.length - 1 && <Icon name="chevron-right" size={14} />}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

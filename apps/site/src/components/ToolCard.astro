@@ -1,0 +1,29 @@
+---
+/**
+ * Cartão de ferramenta (home, categoria, relacionadas).
+ * Entradas: ferramenta e idioma. Saída: link único com ícone, nome e resumo.
+ */
+import { type Lang } from "../i18n/locales";
+import { CATEGORIES } from "../lib/registry";
+import { type Tool } from "../lib/types";
+import { toolPath } from "../lib/urls";
+import { Icon } from "./Icon";
+import { ToolIcon } from "./ToolIcon";
+
+interface Props {
+  tool: Tool;
+  lang: Lang;
+  headingLevel?: "h2" | "h3";
+}
+const { tool, lang, headingLevel = "h3" } = Astro.props;
+const category = CATEGORIES.find((c) => c.id === tool.meta.category)!;
+const i = tool.meta.i18n[lang];
+const Heading = headingLevel;
+---
+
+<a class="tool-card" href={toolPath(tool, category, lang)}>
+  <span class="icon-box"><ToolIcon name={tool.meta.icon} size={22} /></span>
+  <Heading>{i.name}</Heading>
+  <p>{i.summary}</p>
+  <span class="go"><Icon name="arrow-right" size={16} /><span class="sr-only">{i.name}</span></span>
+</a>

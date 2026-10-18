@@ -1,0 +1,33 @@
+{
+  "id": "utm-builder",
+  "category": "links",
+  "icon": "link-2",
+  "order": 10,
+  "related": ["url-inspector", "campaign-naming"],
+  "i18n": {
+    "pt-br": {
+      "slug": "gerador-de-utm",
+      "name": "Gerador de UTM",
+      "title": "Gerador de UTM com padrão de nomenclatura e lote em CSV",
+      "description": "Crie links com UTM padronizados: minúsculas, sem acento e com o separador que você escolher. Gere em lote por CSV e exporte. Grátis e sem enviar dados.",
+      "summary": "Monte links de campanha sempre no mesmo padrão e gere centenas de uma vez colando uma lista ou CSV.",
+      "keywords": ["utm", "utm_source", "utm_medium", "utm_campaign", "link de campanha", "rastreamento", "parâmetros", "google analytics", "ga4"]
+    },
+    "en": {
+      "slug": "utm-builder",
+      "name": "UTM builder",
+      "title": "UTM builder with naming rules and CSV batch",
+      "description": "Create consistent UTM links: lowercase, accent-free and with the separator you choose. Build in bulk from CSV and export. Free, and your data stays local.",
+      "summary": "Build campaign links in one consistent pattern and generate hundreds at once by pasting a list or CSV.",
+      "keywords": ["utm", "utm_source", "utm_medium", "utm_campaign", "campaign link", "tracking", "parameters", "google analytics", "ga4"]
+    },
+    "es": {
+      "slug": "generador-de-utm",
+      "name": "Generador de UTM",
+      "title": "Generador de UTM con reglas de nomenclatura y lote en CSV",
+      "description": "Crea enlaces con UTM consistentes: minúsculas, sin acentos y con el separador que elijas. Genera en lote desde CSV y exporta. Gratis y sin enviar datos.",
+      "summary": "Arma enlaces de campaña siempre con el mismo patrón y genera cientos a la vez pegando una lista o un CSV.",
+      "keywords": ["utm", "utm_source", "utm_medium", "utm_campaign", "enlace de campaña", "seguimiento", "parámetros", "google analytics", "ga4"]
+    }
+  }
+}

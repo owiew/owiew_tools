@@ -1,0 +1,47 @@
+[
+  {
+    "id": "links",
+    "icon": "link",
+    "i18n": {
+      "pt-br": { "slug": "links-e-utm", "name": "Links e UTM", "description": "Monte, confira e padronize os links das suas campanhas para não perder a origem de nenhuma venda." },
+      "en": { "slug": "links-and-utm", "name": "Links and UTM", "description": "Build, check and standardize your campaign links so no sale loses its source." },
+      "es": { "slug": "enlaces-y-utm", "name": "Enlaces y UTM", "description": "Crea, revisa y estandariza los enlaces de tus campañas para no perder el origen de ninguna venta." }
+    }
+  },
+  {
+    "id": "calculators",
+    "icon": "calculator",
+    "i18n": {
+      "pt-br": { "slug": "calculadoras", "name": "Calculadoras", "description": "Contas de tráfego pago feitas direito: retorno, custo, margem e ponto de equilíbrio." },
+      "en": { "slug": "calculators", "name": "Calculators", "description": "Paid media math done right: return, cost, margin and break-even." },
+      "es": { "slug": "calculadoras", "name": "Calculadoras", "description": "Las cuentas del tráfico pago bien hechas: retorno, costo, margen y punto de equilibrio." }
+    }
+  },
+  {
+    "id": "ads",
+    "icon": "megaphone",
+    "i18n": {
+      "pt-br": { "slug": "anuncios", "name": "Anúncios", "description": "Prévia e contadores para escrever anúncios dentro dos limites de cada plataforma." },
+      "en": { "slug": "ads", "name": "Ads", "description": "Previews and counters to write ads within each platform's limits." },
+      "es": { "slug": "anuncios", "name": "Anuncios", "description": "Vistas previas y contadores para escribir anuncios dentro de los límites de cada plataforma." }
+    }
+  },
+  {
+    "id": "keywords",
+    "icon": "key-round",
+    "i18n": {
+      "pt-br": { "slug": "palavras-chave", "name": "Palavras-chave", "description": "Combine, limpe e organize listas de palavras-chave e negativas para buscas pagas." },
+      "en": { "slug": "keywords", "name": "Keywords", "description": "Combine, clean and organize keyword and negative keyword lists for paid search." },
+      "es": { "slug": "palabras-clave", "name": "Palabras clave", "description": "Combina, limpia y organiza listas de palabras clave y negativas para búsquedas pagas." }
+    }
+  },
+  {
+    "id": "utilities",
+    "icon": "wrench",
+    "i18n": {
+      "pt-br": { "slug": "utilidades", "name": "Utilidades", "description": "Pequenas ferramentas do dia a dia de quem trabalha com marketing digital." },
+      "en": { "slug": "utilities", "name": "Utilities", "description": "Small everyday tools for people working in digital marketing." },
+      "es": { "slug": "utilidades", "name": "Utilidades", "description": "Pequeñas herramientas del día a día para quien trabaja en marketing digital." }
+    }
+  }
+]

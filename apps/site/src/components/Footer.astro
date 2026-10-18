@@ -1,0 +1,53 @@
+---
+/**
+ * Rodapé: GitHub, licença, "feito por owiew" e CTA discreto para owiew.com.
+ * Onde: layout base. Entrada: idioma.
+ */
+import { REPO_URL, type Lang } from "../i18n/locales";
+import { ui } from "../i18n/ui";
+import { CATEGORIES } from "../lib/registry";
+import { categoryPath } from "../lib/urls";
+import { Icon } from "./Icon";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = ui(lang);
+const year = 2026; // ano de criação; evita build não reproduzível na virada do ano
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p><strong>owiew tools</strong></p>
+        <p class="hint">{t.footer.tagline}</p>
+        <p class="hint">{t.privacy}.</p>
+      </div>
+      <div>
+        <h2>{t.footer.categories}</h2>
+        <ul>
+          {CATEGORIES.map((c) => <li><a href={categoryPath(c, lang)}>{c.i18n[lang].name}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>{t.footer.project}</h2>
+        <ul>
+          <li>
+            <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
+              <Icon name="code-xml" size={18} />{t.footer.github}<span class="sr-only"> ({t.openNewTab})</span>
+            </a>
+          </li>
+          <li><a href={`${REPO_URL}/blob/main/LICENSE`} target="_blank" rel="noopener noreferrer">{t.footer.license}<span class="sr-only"> ({t.openNewTab})</span></a></li>
+          <li><a href={`${REPO_URL}/blob/main/docs/criar-ferramenta.md`} target="_blank" rel="noopener noreferrer">{t.footer.contributing}<span class="sr-only"> ({t.openNewTab})</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">
+      <span>&copy; {year} Adventury LTDA. {t.footer.license}.</span>
+      <span>{t.footer.madeBy}</span>
+      <a href="https://owiew.com/?ref=tools" target="_blank" rel="noopener">{t.footer.cta}<span class="sr-only"> ({t.openNewTab})</span></a>
+    </p>
+  </div>
+</footer>

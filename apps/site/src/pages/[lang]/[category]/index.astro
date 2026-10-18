@@ -1,0 +1,68 @@
+---
+/**
+ * Página de categoria: lista as ferramentas da categoria. Categoria vazia vira
+ * página "em breve" com noindex (fora do sitemap) até a primeira ferramenta.
+ * Rota: /<lang>/<categoria>/.
+ */
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import { Icon } from "../../../components/Icon";
+import ToolCard from "../../../components/ToolCard.astro";
+import Base from "../../../layouts/Base.astro";
+import { LANGS, REPO_URL, type Lang } from "../../../i18n/locales";
+import { ui } from "../../../i18n/ui";
+import { breadcrumbLd } from "../../../lib/jsonld";
+import { CATEGORIES, toolsIn } from "../../../lib/registry";
+import { type Category } from "../../../lib/types";
+import { alternatesOf, categoryPath, homePath } from "../../../lib/urls";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    CATEGORIES.map((category) => ({ params: { lang, category: category.i18n[lang].slug }, props: { lang, category } })),
+  );
+}
+const { lang, category } = Astro.props as { lang: Lang; category: Category };
+const t = ui(lang);
+const i = category.i18n[lang];
+const tools = toolsIn(category.id);
+const path = categoryPath(category, lang);
+const crumbs = [
+  { name: t.breadcrumbHome, path: homePath(lang) },
+  { name: i.name, path },
+];
+const title = `${i.name}: ${tools.length > 0 ? t.toolsCount(tools.length) : t.comingSoon}`;
+---
+
+<Base
+  lang={lang}
+  title={title}
+  description={i.description}
+  path={path}
+  alternates={alternatesOf((l) => categoryPath(category, l))}
+  ogImage={`/og/${lang}/home.png`}
+  noindex={tools.length === 0}
+  activeCategory={category.id}
+  jsonLd={[breadcrumbLd(crumbs)]}
+>
+  <div class="wrap">
+    <header class="page-head">
+      <Breadcrumb lang={lang} items={crumbs} />
+      <h1>{i.name}</h1>
+      <p class="lead">{i.description}</p>
+    </header>
+    {
+      tools.length > 0 ? (
+        <div class="grid">{tools.map((tool) => <ToolCard tool={tool} lang={lang} headingLevel="h2" />)}</div>
+      ) : (
+        <div class="empty">
+          <h2>{t.comingSoon}</h2>
+          <p>{t.comingSoonText}</p>
+          <a class="btn" href={`${REPO_URL}/blob/main/docs/criar-ferramenta.md`} target="_blank" rel="noopener noreferrer">
+            <Icon name="code-xml" size={18} />
+            {t.contribute}
+            <span class="sr-only"> ({t.openNewTab})</span>
+          </a>
+        </div>
+      )
+    }
+  </div>
+</Base>

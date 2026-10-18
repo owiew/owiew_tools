@@ -1,0 +1,111 @@
+---
+/**
+ * Busca client-side entre as ferramentas.
+ * Onde: cabeçalho. Entrada: idioma. Carrega /<lang>/search.json (mesma origem)
+ * no primeiro foco; filtra no navegador, sem acento e sem diferenciar caixa.
+ */
+import { type Lang } from "../i18n/locales";
+import { ui } from "../i18n/ui";
+import { Icon } from "./Icon";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = ui(lang);
+---
+
+<search class="search" data-search data-index={`/${lang}/search.json`} data-none={t.searchNone}>
+  <label class="sr-only" for="site-search">{t.searchLabel}</label>
+  <Icon name="search" class="search-icon" size={18} />
+  <input id="site-search" type="search" placeholder={t.searchPlaceholder} autocomplete="off" enterkeyhint="search" aria-controls="search-results" />
+  <ul class="search-results" id="search-results" hidden></ul>
+  <p class="sr-only" role="status" data-search-status></p>
+</search>
+
+<script>
+  // O quê: filtro simples (todos os termos precisam aparecer) com navegação por setas e Esc.
+  // Onde: campo de busca do cabeçalho. Fluxo: foco -> fetch do índice estático -> lista de links.
+  interface Entry {
+    name: string;
+    summary: string;
+    url: string;
+    haystack: string;
+  }
+  const root = document.querySelector<HTMLElement>("[data-search]");
+  const input = root?.querySelector<HTMLInputElement>("input");
+  const list = root?.querySelector<HTMLUListElement>(".search-results");
+  const status = root?.querySelector<HTMLElement>("[data-search-status]");
+  let index: Entry[] | null = null;
+
+  const fold = (s: string): string => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+
+  async function load(): Promise<Entry[]> {
+    if (index) return index;
+    const res = await fetch(root?.dataset["index"] ?? "", { credentials: "omit" });
+    if (!res.ok) throw new Error(`índice de busca: HTTP ${res.status}`);
+    index = (await res.json()) as Entry[];
+    return index;
+  }
+
+  function close(): void {
+    if (list) list.hidden = true;
+  }
+
+  function render(items: Entry[]): void {
+    if (!list || !status) return;
+    list.replaceChildren();
+    if (items.length === 0) {
+      const li = document.createElement("li");
+      li.className = "search-status";
+      li.textContent = root?.dataset["none"] ?? "";
+      list.append(li);
+    }
+    for (const e of items) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = e.url;
+      const strong = document.createElement("strong");
+      strong.textContent = e.name;
+      const small = document.createElement("small");
+      small.textContent = e.summary;
+      a.append(strong, small);
+      li.append(a);
+      list.append(li);
+    }
+    list.hidden = false;
+    status.textContent = items.length === 0 ? (root?.dataset["none"] ?? "") : String(items.length);
+  }
+
+  async function onInput(): Promise<void> {
+    const q = fold(input?.value ?? "").trim();
+    if (q === "") return close();
+    try {
+      const terms = q.split(/\s+/);
+      render((await load()).filter((e) => terms.every((t) => e.haystack.includes(t))).slice(0, 8));
+    } catch (err) {
+      console.error(err);
+      close();
+    }
+  }
+
+  input?.addEventListener("input", () => void onInput());
+  input?.addEventListener("focus", () => void load().catch((err: unknown) => console.error(err)));
+  root?.addEventListener("keydown", (ev) => {
+    const links = [...(list?.querySelectorAll<HTMLAnchorElement>("a") ?? [])];
+    const at = links.indexOf(document.activeElement as HTMLAnchorElement);
+    if (ev.key === "Escape") {
+      close();
+      input?.focus();
+    } else if (ev.key === "ArrowDown" && links.length > 0) {
+      ev.preventDefault();
+      links[Math.min(at + 1, links.length - 1)]?.focus();
+    } else if (ev.key === "ArrowUp" && at >= 0) {
+      ev.preventDefault();
+      (at === 0 ? input : links[at - 1])?.focus();
+    }
+  });
+  document.addEventListener("click", (ev) => {
+    if (root && !root.contains(ev.target as Node)) close();
+  });
+</script>

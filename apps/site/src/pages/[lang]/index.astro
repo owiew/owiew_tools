@@ -1,0 +1,64 @@
+---
+/**
+ * Home de cada idioma: hero, ferramentas por categoria, três razões para
+ * confiar. Rota: /<lang>/. Fluxo: inventário (registry) -> cards.
+ */
+import { Icon } from "../../components/Icon";
+import ToolCard from "../../components/ToolCard.astro";
+import Base from "../../layouts/Base.astro";
+import { LANGS, type Lang } from "../../i18n/locales";
+import { ui } from "../../i18n/ui";
+import { siteLd } from "../../lib/jsonld";
+import { CATEGORIES, TOOLS, toolsIn } from "../../lib/registry";
+import { alternatesOf, categoryPath, homePath } from "../../lib/urls";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+const { lang } = Astro.props as { lang: Lang };
+const t = ui(lang);
+const path = homePath(lang);
+const sections = CATEGORIES.map((c) => ({ c, tools: toolsIn(c.id) })).filter((s) => s.tools.length > 0);
+---
+
+<Base
+  lang={lang}
+  title={t.home.title}
+  description={t.home.description}
+  path={path}
+  alternates={alternatesOf(homePath)}
+  ogImage={`/og/${lang}/home.png`}
+  jsonLd={siteLd({ name: "owiew tools", description: t.home.description, lang, path })}
+>
+  <div class="wrap">
+    <section class="hero">
+      <h1>{t.home.h1}</h1>
+      <p class="lead">{t.home.lead}</p>
+      <p class="privacy-chip"><Icon name="shield-check" size={18} />{t.privacy}</p>
+    </section>
+
+    <section aria-labelledby="todas">
+      <h2 id="todas" class="sr-only">{t.allTools} ({TOOLS.length})</h2>
+      {
+        sections.map(({ c, tools }) => (
+          <div class="section section-tight">
+            <h3 class="cat-head">
+              <a href={categoryPath(c, lang)}>{c.i18n[lang].name}</a>
+              <span class="hint"> · {t.toolsCount(tools.length)}</span>
+            </h3>
+            <div class="grid">
+              {tools.map((tool) => <ToolCard tool={tool} lang={lang} />)}
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="section" aria-labelledby="porque">
+      <h2 id="porque" class="sr-only">{t.footer.project}</h2>
+      <div class="points">
+        {t.home.points.map((p) => <div><h3>{p.title}</h3><p>{p.text}</p></div>)}
+      </div>
+    </section>
+  </div>
+</Base>
