@@ -1,0 +1,10 @@
+/* Limpador: fieldset sem borda/largura mínima do navegador (evita rolagem a 360px) e saídas altas. */
+.tool-ui fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+textarea.tall {
+  min-height: 14rem;
+}

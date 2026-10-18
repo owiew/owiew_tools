@@ -1,0 +1,99 @@
+/* Prévia e contador de anúncio: contador, cartões de prévia genéricos (sem marca) e botão de remover. */
+.counted {
+  display: flex;
+  gap: var(--s-2);
+  align-items: flex-start;
+}
+.counted > input,
+.counted > textarea {
+  flex: 1;
+  min-width: 0;
+}
+.icon-btn {
+  flex: none;
+  min-width: var(--tap);
+  padding-inline: var(--s-3);
+}
+.counter {
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.counter.is-over {
+  font-weight: 700;
+  color: var(--err);
+}
+textarea[aria-invalid="true"] {
+  border-color: var(--err);
+}
+.ad-card {
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow-wrap: anywhere;
+}
+.ad-card p {
+  margin: 0;
+}
+.ad-meta {
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+}
+.ad-badge {
+  display: inline-block;
+  padding: 0 var(--s-2);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--fg);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+}
+.ad-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.ad-text {
+  font-size: 0.9375rem;
+}
+.see-more {
+  color: var(--fg-muted);
+  font-weight: 600;
+}
+.meta-avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  vertical-align: middle;
+  background: var(--surface-2);
+  border-radius: 50%;
+}
+.meta-image {
+  min-height: 9rem;
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+.meta-bar {
+  display: flex;
+  gap: var(--s-3);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-3);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+.meta-bar > div {
+  min-width: 0;
+}
+.meta-cta {
+  flex: none;
+  padding: var(--s-1) var(--s-3);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+}

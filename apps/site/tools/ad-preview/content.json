@@ -1,0 +1,134 @@
+{
+  "pt-br": {
+    "intro": [
+      "No Google Ads, um anúncio responsivo de pesquisa (RSA) não é um texto fixo: você entrega até 15 títulos e 4 descrições e o Google monta as combinações. Cada campo tem um limite rígido de caracteres, e passar de um caractere impede de salvar. No Meta, os limites são recomendações, mas o texto que passa é cortado no Feed e pode esconder justamente a chamada para ação.",
+      "Escreva aqui, veja o contador de cada campo, a prévia genérica e o que precisa ajustar antes de colar na plataforma. Nada do que você digita sai do navegador."
+    ],
+    "howTo": {
+      "name": "Como conferir os textos de um anúncio Google e Meta",
+      "steps": [
+        { "name": "Escolha a plataforma. ", "text": "A aba Google confere o anúncio responsivo de pesquisa; a aba Meta confere texto principal, título e descrição do Feed." },
+        { "name": "Preencha títulos e descrições. ", "text": "No Google, escreva pelo menos 3 títulos e 2 descrições, e até 15 e 4. Quanto mais variações diferentes, mais combinações o Google pode testar." },
+        { "name": "Vigie o contador de cada campo. ", "text": "O contador mostra caracteres usados e o limite. Quando passa, o campo é marcado e o excesso aparece em texto." },
+        { "name": "Leia os avisos. ", "text": "A ferramenta avisa de mínimos não cumpridos, títulos repetidos, caminho de URL inválido e pontos de atenção da política." },
+        { "name": "Confira a prévia e exporte. ", "text": "A prévia mostra uma combinação possível (Google) ou o corte do Feed (Meta). Exporte tudo em CSV para revisar com o time." }
+      ]
+    },
+    "formula": {
+      "title": "Limites e como a contagem funciona",
+      "paragraphs": [
+        "O Google conta cada caractere como 1, incluindo letras, números, espaços internos e pontuação. Caracteres de idiomas de largura dupla (chinês, japonês e coreano) contam como 2. Por isso 30 letras cabem em um título, mas 16 ideogramas, não. Espaços no início e no fim são ignorados.",
+        "No Meta, os limites são recomendações para o Feed, não bloqueios: o texto passa, mas é cortado na exibição. O ponto exato do corte varia com o posicionamento e a largura da tela, então a prévia é uma aproximação por contagem de caracteres."
+      ],
+      "items": [
+        { "label": "Google: títulos", "expr": "até 15, cada um com até 30 caracteres (mínimo de 3)" },
+        { "label": "Google: descrições", "expr": "até 4, cada uma com até 90 caracteres (mínimo de 2)" },
+        { "label": "Google: caminhos de exibição", "expr": "2 campos, até 15 caracteres cada" },
+        { "label": "Google: idiomas de largura dupla", "expr": "chinês, japonês e coreano contam 2 por caractere" },
+        { "label": "Meta: texto principal", "expr": "cerca de 125 caracteres visíveis antes de “ver mais”" },
+        { "label": "Meta: título e descrição", "expr": "27 caracteres recomendados no Feed" }
+      ]
+    },
+    "examples": [
+      { "title": "Título que passa do limite", "text": "“Tênis de corrida leve com frete grátis hoje” tem 43 caracteres. O limite de um título do Google é 30, então o contador mostra 13 acima. Encurte para “Tênis de corrida com frete grátis” (33, ainda passa) ou “Tênis de corrida leve e barato” (30, no limite)." },
+      { "title": "Texto principal cortado no Meta", "text": "Um texto principal de 154 caracteres é cortado perto dos 125: a parte final, onde costuma estar a chamada para ação, fica atrás do “ver mais”. Leve a mensagem principal e a oferta para o começo do texto." },
+      { "title": "Caminhos de exibição", "text": "Com o domínio exemplo.com.br e os caminhos “tenis” e “corrida”, a URL exibida fica exemplo.com.br/tenis/corrida. Os caminhos não mudam a página de destino; só dão contexto ao usuário." }
+    ],
+    "faq": [
+      { "q": "Qual o limite de caracteres do Google Ads?", "a": "No anúncio responsivo de pesquisa, cada título aceita até 30 caracteres e cada descrição até 90, com até 15 títulos e 4 descrições. Os dois campos de caminho aceitam até 15 caracteres cada. São os limites publicados na Ajuda do Google Ads." },
+      { "q": "O Google conta espaço e pontuação?", "a": "Sim. Cada caractere conta 1, inclusive espaços internos e pontuação. Espaços no começo e no fim são ignorados. Caracteres de largura dupla, como os do chinês, do japonês e do coreano, contam 2." },
+      { "q": "Quantos títulos e descrições são obrigatórios no RSA?", "a": "É preciso informar pelo menos 3 títulos e 2 descrições para criar o anúncio. Você pode informar até 15 títulos e 4 descrições, e o Google testa as combinações para mostrar a melhor para cada busca." },
+      { "q": "Qual o limite de caracteres do texto principal no Meta?", "a": "O Meta recomenda cerca de 125 caracteres visíveis no texto principal; acima disso o Feed esconde o resto atrás de “ver mais”. Para título e descrição, a recomendação é de 27 caracteres. São orientações, não bloqueios, e variam por posicionamento." },
+      { "q": "A prévia é idêntica ao que aparece na plataforma?", "a": "Não. A prévia é genérica e sem marca, e o Google escolhe as combinações de títulos e descrições automaticamente. Use-a para checar tamanho e ordem das ideias, e confira a prévia oficial da plataforma antes de publicar." },
+      { "q": "Posso usar ponto de exclamação no título do Google?", "a": "É arriscado. A política editorial do Google costuma reprovar ponto de exclamação em títulos, então a ferramenta avisa. Confirme sempre as regras vigentes de pontuação e símbolos na política de anúncios do Google." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "In Google Ads a responsive search ad (RSA) is not a fixed text: you supply up to 15 headlines and 4 descriptions and Google assembles the combinations. Each field has a hard character limit, and one character over blocks saving. On Meta the limits are recommendations, but text that goes over is cut in the Feed and can hide the call to action.",
+      "Write here, watch each field's counter, see the generic preview and what to fix before pasting into the platform. Nothing you type leaves your browser."
+    ],
+    "howTo": {
+      "name": "How to check the text of a Google and Meta ad",
+      "steps": [
+        { "name": "Pick the platform. ", "text": "The Google tab checks the responsive search ad; the Meta tab checks primary text, headline and description for the Feed." },
+        { "name": "Fill in headlines and descriptions. ", "text": "On Google, write at least 3 headlines and 2 descriptions, and up to 15 and 4. The more different variations, the more combinations Google can test." },
+        { "name": "Watch each field's counter. ", "text": "The counter shows characters used and the limit. When you go over, the field is flagged and the excess is spelled out in text." },
+        { "name": "Read the warnings. ", "text": "The tool warns about unmet minimums, repeated headlines, invalid URL paths and policy points to watch." },
+        { "name": "Check the preview and export. ", "text": "The preview shows one possible combination (Google) or the Feed cut (Meta). Export everything to CSV to review with your team." }
+      ]
+    },
+    "formula": {
+      "title": "Limits and how counting works",
+      "paragraphs": [
+        "Google counts every character as 1, including letters, digits, inner spaces and punctuation. Characters from double-width languages (Chinese, Japanese and Korean) count as 2. So 30 letters fit in a headline, but 16 ideograms do not. Leading and trailing spaces are ignored.",
+        "On Meta the limits are Feed recommendations, not blocks: the text goes through but is cut when displayed. The exact cut point varies with placement and screen width, so the preview is an approximation based on character count."
+      ],
+      "items": [
+        { "label": "Google: headlines", "expr": "up to 15, each up to 30 characters (minimum of 3)" },
+        { "label": "Google: descriptions", "expr": "up to 4, each up to 90 characters (minimum of 2)" },
+        { "label": "Google: display paths", "expr": "2 fields, up to 15 characters each" },
+        { "label": "Google: double-width languages", "expr": "Chinese, Japanese and Korean count 2 per character" },
+        { "label": "Meta: primary text", "expr": "about 125 characters visible before “See more”" },
+        { "label": "Meta: headline and description", "expr": "27 characters recommended in the Feed" }
+      ]
+    },
+    "examples": [
+      { "title": "A headline over the limit", "text": "“Lightweight running shoes with free shipping today” has 50 characters. A Google headline is capped at 30, so the counter shows 20 over. Shorten it to “Lightweight running shoes” (25) or “Running shoes, free shipping” (28)." },
+      { "title": "Primary text cut on Meta", "text": "A 165-character primary text is cut near 125: the final part, where the call to action usually sits, ends up behind “See more”. Move the main message and the offer to the start of the text." },
+      { "title": "Display paths", "text": "With the domain example.com and the paths “running” and “shoes”, the displayed URL is example.com/running/shoes. Paths do not change the landing page; they only give the user context." }
+    ],
+    "faq": [
+      { "q": "What is the Google Ads character limit?", "a": "In a responsive search ad each headline takes up to 30 characters and each description up to 90, with up to 15 headlines and 4 descriptions. The two path fields take up to 15 characters each. These are the limits published in Google Ads Help." },
+      { "q": "Does Google count spaces and punctuation?", "a": "Yes. Every character counts 1, including inner spaces and punctuation. Leading and trailing spaces are ignored. Double-width characters, such as Chinese, Japanese and Korean, count 2." },
+      { "q": "How many headlines and descriptions are required in an RSA?", "a": "You must provide at least 3 headlines and 2 descriptions to create the ad. You can provide up to 15 headlines and 4 descriptions, and Google tests combinations to show the best one for each search." },
+      { "q": "What is the Meta primary text character limit?", "a": "Meta recommends about 125 visible characters of primary text; beyond that the Feed hides the rest behind “See more”. For headline and description the recommendation is 27 characters. They are guidelines, not blocks, and vary by placement." },
+      { "q": "Is the preview identical to what the platform shows?", "a": "No. The preview is generic and unbranded, and Google picks headline and description combinations automatically. Use it to check length and the order of ideas, and check the platform's official preview before publishing." },
+      { "q": "Can I use an exclamation mark in a Google headline?", "a": "It is risky. Google's editorial policy often rejects exclamation marks in headlines, so the tool warns you. Always confirm the current punctuation and symbols rules in Google's ads policy." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "En Google Ads un anuncio responsivo de búsqueda (RSA) no es un texto fijo: entregas hasta 15 títulos y 4 descripciones y Google arma las combinaciones. Cada campo tiene un límite estricto de caracteres, y pasarte de uno impide guardar. En Meta los límites son recomendaciones, pero el texto que se pasa se corta en el Feed y puede esconder justo la llamada a la acción.",
+      "Escribe aquí, mira el contador de cada campo, la vista previa genérica y qué ajustar antes de pegar en la plataforma. Nada de lo que escribes sale de tu navegador."
+    ],
+    "howTo": {
+      "name": "Cómo revisar los textos de un anuncio de Google y Meta",
+      "steps": [
+        { "name": "Elige la plataforma. ", "text": "La pestaña Google revisa el anuncio responsivo de búsqueda; la pestaña Meta revisa texto principal, título y descripción del Feed." },
+        { "name": "Completa títulos y descripciones. ", "text": "En Google, escribe al menos 3 títulos y 2 descripciones, y hasta 15 y 4. Cuantas más variaciones distintas, más combinaciones puede probar Google." },
+        { "name": "Vigila el contador de cada campo. ", "text": "El contador muestra los caracteres usados y el límite. Al pasarte, el campo se marca y el exceso aparece en texto." },
+        { "name": "Lee los avisos. ", "text": "La herramienta avisa de mínimos sin cumplir, títulos repetidos, rutas de URL no válidas y puntos de atención de la política." },
+        { "name": "Revisa la vista previa y exporta. ", "text": "La vista previa muestra una combinación posible (Google) o el corte del Feed (Meta). Exporta todo en CSV para revisarlo con tu equipo." }
+      ]
+    },
+    "formula": {
+      "title": "Límites y cómo funciona el conteo",
+      "paragraphs": [
+        "Google cuenta cada carácter como 1, incluidos letras, números, espacios internos y puntuación. Los caracteres de idiomas de ancho doble (chino, japonés y coreano) cuentan como 2. Por eso 30 letras caben en un título, pero 16 ideogramas no. Los espacios al inicio y al final se ignoran.",
+        "En Meta los límites son recomendaciones para el Feed, no bloqueos: el texto pasa, pero se corta al mostrarse. El punto exacto del corte varía según la ubicación y el ancho de pantalla, así que la vista previa es una aproximación por conteo de caracteres."
+      ],
+      "items": [
+        { "label": "Google: títulos", "expr": "hasta 15, cada uno de hasta 30 caracteres (mínimo 3)" },
+        { "label": "Google: descripciones", "expr": "hasta 4, cada una de hasta 90 caracteres (mínimo 2)" },
+        { "label": "Google: rutas visibles", "expr": "2 campos, hasta 15 caracteres cada uno" },
+        { "label": "Google: idiomas de ancho doble", "expr": "chino, japonés y coreano cuentan 2 por carácter" },
+        { "label": "Meta: texto principal", "expr": "unos 125 caracteres visibles antes de “ver más”" },
+        { "label": "Meta: título y descripción", "expr": "27 caracteres recomendados en el Feed" }
+      ]
+    },
+    "examples": [
+      { "title": "Un título que pasa del límite", "text": "“Zapatillas de running ligeras con envío gratis hoy” tiene 50 caracteres. Un título de Google admite 30, así que el contador muestra 20 de más. Acórtalo a “Zapatillas running ligeras” (26) o “Running con envío gratis” (24)." },
+      { "title": "Texto principal cortado en Meta", "text": "Un texto principal de 179 caracteres se corta cerca de los 125: la parte final, donde suele estar la llamada a la acción, queda detrás de “ver más”. Lleva el mensaje principal y la oferta al inicio del texto." },
+      { "title": "Rutas visibles", "text": "Con el dominio ejemplo.com y las rutas “zapatillas” y “running”, la URL visible queda ejemplo.com/zapatillas/running. Las rutas no cambian la página de destino; solo dan contexto al usuario." }
+    ],
+    "faq": [
+      { "q": "¿Cuál es el límite de caracteres de Google Ads?", "a": "En el anuncio responsivo de búsqueda cada título admite hasta 30 caracteres y cada descripción hasta 90, con hasta 15 títulos y 4 descripciones. Los dos campos de ruta admiten hasta 15 caracteres cada uno. Son los límites publicados en la Ayuda de Google Ads." },
+      { "q": "¿Google cuenta los espacios y la puntuación?", "a": "Sí. Cada carácter cuenta 1, incluidos los espacios internos y la puntuación. Los espacios al inicio y al final se ignoran. Los caracteres de ancho doble, como los del chino, japonés y coreano, cuentan 2." },
+      { "q": "¿Cuántos títulos y descripciones son obligatorios en un RSA?", "a": "Hay que indicar al menos 3 títulos y 2 descripciones para crear el anuncio. Puedes indicar hasta 15 títulos y 4 descripciones, y Google prueba las combinaciones para mostrar la mejor en cada búsqueda." },
+      { "q": "¿Cuál es el límite de caracteres del texto principal en Meta?", "a": "Meta recomienda unos 125 caracteres visibles en el texto principal; más allá, el Feed oculta el resto detrás de “ver más”. Para título y descripción la recomendación es de 27 caracteres. Son orientaciones, no bloqueos, y varían según la ubicación." },
+      { "q": "¿La vista previa es idéntica a lo que muestra la plataforma?", "a": "No. La vista previa es genérica y sin marca, y Google elige las combinaciones de títulos y descripciones automáticamente. Úsala para revisar el largo y el orden de las ideas, y mira la vista previa oficial de la plataforma antes de publicar." },
+      { "q": "¿Puedo usar signo de exclamación en un título de Google?", "a": "Es arriesgado. La política editorial de Google suele rechazar los signos de exclamación en títulos, por eso la herramienta avisa. Confirma siempre las reglas vigentes de puntuación y símbolos en la política de anuncios de Google." }
+    ]
+  }
+}

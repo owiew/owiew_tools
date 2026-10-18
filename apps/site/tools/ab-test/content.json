@@ -1,0 +1,137 @@
+{
+  "pt-br": {
+    "intro": [
+      "Um teste A/B compara duas versões de uma página, anúncio ou e-mail para saber qual converte mais. O risco está em declarar vencedor cedo demais: com poucos visitantes, uma diferença de 1 ou 2 pontos pode ser puro acaso. Esta ferramenta responde às duas perguntas que importam: a diferença que você viu é real, e quantos visitantes são necessários para enxergar a diferença que você procura.",
+      "Tudo é calculado no seu navegador. Os números que você digita não são enviados para lugar nenhum."
+    ],
+    "howTo": {
+      "name": "Como saber se o teste A/B tem vencedor",
+      "steps": [
+        { "name": "Informe visitantes e conversões de A e de B. ", "text": "Use os totais do período inteiro do teste. Conversão é a ação que você mede: compra, cadastro, clique no botão." },
+        { "name": "Escolha o nível de confiança. ", "text": "95% é o padrão do mercado: aceita 1 chance em 20 de ver uma diferença que na verdade não existe." },
+        { "name": "Escolha bilateral ou unilateral. ", "text": "Bilateral pergunta se há diferença em qualquer direção e é o mais seguro. Unilateral só pergunta se B é melhor e deve ser decidido antes de olhar os dados." },
+        { "name": "Leia o p-valor e o intervalo. ", "text": "Se o p-valor é menor que 1 menos a confiança (0,05 para 95%), a diferença é significativa. O intervalo mostra o tamanho provável do ganho; se ele inclui zero, o resultado é inconclusivo." },
+        { "name": "Planeje o próximo teste na aba de amostra. ", "text": "Informe a taxa atual, o menor ganho que valeria detectar (MDE) e o poder. A ferramenta devolve quantos visitantes cada versão precisa." }
+      ]
+    },
+    "formula": {
+      "title": "Como o cálculo funciona",
+      "paragraphs": [
+        "A significância usa o teste z de duas proporções. Sob a hipótese de que A e B convertem igual, estima-se uma taxa única (agrupada) e mede-se a distância entre as duas taxas em erros-padrão. O p-valor é a probabilidade de ver uma distância ao menos tão grande só por acaso.",
+        "O intervalo de confiança da diferença usa o erro-padrão não agrupado, a mesma convenção do comando prtesti do Stata. A normal padrão é calculada com a função de erro, sem tabelas aproximadas.",
+        "O tamanho de amostra usa a fórmula clássica de Fleiss para duas proporções, a mesma do Stata (power twoproportions). Conferido contra o manual do Stata: taxas de 0,001 e 0,015 com 80% de poder e 5% bilateral pedem 635 visitantes por grupo."
+      ],
+      "items": [
+        { "label": "Taxas", "expr": "pA = conversões A ÷ visitantes A; pB = conversões B ÷ visitantes B" },
+        { "label": "Taxa agrupada", "expr": "p = (conversões A + conversões B) ÷ (visitantes A + visitantes B)" },
+        { "label": "Estatística z", "expr": "z = (pB − pA) ÷ √( p × (1 − p) × (1/nA + 1/nB) )" },
+        { "label": "p-valor bilateral", "expr": "2 × P(Z ≥ |z|), com Z normal padrão" },
+        { "label": "Intervalo de confiança", "expr": "(pB − pA) ± zc × √( pA(1−pA)/nA + pB(1−pB)/nB )" },
+        { "label": "Amostra por grupo", "expr": "n = ( zα × √(2 p̄ (1−p̄)) + zβ × √(p1(1−p1) + p2(1−p2)) )² ÷ (p2 − p1)²" }
+      ]
+    },
+    "examples": [
+      { "title": "Diferença significativa", "text": "A: 250 conversões em 5.000 visitantes (5,00%). B: 310 em 5.000 (6,20%). A diferença é de +1,20 ponto percentual, z = 2,61 e p-valor = 0,0091. Com 95% de confiança, B venceu; o ganho provável fica entre cerca de +0,3 e +2,1 pontos." },
+      { "title": "Parece melhor, mas é acaso", "text": "A: 20 conversões em 400 (5,00%). B: 26 em 400 (6,50%). B parece 30% melhor, mas o p-valor é de aproximadamente 0,36. O intervalo inclui zero e o teste é inconclusivo: continue coletando dados." },
+      { "title": "Quanto tráfego eu preciso?", "text": "Taxa atual de 5% e interesse em detectar um ganho relativo de 20% (de 5% para 6%), com 95% de confiança e 80% de poder: são cerca de 8.160 visitantes por versão, 16.320 no total. Com 1.000 visitantes por dia, o teste dura 17 dias." }
+    ],
+    "faq": [
+      { "q": "O que é significância estatística em teste A/B?", "a": "É a evidência de que a diferença entre A e B não é acaso. Com 95% de confiança, só se declara vencedor quando o p-valor fica abaixo de 0,05, ou seja, quando uma diferença tão grande aconteceria por sorte em menos de 5% das vezes se as versões fossem iguais." },
+      { "q": "Quantos visitantes preciso para um teste A/B?", "a": "Depende da taxa atual e do menor ganho que você quer detectar. Quanto menor o ganho, maior a amostra: detectar metade do efeito exige cerca de quatro vezes mais visitantes. Use a aba de tamanho de amostra com a sua taxa e o seu MDE." },
+      { "q": "O que significa p-valor menor que 0,05?", "a": "Significa que, se A e B convertessem igual, você veria uma diferença tão grande ou maior em menos de 5% dos testes. Não é a probabilidade de B ser melhor, e não diz o tamanho do ganho: para isso use o intervalo de confiança." },
+      { "q": "Posso parar o teste assim que der significativo?", "a": "Não. Olhar o resultado a cada dia e parar no primeiro p-valor baixo infla muito os falsos positivos. Defina a amostra antes, com a aba de tamanho de amostra, e só conclua quando ela for atingida." },
+      { "q": "O que é MDE e poder estatístico?", "a": "MDE é o efeito mínimo detectável: o menor ganho que justificaria adotar a variante. Poder é a chance de o teste detectar esse ganho se ele existir; 80% é o padrão. Poder maior ou MDE menor aumentam a amostra necessária." },
+      { "q": "Teste bilateral ou unilateral?", "a": "Use bilateral, a menos que só uma direção importe e você tenha decidido isso antes de ver os dados. O unilateral exige menos amostra, mas não detecta que B piorou." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "An A/B test compares two versions of a page, ad or email to see which converts better. The risk is calling a winner too early: with few visitors, a gap of one or two points can be pure chance. This tool answers the two questions that matter: is the difference you saw real, and how many visitors do you need to see the difference you are looking for.",
+      "Everything is computed in your browser. The numbers you type are never sent anywhere."
+    ],
+    "howTo": {
+      "name": "How to tell whether your A/B test has a winner",
+      "steps": [
+        { "name": "Enter visitors and conversions for A and B. ", "text": "Use the totals for the whole test period. A conversion is the action you measure: a purchase, a signup, a button click." },
+        { "name": "Pick the confidence level. ", "text": "95% is the industry default: it accepts a 1 in 20 chance of seeing a difference that does not really exist." },
+        { "name": "Pick two-sided or one-sided. ", "text": "Two-sided asks whether there is a difference in either direction and is the safer choice. One-sided only asks whether B is better and must be decided before you look at the data." },
+        { "name": "Read the p-value and the interval. ", "text": "If the p-value is below 1 minus the confidence (0.05 for 95%), the difference is significant. The interval shows the likely size of the lift; if it includes zero, the result is inconclusive." },
+        { "name": "Plan the next test in the sample size tab. ", "text": "Enter the current rate, the smallest lift worth detecting (MDE) and the power. The tool returns how many visitors each version needs." }
+      ]
+    },
+    "formula": {
+      "title": "How the calculation works",
+      "paragraphs": [
+        "Significance uses the two-proportion z-test. Assuming A and B convert equally, a single pooled rate is estimated and the distance between the two rates is measured in standard errors. The p-value is the probability of seeing a distance at least that large by chance alone.",
+        "The confidence interval of the difference uses the unpooled standard error, the same convention as Stata's prtesti command. The standard normal is computed with the error function, not with rough lookup tables.",
+        "Sample size uses the classic Fleiss formula for two proportions, the same one as Stata (power twoproportions). Checked against the Stata manual: rates of 0.001 and 0.015 with 80% power and 5% two-sided need 635 visitors per group."
+      ],
+      "items": [
+        { "label": "Rates", "expr": "pA = conversions A ÷ visitors A; pB = conversions B ÷ visitors B" },
+        { "label": "Pooled rate", "expr": "p = (conversions A + conversions B) ÷ (visitors A + visitors B)" },
+        { "label": "z statistic", "expr": "z = (pB − pA) ÷ √( p × (1 − p) × (1/nA + 1/nB) )" },
+        { "label": "Two-sided p-value", "expr": "2 × P(Z ≥ |z|), with Z standard normal" },
+        { "label": "Confidence interval", "expr": "(pB − pA) ± zc × √( pA(1−pA)/nA + pB(1−pB)/nB )" },
+        { "label": "Sample per group", "expr": "n = ( zα × √(2 p̄ (1−p̄)) + zβ × √(p1(1−p1) + p2(1−p2)) )² ÷ (p2 − p1)²" }
+      ]
+    },
+    "examples": [
+      { "title": "A significant difference", "text": "A: 250 conversions out of 5,000 visitors (5.00%). B: 310 out of 5,000 (6.20%). The difference is +1.20 percentage points, z = 2.61 and p-value = 0.0091. At 95% confidence B won; the likely lift is between about +0.3 and +2.1 points." },
+      { "title": "Looks better, but it is chance", "text": "A: 20 conversions out of 400 (5.00%). B: 26 out of 400 (6.50%). B looks 30% better, but the p-value is about 0.36. The interval includes zero and the test is inconclusive: keep collecting data." },
+      { "title": "How much traffic do I need?", "text": "A current rate of 5% and a goal of detecting a 20% relative lift (from 5% to 6%) at 95% confidence and 80% power takes about 8,160 visitors per version, 16,320 in total. At 1,000 visitors a day, the test runs for 17 days." }
+    ],
+    "faq": [
+      { "q": "What is statistical significance in an A/B test?", "a": "It is evidence that the gap between A and B is not chance. At 95% confidence you only call a winner when the p-value is below 0.05, meaning a gap that large would show up by luck less than 5% of the time if the versions were equal." },
+      { "q": "How many visitors do I need for an A/B test?", "a": "It depends on the current rate and the smallest lift you want to detect. The smaller the lift, the larger the sample: detecting half the effect takes about four times the visitors. Use the sample size tab with your rate and your MDE." },
+      { "q": "What does a p-value below 0.05 mean?", "a": "It means that if A and B converted equally, you would see a gap this large or larger in fewer than 5% of tests. It is not the probability that B is better, and it does not tell the size of the lift: use the confidence interval for that." },
+      { "q": "Can I stop the test as soon as it turns significant?", "a": "No. Checking daily and stopping at the first low p-value inflates false positives a lot. Set the sample size beforehand with the sample size tab and only conclude once you reach it." },
+      { "q": "What are MDE and statistical power?", "a": "MDE is the minimum detectable effect: the smallest lift that would justify adopting the variant. Power is the chance the test detects that lift if it exists; 80% is the usual default. Higher power or a smaller MDE raises the required sample." },
+      { "q": "One-sided or two-sided test?", "a": "Use two-sided unless only one direction matters and you decided that before seeing the data. One-sided needs less sample but cannot detect that B got worse." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Una prueba A/B compara dos versiones de una página, un anuncio o un correo para saber cuál convierte más. El riesgo es declarar un ganador demasiado pronto: con pocos visitantes, una diferencia de uno o dos puntos puede ser puro azar. Esta herramienta responde las dos preguntas que importan: si la diferencia que viste es real y cuántos visitantes necesitas para ver la diferencia que buscas.",
+      "Todo se calcula en tu navegador. Los números que escribes no se envían a ningún sitio."
+    ],
+    "howTo": {
+      "name": "Cómo saber si tu prueba A/B tiene ganador",
+      "steps": [
+        { "name": "Indica visitantes y conversiones de A y de B. ", "text": "Usa los totales de todo el período de la prueba. La conversión es la acción que mides: una compra, un registro, un clic en el botón." },
+        { "name": "Elige el nivel de confianza. ", "text": "95% es el estándar del mercado: acepta 1 posibilidad en 20 de ver una diferencia que en realidad no existe." },
+        { "name": "Elige bilateral o unilateral. ", "text": "Bilateral pregunta si hay diferencia en cualquier dirección y es lo más seguro. Unilateral solo pregunta si B es mejor y debe decidirse antes de mirar los datos." },
+        { "name": "Lee el valor p y el intervalo. ", "text": "Si el valor p es menor que 1 menos la confianza (0,05 para 95%), la diferencia es significativa. El intervalo muestra el tamaño probable de la mejora; si incluye cero, el resultado no es concluyente." },
+        { "name": "Planifica la próxima prueba en la pestaña de muestra. ", "text": "Indica la tasa actual, la mejora más pequeña que valdría la pena detectar (MDE) y la potencia. La herramienta devuelve cuántos visitantes necesita cada versión." }
+      ]
+    },
+    "formula": {
+      "title": "Cómo funciona el cálculo",
+      "paragraphs": [
+        "La significancia usa la prueba z de dos proporciones. Suponiendo que A y B convierten igual, se estima una única tasa agrupada y se mide la distancia entre las dos tasas en errores estándar. El valor p es la probabilidad de ver una distancia al menos así de grande solo por azar.",
+        "El intervalo de confianza de la diferencia usa el error estándar sin agrupar, la misma convención del comando prtesti de Stata. La normal estándar se calcula con la función de error, sin tablas aproximadas.",
+        "El tamaño de muestra usa la fórmula clásica de Fleiss para dos proporciones, la misma de Stata (power twoproportions). Comprobado con el manual de Stata: tasas de 0,001 y 0,015 con 80% de potencia y 5% bilateral piden 635 visitantes por grupo."
+      ],
+      "items": [
+        { "label": "Tasas", "expr": "pA = conversiones A ÷ visitantes A; pB = conversiones B ÷ visitantes B" },
+        { "label": "Tasa agrupada", "expr": "p = (conversiones A + conversiones B) ÷ (visitantes A + visitantes B)" },
+        { "label": "Estadístico z", "expr": "z = (pB − pA) ÷ √( p × (1 − p) × (1/nA + 1/nB) )" },
+        { "label": "Valor p bilateral", "expr": "2 × P(Z ≥ |z|), con Z normal estándar" },
+        { "label": "Intervalo de confianza", "expr": "(pB − pA) ± zc × √( pA(1−pA)/nA + pB(1−pB)/nB )" },
+        { "label": "Muestra por grupo", "expr": "n = ( zα × √(2 p̄ (1−p̄)) + zβ × √(p1(1−p1) + p2(1−p2)) )² ÷ (p2 − p1)²" }
+      ]
+    },
+    "examples": [
+      { "title": "Diferencia significativa", "text": "A: 250 conversiones de 5.000 visitantes (5,00%). B: 310 de 5.000 (6,20%). La diferencia es de +1,20 puntos porcentuales, z = 2,61 y valor p = 0,0091. Con 95% de confianza, B ganó; la mejora probable está entre unos +0,3 y +2,1 puntos." },
+      { "title": "Parece mejor, pero es azar", "text": "A: 20 conversiones de 400 (5,00%). B: 26 de 400 (6,50%). B parece 30% mejor, pero el valor p es de aproximadamente 0,36. El intervalo incluye cero y la prueba no es concluyente: sigue reuniendo datos." },
+      { "title": "¿Cuánto tráfico necesito?", "text": "Con una tasa actual de 5% y el objetivo de detectar una mejora relativa de 20% (de 5% a 6%), con 95% de confianza y 80% de potencia, se necesitan unos 8.160 visitantes por versión, 16.320 en total. Con 1.000 visitantes al día, la prueba dura 17 días." }
+    ],
+    "faq": [
+      { "q": "¿Qué es la significancia estadística en una prueba A/B?", "a": "Es la evidencia de que la diferencia entre A y B no es azar. Con 95% de confianza solo se declara ganador cuando el valor p es menor que 0,05, es decir, cuando una diferencia tan grande ocurriría por suerte menos del 5% de las veces si las versiones fueran iguales." },
+      { "q": "¿Cuántos visitantes necesito para una prueba A/B?", "a": "Depende de la tasa actual y de la mejora más pequeña que quieres detectar. Cuanto menor la mejora, mayor la muestra: detectar la mitad del efecto exige unas cuatro veces más visitantes. Usa la pestaña de tamaño de muestra con tu tasa y tu MDE." },
+      { "q": "¿Qué significa un valor p menor que 0,05?", "a": "Significa que, si A y B convirtieran igual, verías una diferencia así de grande o mayor en menos del 5% de las pruebas. No es la probabilidad de que B sea mejor ni indica el tamaño de la mejora: para eso usa el intervalo de confianza." },
+      { "q": "¿Puedo parar la prueba en cuanto sea significativa?", "a": "No. Mirar el resultado cada día y parar en el primer valor p bajo infla mucho los falsos positivos. Define la muestra antes con la pestaña de tamaño de muestra y concluye solo cuando la alcances." },
+      { "q": "¿Qué son el MDE y la potencia estadística?", "a": "El MDE es el efecto mínimo detectable: la mejora más pequeña que justificaría adoptar la variante. La potencia es la probabilidad de que la prueba detecte esa mejora si existe; 80% es lo habitual. Más potencia o un MDE menor aumentan la muestra necesaria." },
+      { "q": "¿Prueba bilateral o unilateral?", "a": "Usa bilateral, salvo que solo importe una dirección y lo hayas decidido antes de ver los datos. La unilateral necesita menos muestra, pero no detecta que B empeoró." }
+    ]
+  }
+}

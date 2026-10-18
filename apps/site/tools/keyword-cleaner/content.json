@@ -1,0 +1,131 @@
+{
+  "pt-br": {
+    "intro": [
+      "Listas de palavras-chave vêm de planilhas, relatórios e ferramentas diferentes, e chegam sujas: repetidas, com maiúsculas e minúsculas misturadas, com símbolos que o Google Ads rejeita e com termos grandes demais. O limpador deixa tudo no padrão e ainda agrupa por termo, para você montar grupos de anúncios coerentes.",
+      "A segunda aba faz o caminho inverso: lê o relatório de termos de pesquisa, compara com as suas palavras-chave e sugere as palavras que estão trazendo cliques sem relação com o que você vende, prontas para virar negativas. Tudo roda no seu navegador."
+    ],
+    "howTo": {
+      "name": "Como limpar palavras-chave e gerar negativas",
+      "steps": [
+        { "name": "Cole a lista. ", "text": "Uma palavra-chave por linha, ou separadas por vírgula ou ponto e vírgula. Linhas vazias são ignoradas." },
+        { "name": "Escolha as opções de limpeza. ", "text": "Converter para minúsculas, remover acentos, remover símbolos que o Google rejeita, tratar a mesma ordem de palavras como repetida e remover o que passa do limite de tamanho." },
+        { "name": "Agrupe por termo, se quiser. ", "text": "Cada palavra-chave entra no grupo do termo mais frequente que ela contém, o que ajuda a criar grupos de anúncios temáticos." },
+        { "name": "Gere negativas na outra aba. ", "text": "Cole os termos de pesquisa do relatório do Google Ads e as suas palavras-chave. A ferramenta lista as palavras que não fazem parte das suas palavras-chave, da mais frequente para a menos frequente." },
+        { "name": "Revise, copie ou exporte. ", "text": "Escolha ampla, frase ou exata, revise a lista com atenção e copie ou exporte em CSV para aplicar na conta." }
+      ]
+    },
+    "formula": {
+      "title": "O que a limpeza faz",
+      "paragraphs": [
+        "A ordem é sempre a mesma: separar os itens, trocar caracteres de controle e símbolos proibidos por espaço, remover acentos e converter para minúsculas se escolhido, juntar espaços repetidos, descartar o que ficou vazio, descartar o que passa do limite e remover repetidas, mantendo a primeira ocorrência. Duas palavras-chave só são repetidas se forem iguais depois da normalização; “tênis” e “tenis” são diferentes, a menos que você peça para remover acentos.",
+        "O Google Ads aceita palavras-chave de até 80 caracteres e 10 palavras. A negativa sugerida é uma palavra dos termos de pesquisa que não aparece em nenhuma das suas palavras-chave (comparação sem acento e sem maiúscula), ignorando palavras de ligação como “de” e “para”. As negativas do Google não pegam plural, sinônimo nem variação próxima, então revise e inclua as formas que quiser bloquear."
+      ],
+      "items": [
+        { "label": "Limite de tamanho", "expr": "até 80 caracteres e 10 palavras por palavra-chave" },
+        { "label": "Repetida", "expr": "igual a outra depois de normalizar (e com palavras na mesma ordem, a menos que você peça para ignorar)" },
+        { "label": "Grupo por termo", "expr": "palavra mais frequente (3+ letras, sem palavras de ligação) entre as palavras-chave" },
+        { "label": "Negativa sugerida", "expr": "palavra dos termos de pesquisa que não está nas suas palavras-chave" },
+        { "label": "Ampla, frase e exata (negativas)", "expr": "termo, “termo” e [termo]" }
+      ]
+    },
+    "examples": [
+      { "title": "Lista suja", "text": "A lista “Tênis Azul”, “tênis azul”, “Tênis de corrida!”, “comprar tênis (barato)” e “azul tênis” fica com 4 itens: a segunda é repetida da primeira, a exclamação e os parênteses são removidos. Se você marcar “tratar a mesma ordem como repetida”, “azul tênis” também sai." },
+      { "title": "Termos de pesquisa que viram negativas", "text": "Com as palavras-chave “tênis azul” e “comprar tênis de corrida”, os termos “tênis azul grátis”, “tênis de corrida download” e “emprego fábrica de tênis” sugerem grátis (2 termos), download, emprego e fábrica. Você ainda precisa decidir quais fazem sentido para o seu negócio." },
+      { "title": "Quando não negativar", "text": "Quem vende cursos não deve negativar “curso”, e quem vende produto usado não deve negativar “usado”. A lista de negativas comuns é só ponto de partida: leia antes de aplicar." }
+    ],
+    "faq": [
+      { "q": "Como remover palavras-chave duplicadas?", "a": "Cole a lista no limpador. Ele normaliza cada item (minúsculas, espaços e símbolos) e mantém só a primeira ocorrência de cada um. Marque “tratar a mesma ordem como repetida” para que “tênis azul” e “azul tênis” contem como uma só." },
+      { "q": "O que são palavras-chave negativas no Google Ads?", "a": "São termos que impedem o anúncio de aparecer em buscas que contenham aquela palavra. Servem para cortar cliques sem intenção de compra, como “grátis”, “emprego” ou “download”, e economizam verba." },
+      { "q": "Como achar boas palavras-chave negativas?", "a": "Olhe o relatório de termos de pesquisa, que mostra o que as pessoas realmente digitaram antes de clicar. Palavras que aparecem nesses termos e não têm relação com a sua oferta são candidatas. A aba de negativas faz essa triagem e ordena por frequência." },
+      { "q": "A negativa pega plural e sinônimo?", "a": "Não. As negativas do Google não correspondem a variações próximas, plurais nem sinônimos. Se quiser bloquear “curso” e “cursos”, inclua as duas." },
+      { "q": "Quais caracteres o Google Ads não aceita em palavras-chave?", "a": "Símbolos como ! @ % ^ ( ) = { } ; ~ ` < > ? \\ | e vírgula são rejeitados na criação de palavras-chave. A opção de remover símbolos troca esses caracteres por espaço antes de deduplicar." },
+      { "q": "Para que serve agrupar por termo?", "a": "Palavras-chave que compartilham um termo costumam servir ao mesmo anúncio e à mesma página. Agrupar por termo é um bom ponto de partida para criar grupos de anúncios temáticos, com anúncios mais relevantes e Índice de Qualidade melhor." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "Keyword lists come from different spreadsheets, reports and tools, and arrive messy: duplicates, mixed upper and lower case, symbols Google Ads rejects and terms that are too long. The cleaner puts everything on a standard and also groups by term, so you can build coherent ad groups.",
+      "The second tab goes the other way: it reads your search terms report, compares it with your keywords and suggests the words bringing clicks unrelated to what you sell, ready to become negatives. Everything runs in your browser."
+    ],
+    "howTo": {
+      "name": "How to clean keywords and generate negatives",
+      "steps": [
+        { "name": "Paste the list. ", "text": "One keyword per line, or separated by commas or semicolons. Empty lines are ignored." },
+        { "name": "Pick the cleaning options. ", "text": "Convert to lowercase, remove accents, remove symbols Google rejects, treat the same word order as a duplicate and remove anything over the size limit." },
+        { "name": "Group by term if you like. ", "text": "Each keyword goes into the group of the most frequent term it contains, which helps you build themed ad groups." },
+        { "name": "Generate negatives in the other tab. ", "text": "Paste the search terms from your Google Ads report and your keywords. The tool lists the words that are not part of your keywords, from most to least frequent." },
+        { "name": "Review, copy or export. ", "text": "Choose broad, phrase or exact, review the list carefully and copy or export CSV to apply to your account." }
+      ]
+    },
+    "formula": {
+      "title": "What the cleanup does",
+      "paragraphs": [
+        "The order is always the same: split the items, replace control characters and forbidden symbols with a space, remove accents and lowercase if chosen, collapse repeated spaces, drop what ended up empty, drop what exceeds the limit and remove duplicates, keeping the first occurrence. Two keywords are duplicates only if they are equal after normalization; “café” and “cafe” differ unless you ask to remove accents.",
+        "Google Ads accepts keywords of up to 80 characters and 10 words. A suggested negative is a word from the search terms that appears in none of your keywords (compared without accents or case), ignoring link words such as “of” and “for”. Google's negatives do not match plurals, synonyms or close variants, so review and include the forms you want to block."
+      ],
+      "items": [
+        { "label": "Size limit", "expr": "up to 80 characters and 10 words per keyword" },
+        { "label": "Duplicate", "expr": "equal to another after normalizing (and with words in the same order, unless you ask to ignore it)" },
+        { "label": "Group by term", "expr": "most frequent word (3+ letters, no link words) among the keywords" },
+        { "label": "Suggested negative", "expr": "a word in the search terms that is not in your keywords" },
+        { "label": "Broad, phrase and exact (negatives)", "expr": "term, “term” and [term]" }
+      ]
+    },
+    "examples": [
+      { "title": "A messy list", "text": "The list “Blue Shoes”, “blue shoes”, “Running shoes!”, “buy shoes (cheap)” and “shoes blue” ends up with 4 items: the second duplicates the first, and the exclamation mark and parentheses are removed. If you tick “treat the same order as a duplicate”, “shoes blue” goes too." },
+      { "title": "Search terms that become negatives", "text": "With the keywords “blue shoes” and “buy running shoes”, the terms “blue shoes free”, “running shoes download” and “running shoes factory jobs” suggest free (2 terms), download, factory and jobs. You still have to decide which make sense for your business." },
+      { "title": "When not to negate", "text": "Whoever sells courses should not negate “course”, and whoever sells used goods should not negate “used”. The common negatives list is only a starting point: read it before applying." }
+    ],
+    "faq": [
+      { "q": "How do I remove duplicate keywords?", "a": "Paste the list into the cleaner. It normalizes each item (lowercase, spaces and symbols) and keeps only the first occurrence of each. Tick “treat the same order as a duplicate” so “blue shoes” and “shoes blue” count as one." },
+      { "q": "What are negative keywords in Google Ads?", "a": "They are terms that stop your ad from showing on searches containing that word. They cut clicks with no buying intent, such as “free”, “jobs” or “download”, and save budget." },
+      { "q": "How do I find good negative keywords?", "a": "Look at the search terms report, which shows what people actually typed before clicking. Words that appear in those terms and have nothing to do with your offer are candidates. The negatives tab does that triage and sorts by frequency." },
+      { "q": "Does a negative match plurals and synonyms?", "a": "No. Google's negatives do not match close variants, plurals or synonyms. If you want to block “course” and “courses”, include both." },
+      { "q": "Which characters does Google Ads not accept in keywords?", "a": "Symbols such as ! @ % ^ ( ) = { } ; ~ ` < > ? \\ | and the comma are rejected when creating keywords. The remove-symbols option replaces those characters with a space before deduplicating." },
+      { "q": "What is grouping by term for?", "a": "Keywords that share a term usually suit the same ad and the same page. Grouping by term is a good starting point for themed ad groups, with more relevant ads and a better Quality Score." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Las listas de palabras clave vienen de hojas de cálculo, informes y herramientas distintas, y llegan sucias: repetidas, con mayúsculas y minúsculas mezcladas, con símbolos que Google Ads rechaza y con términos demasiado largos. El limpiador lo deja todo en un estándar y además agrupa por término, para que armes grupos de anuncios coherentes.",
+      "La segunda pestaña hace el camino inverso: lee el informe de términos de búsqueda, lo compara con tus palabras clave y sugiere las palabras que traen clics sin relación con lo que vendes, listas para volverse negativas. Todo corre en tu navegador."
+    ],
+    "howTo": {
+      "name": "Cómo limpiar palabras clave y generar negativas",
+      "steps": [
+        { "name": "Pega la lista. ", "text": "Una palabra clave por línea, o separadas por comas o punto y coma. Las líneas vacías se ignoran." },
+        { "name": "Elige las opciones de limpieza. ", "text": "Convertir a minúsculas, quitar acentos, quitar símbolos que Google rechaza, tratar el mismo orden de palabras como repetido y quitar lo que pase del límite de tamaño." },
+        { "name": "Agrupa por término, si quieres. ", "text": "Cada palabra clave entra en el grupo del término más frecuente que contiene, lo que ayuda a crear grupos de anuncios temáticos." },
+        { "name": "Genera negativas en la otra pestaña. ", "text": "Pega los términos de búsqueda del informe de Google Ads y tus palabras clave. La herramienta lista las palabras que no forman parte de tus palabras clave, de la más a la menos frecuente." },
+        { "name": "Revisa, copia o exporta. ", "text": "Elige amplia, frase o exacta, revisa la lista con atención y copia o exporta en CSV para aplicarla a la cuenta." }
+      ]
+    },
+    "formula": {
+      "title": "Qué hace la limpieza",
+      "paragraphs": [
+        "El orden es siempre el mismo: separar los elementos, cambiar caracteres de control y símbolos prohibidos por un espacio, quitar acentos y pasar a minúsculas si se eligió, juntar espacios repetidos, descartar lo que quedó vacío, descartar lo que pase del límite y quitar repetidas, conservando la primera aparición. Dos palabras clave solo son repetidas si son iguales tras la normalización; “café” y “cafe” son distintas, salvo que pidas quitar acentos.",
+        "Google Ads acepta palabras clave de hasta 80 caracteres y 10 palabras. La negativa sugerida es una palabra de los términos de búsqueda que no aparece en ninguna de tus palabras clave (comparación sin acentos ni mayúsculas), ignorando palabras de enlace como “de” y “para”. Las negativas de Google no cubren plurales, sinónimos ni variantes cercanas, así que revisa e incluye las formas que quieras bloquear."
+      ],
+      "items": [
+        { "label": "Límite de tamaño", "expr": "hasta 80 caracteres y 10 palabras por palabra clave" },
+        { "label": "Repetida", "expr": "igual a otra tras normalizar (y con las palabras en el mismo orden, salvo que pidas ignorarlo)" },
+        { "label": "Grupo por término", "expr": "palabra más frecuente (3+ letras, sin palabras de enlace) entre las palabras clave" },
+        { "label": "Negativa sugerida", "expr": "palabra de los términos de búsqueda que no está en tus palabras clave" },
+        { "label": "Amplia, frase y exacta (negativas)", "expr": "término, “término” y [término]" }
+      ]
+    },
+    "examples": [
+      { "title": "Una lista sucia", "text": "La lista “Zapatillas Azules”, “zapatillas azules”, “Zapatillas de running!”, “comprar zapatillas (baratas)” y “azules zapatillas” queda con 4 elementos: la segunda repite la primera y se quitan el signo de exclamación y los paréntesis. Si marcas “tratar el mismo orden como repetido”, “azules zapatillas” también sale." },
+      { "title": "Términos de búsqueda que se vuelven negativas", "text": "Con las palabras clave “zapatillas azules” y “comprar zapatillas de running”, los términos “zapatillas azules gratis”, “zapatillas de running descargar” y “empleo fábrica de zapatillas” sugieren gratis (2 términos), descargar, empleo y fábrica. Aún debes decidir cuáles tienen sentido para tu negocio." },
+      { "title": "Cuándo no negativizar", "text": "Quien vende cursos no debe negativizar “curso”, y quien vende productos usados no debe negativizar “usado”. La lista de negativas comunes es solo un punto de partida: léela antes de aplicarla." }
+    ],
+    "faq": [
+      { "q": "¿Cómo quito palabras clave duplicadas?", "a": "Pega la lista en el limpiador. Normaliza cada elemento (minúsculas, espacios y símbolos) y conserva solo la primera aparición de cada uno. Marca “tratar el mismo orden como repetido” para que “zapatillas azules” y “azules zapatillas” cuenten como una." },
+      { "q": "¿Qué son las palabras clave negativas en Google Ads?", "a": "Son términos que impiden que el anuncio aparezca en búsquedas que contengan esa palabra. Sirven para cortar clics sin intención de compra, como “gratis”, “empleo” o “descargar”, y ahorran presupuesto." },
+      { "q": "¿Cómo encuentro buenas palabras clave negativas?", "a": "Mira el informe de términos de búsqueda, que muestra lo que la gente escribió realmente antes de hacer clic. Las palabras que aparecen en esos términos y no tienen relación con tu oferta son candidatas. La pestaña de negativas hace esa selección y ordena por frecuencia." },
+      { "q": "¿La negativa cubre plurales y sinónimos?", "a": "No. Las negativas de Google no coinciden con variantes cercanas, plurales ni sinónimos. Si quieres bloquear “curso” y “cursos”, incluye las dos." },
+      { "q": "¿Qué caracteres no acepta Google Ads en palabras clave?", "a": "Símbolos como ! @ % ^ ( ) = { } ; ~ ` < > ? \\ | y la coma se rechazan al crear palabras clave. La opción de quitar símbolos cambia esos caracteres por un espacio antes de deduplicar." },
+      { "q": "¿Para qué sirve agrupar por término?", "a": "Las palabras clave que comparten un término suelen servir al mismo anuncio y a la misma página. Agrupar por término es un buen punto de partida para grupos de anuncios temáticos, con anuncios más relevantes y mejor Nivel de Calidad." }
+    ]
+  }
+}

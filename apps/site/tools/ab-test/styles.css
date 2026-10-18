@@ -1,0 +1,7 @@
+/* Teste A/B: fieldset sem borda nem largura mínima do navegador (evita rolagem a 360px). */
+.tool-ui fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}

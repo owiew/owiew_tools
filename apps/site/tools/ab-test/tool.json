@@ -1,0 +1,33 @@
+{
+  "id": "ab-test",
+  "category": "calculators",
+  "icon": "flask-conical",
+  "order": 80,
+  "related": ["roas-calculator", "cpa-ltv", "funnel-budget", "utm-builder"],
+  "i18n": {
+    "pt-br": {
+      "slug": "teste-ab",
+      "name": "Teste A/B",
+      "title": "Calculadora de teste A/B: significância e tamanho de amostra",
+      "description": "Veja se o teste A/B tem vencedor (teste z de duas proporções, p-valor e intervalo de confiança) e quantos visitantes você precisa por MDE e poder. Grátis.",
+      "summary": "Descubra se a diferença entre A e B é real ou sorte, com p-valor e intervalo de confiança, e calcule quantos visitantes o teste precisa.",
+      "keywords": ["teste ab", "calculadora de teste ab", "significância estatística", "tamanho de amostra", "teste z duas proporções", "mde", "poder estatístico", "intervalo de confiança"]
+    },
+    "en": {
+      "slug": "ab-test-calculator",
+      "name": "A/B test calculator",
+      "title": "A/B test calculator: significance and sample size",
+      "description": "Check whether your A/B test has a winner (two-proportion z-test, p-value and confidence interval) and how many visitors you need for your MDE and power. Free.",
+      "summary": "Find out whether the gap between A and B is real or luck, with p-value and confidence interval, and work out how many visitors the test needs.",
+      "keywords": ["ab test calculator", "ab test significance", "statistical significance", "sample size calculator", "two proportion z-test", "mde", "statistical power", "confidence interval"]
+    },
+    "es": {
+      "slug": "prueba-ab",
+      "name": "Prueba A/B",
+      "title": "Calculadora de prueba A/B: significancia y tamaño de muestra",
+      "description": "Comprueba si tu prueba A/B tiene ganador (prueba z de dos proporciones, valor p e intervalo de confianza) y cuántos visitantes necesitas según MDE y potencia. Gratis.",
+      "summary": "Descubre si la diferencia entre A y B es real o suerte, con valor p e intervalo de confianza, y calcula cuántos visitantes necesita la prueba.",
+      "keywords": ["prueba ab", "calculadora de prueba ab", "significancia estadística", "tamaño de muestra", "prueba z dos proporciones", "mde", "potencia estadística", "intervalo de confianza"]
+    }
+  }
+}

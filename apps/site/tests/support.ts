@@ -20,8 +20,13 @@ export function toolPaths(): string[] {
   return sitemapPaths().filter((p) => p.split("/").filter(Boolean).length === 3);
 }
 
-/** Categorias sem ferramenta (fora do sitemap, noindex) que também precisam ser acessíveis. */
-export const EMPTY_CATEGORY_PATHS = ["/pt-br/anuncios/", "/en/ads/", "/es/anuncios/"];
+/**
+ * Categorias sem ferramenta (fora do sitemap, noindex) que também precisam ser acessíveis.
+ *
+ * Só entram as que de fato ainda não estão no sitemap: assim, quando a categoria
+ * recebe a primeira ferramenta, ela passa a ser testada pelo sitemap e não duplica o teste.
+ */
+export const EMPTY_CATEGORY_PATHS = ["/pt-br/utilidades/", "/en/utilities/", "/es/utilidades/"].filter((p) => !sitemapPaths().includes(p));
 
 /**
  * Procura vestígios de template quebrado no texto visível de uma página.
