@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.npm-cache/
+.tmp/
+.lighthouseci/
+coverage/
+playwright-report/
+test-results/
+apps/site/public/og/
+*.log
+.DS_Store

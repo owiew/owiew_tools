@@ -1,0 +1,35 @@
+{
+  "name": "owiew-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ferramentas gratuitas para tráfego pago e links de campanha. Roda 100% no navegador.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck -w @owiew/core && npm run check -w @owiew/site",
+    "test": "npm run test -w @owiew/core",
+    "test:coverage": "npm run test:coverage -w @owiew/core",
+    "build": "npm run build -w @owiew/site",
+    "check:tools": "node scripts/check-tools.mjs",
+    "check:emoji": "node scripts/check-emoji.mjs",
+    "check:sitemap": "node scripts/check-sitemap.mjs",
+    "test:e2e": "npm run test:e2e -w @owiew/site",
+    "lhci": "npm run lhci -w @owiew/site",
+    "verify": "npm run lint && npm run typecheck && npm run test:coverage && npm run check:tools && npm run build && npm run check:emoji && npm run check:sitemap"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.19.2",
+    "eslint": "10.13.0",
+    "eslint-plugin-astro": "3.2.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2"
+  }
+}
