@@ -1,14 +1,31 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
-import { CTR_BP, ctrBp, estimateClicks, estimateOrganic, parseKeywordRows } from "./index";
+import { CTR_BP, CTR_COMBINED_BP, CTR_CURVES, CTR_NO_AI_BP, ctrBp, estimateClicks, estimateOrganic, parseKeywordRows } from "./index";
 
 describe("curva de CTR", () => {
   it("traz os dez valores publicados pela fonte (First Page Sage 2026, CTR combinado)", () => {
     expect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((p) => ctrBp(p))).toEqual([710, 300, 170, 110, 70, 60, 40, 30, 20, 20]);
     expect(CTR_BP).toHaveLength(10);
   });
-  it("nunca cresce ao descer de posição", () => {
-    for (let i = 1; i < CTR_BP.length; i++) expect(CTR_BP[i]!).toBeLessThanOrEqual(CTR_BP[i - 1]!);
+  it("traz a curva sem resposta de IA (First Page Sage 2026) e o padrão é a combinada", () => {
+    expect([...CTR_NO_AI_BP]).toEqual([2260, 1020, 580, 370, 250, 180, 130, 90, 70, 50]);
+    expect(CTR_CURVES.combined).toBe(CTR_COMBINED_BP);
+    expect(CTR_CURVES.noAi).toBe(CTR_NO_AI_BP);
+    expect(CTR_BP).toBe(CTR_COMBINED_BP);
+    expect(CTR_NO_AI_BP).toHaveLength(CTR_COMBINED_BP.length);
+    for (let i = 0; i < CTR_BP.length; i++) expect(CTR_NO_AI_BP[i]!).toBeGreaterThan(CTR_COMBINED_BP[i]!);
+  });
+  it("nunca cresce ao descer de posição, em nenhuma das duas curvas", () => {
+    for (const curve of [CTR_COMBINED_BP, CTR_NO_AI_BP]) {
+      for (let i = 1; i < curve.length; i++) expect(curve[i]!).toBeLessThanOrEqual(curve[i - 1]!);
+    }
+  });
+  it("estimateClicks e estimateOrganic usam a curva pedida (sem resposta de IA)", () => {
+    expect(estimateClicks(10_000, 1, CTR_NO_AI_BP)).toBe(2260);
+    expect(estimateClicks(1000, 3, CTR_NO_AI_BP)).toBe(58);
+    expect(ctrBp(11, CTR_NO_AI_BP)).toBe(0);
+    const r = estimateOrganic([{ keyword: "a", volume: 1000, position: 3 }], { kind: "target", position: 1 }, CTR_NO_AI_BP);
+    expect(r.ok && [r.value.totalCurrent, r.value.totalNew, r.value.totalGain]).toEqual([58, 226, 168]);
   });
   it("posição fora da primeira página ou inválida vale zero", () => {
     for (const p of [0, -1, 11, 100, 1.5, NaN, Infinity]) expect(ctrBp(p)).toBe(0);

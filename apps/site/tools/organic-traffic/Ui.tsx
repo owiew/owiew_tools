@@ -1,5 +1,5 @@
 import { formatBp, formatNumber } from "@owiew/core";
-import { CTR_BP, type Scenario, estimateOrganic, parseKeywordRows } from "@owiew/core/organic";
+import { CTR_CURVES, type CtrScenarioId, type Scenario, estimateOrganic, parseKeywordRows } from "@owiew/core/organic";
 import { useMemo, useState } from "preact/hooks";
 import { Notice } from "../../src/components/ui/Notice";
 import { type Lang } from "../../src/i18n/locales";
@@ -20,19 +20,22 @@ function toInt(text: string): number {
  *
  * Onde: montada por Page.astro. Entrada: idioma. Fluxo: texto das palavras-chave
  * -> `parseKeywordRows` (erro por linha) -> `estimateOrganic` (volume x CTR) ->
- * tabela, total e curva de CTR com a fonte. Sem rede; nada é salvo.
+ * tabela, total e curva de CTR com a fonte. A curva (combinada ou sem resposta de IA)
+ * vem de um radio group e entra em `estimateOrganic` como argumento. Sem rede; nada é salvo.
  */
 export default function OrganicTraffic({ lang }: { lang: Lang }) {
   const s = strings(lang);
   const [text, setText] = useState(s.exampleRows);
   const [kind, setKind] = useState<"target" | "rise">("target");
   const [value, setValue] = useState("1");
+  const [curveId, setCurveId] = useState<CtrScenarioId>("combined");
+  const curve = CTR_CURVES[curveId];
 
   const parsed = useMemo(() => parseKeywordRows(text, lang), [text, lang]);
   const estimate = useMemo(() => {
     const scenario: Scenario = kind === "target" ? { kind, position: toInt(value) } : { kind, steps: toInt(value) };
-    return estimateOrganic(parsed.rows, scenario);
-  }, [parsed, kind, value]);
+    return estimateOrganic(parsed.rows, scenario, curve);
+  }, [parsed, kind, value, curve]);
   const n = (v: number): string => formatNumber(v, 0, lang);
   const scenarioError = !estimate.ok && estimate.error === "invalid-scenario" ? s.errors["invalid-scenario"] : undefined;
 
@@ -66,6 +69,15 @@ export default function OrganicTraffic({ lang }: { lang: Lang }) {
           <span class="hint" id="org-value-hint">{s.valueHint}</span>
           {scenarioError && <span class="field-error" id="org-value-err">{scenarioError}</span>}
         </div>
+      </fieldset>
+
+      <fieldset class="stack" aria-describedby="org-curve-hint">
+        <legend>{s.curve}</legend>
+        <div class="seg">
+          <label class="check"><input type="radio" name="org-curve" value="combined" checked={curveId === "combined"} onChange={() => setCurveId("combined")} />{s.curveCombined}</label>
+          <label class="check"><input type="radio" name="org-curve" value="noAi" checked={curveId === "noAi"} onChange={() => setCurveId("noAi")} />{s.curveNoAi}</label>
+        </div>
+        <span class="hint" id="org-curve-hint">{s.curveHint}</span>
       </fieldset>
 
       <section class="output stack" aria-labelledby="org-result-title" aria-live="polite">
@@ -107,12 +119,12 @@ export default function OrganicTraffic({ lang }: { lang: Lang }) {
       </section>
 
       <section class="stack" aria-labelledby="org-ctr-title">
-        <h3 id="org-ctr-title">{s.ctrTitle}</h3>
+        <h3 id="org-ctr-title">{s.ctrTitle}: {curveId === "combined" ? s.curveCombined : s.curveNoAi}</h3>
         <div class="table-wrap" role="region" aria-label={s.ctrTitle} tabIndex={0}>
           <table>
             <thead><tr><th scope="col">{s.ctrCols.position}</th><th scope="col" class="num">{s.ctrCols.ctr}</th><th scope="col">{s.ctrCols.origin}</th></tr></thead>
             <tbody>
-              {CTR_BP.map((bp, i) => (
+              {curve.map((bp, i) => (
                 <tr><th scope="row">{i + 1}</th><td class="num">{formatBp(bp, lang)}</td><td>{s.measured}</td></tr>
               ))}
             </tbody>

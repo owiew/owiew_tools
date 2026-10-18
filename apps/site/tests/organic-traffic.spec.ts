@@ -42,6 +42,42 @@ test.describe("Estimador de tráfego orgânico", () => {
     expect(external).toEqual([]);
   });
 
+  test("alterna entre os dois cenários da First Page Sage por radio group acessível", async ({ page }) => {
+    await openHydrated(page, "/pt-br/utilidades/estimador-de-trafego-organico/");
+    const group = page.getByRole("group", { name: "Curva de CTR" });
+    const combined = group.getByRole("radio", { name: "Com resumos de IA (combinado)" });
+    const noAi = group.getByRole("radio", { name: "Sem resposta de IA" });
+    await expect(combined).toBeChecked();
+    await expect(noAi).not.toBeChecked();
+    await expect(group).toContainText("First Page Sage, 22/09/2026");
+    await expect(page.getByTestId("org-total-new")).toHaveText("1.207");
+    await expect(page.getByRole("cell", { name: "7,10%" })).toBeVisible();
+
+    // Teclado: seta troca o radio; sem resposta de IA = 22,6; 10,2; 5,8; 3,7; 2,5; 1,8; ...
+    await combined.focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(noAi).toBeChecked();
+    // 12.100 x 2,5% = 303 (pos. 5); 3.600 x 0,9% = 32 (pos. 8); 1.300 na 14 = 0
+    await expect(page.getByTestId("org-total-now")).toHaveText("335");
+    // posição 1 (22,6%): 2.735 + 814 + 294
+    await expect(page.getByTestId("org-total-new")).toHaveText("3.843");
+    await expect(page.getByRole("cell", { name: "22,60%" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Curva de CTR usada: Sem resposta de IA/ })).toBeVisible();
+
+    await combined.check();
+    await expect(page.getByTestId("org-total-new")).toHaveText("1.207");
+  });
+
+  test("en e es oferecem os dois cenários com rótulo traduzido", async ({ page }) => {
+    await openHydrated(page, "/en/utilities/organic-traffic-estimator/");
+    await page.getByRole("radio", { name: "Without an AI answer" }).check();
+    await expect(page.getByTestId("org-total-now")).toHaveText("335");
+    await openHydrated(page, "/es/utilidades/estimador-de-trafico-organico/");
+    await expect(page.getByRole("radio", { name: "Con resúmenes de IA (combinado)" })).toBeChecked();
+    await page.getByRole("radio", { name: "Sin respuesta de IA" }).check();
+    await expect(page.getByTestId("org-total-now")).toHaveText("335");
+  });
+
   test("erro por linha sem perder as linhas boas, e cenário inválido", async ({ page }) => {
     await openHydrated(page, "/pt-br/utilidades/estimador-de-trafego-organico/");
     await page.getByLabel("Palavras-chave, volume mensal e posição atual").fill("a;1.000;3\nb;abc;2\nc;50;0\nd;10");

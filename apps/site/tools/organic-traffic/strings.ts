@@ -19,6 +19,10 @@ export interface OrganicStrings {
   readonly tableLabel: string;
   readonly total: string;
   readonly summary: (now: string, next: string, gain: string) => string;
+  readonly curve: string;
+  readonly curveCombined: string;
+  readonly curveNoAi: string;
+  readonly curveHint: string;
   readonly ctrTitle: string;
   readonly ctrCols: { readonly position: string; readonly ctr: string; readonly origin: string };
   readonly measured: string;
@@ -44,10 +48,14 @@ const pt: OrganicStrings = {
   tableLabel: "Cliques estimados por palavra-chave",
   total: "Total",
   summary: (now, next, gain) => `Hoje: ${now} cliques por mês. No cenário: ${next}. Ganho estimado: ${gain} cliques por mês.`,
+  curve: "Curva de CTR",
+  curveCombined: "Com resumos de IA (combinado)",
+  curveNoAi: "Sem resposta de IA",
+  curveHint: "Combinado: média das buscas com e sem resumo de IA no topo da página, a curva padrão para prever tráfego hoje. Sem resposta de IA: só as buscas em que o Google não mostra resumo de IA, com CTR bem maior. Fonte: First Page Sage, 22/09/2026.",
   ctrTitle: "Curva de CTR usada",
   ctrCols: { position: "Posição", ctr: "CTR", origin: "Origem" },
   measured: "Publicado (First Page Sage, 2026)",
-  ctrSource: "Fonte: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", coluna CTR combinado, edição de 22/09/2026 (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). Posição 11 em diante vale 0%.",
+  ctrSource: "Fonte: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", colunas CTR combinado (padrão) e sem resposta de IA, edição de 22/09/2026 (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). Posição 11 em diante vale 0%.",
   lineError: (line, reason) => `Linha ${line}: ${reason}`,
   lineReasons: {
     columns: "use três colunas: palavra-chave; volume; posição.",
@@ -80,10 +88,14 @@ const en: OrganicStrings = {
   tableLabel: "Estimated clicks per keyword",
   total: "Total",
   summary: (now, next, gain) => `Today: ${now} clicks per month. In the scenario: ${next}. Estimated gain: ${gain} clicks per month.`,
+  curve: "CTR curve",
+  curveCombined: "With AI summaries (blended)",
+  curveNoAi: "Without an AI answer",
+  curveHint: "Blended: average of searches with and without an AI summary at the top of the page, the default curve for forecasting traffic today. Without an AI answer: only searches where Google shows no AI summary, with much higher CTR. Source: First Page Sage, September 22, 2026.",
   ctrTitle: "CTR curve used",
   ctrCols: { position: "Position", ctr: "CTR", origin: "Origin" },
   measured: "Published (First Page Sage, 2026)",
-  ctrSource: "Source: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", blended CTR column, September 22, 2026 edition (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). Position 11 onward counts as 0%.",
+  ctrSource: "Source: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", blended CTR (default) and no-AI-answer columns, September 22, 2026 edition (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). Position 11 onward counts as 0%.",
   lineError: (line, reason) => `Line ${line}: ${reason}`,
   lineReasons: {
     columns: "use three columns: keyword; volume; position.",
@@ -116,10 +128,14 @@ const es: OrganicStrings = {
   tableLabel: "Clics estimados por palabra clave",
   total: "Total",
   summary: (now, next, gain) => `Hoy: ${now} clics por mes. En el escenario: ${next}. Ganancia estimada: ${gain} clics por mes.`,
+  curve: "Curva de CTR",
+  curveCombined: "Con resúmenes de IA (combinado)",
+  curveNoAi: "Sin respuesta de IA",
+  curveHint: "Combinado: promedio de las búsquedas con y sin resumen de IA arriba en la página, la curva por defecto para pronosticar tráfico hoy. Sin respuesta de IA: solo las búsquedas en las que Google no muestra resumen de IA, con un CTR mucho mayor. Fuente: First Page Sage, 22/09/2026.",
   ctrTitle: "Curva de CTR usada",
   ctrCols: { position: "Posición", ctr: "CTR", origin: "Origen" },
   measured: "Publicado (First Page Sage, 2026)",
-  ctrSource: "Fuente: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", columna CTR combinado, edición del 22/09/2026 (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). La posición 11 en adelante vale 0%.",
+  ctrSource: "Fuente: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", columnas CTR combinado (por defecto) y sin respuesta de IA, edición del 22/09/2026 (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). La posición 11 en adelante vale 0%.",
   lineError: (line, reason) => `Línea ${line}: ${reason}`,
   lineReasons: {
     columns: "usa tres columnas: palabra clave; volumen; posición.",
