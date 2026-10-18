@@ -1,0 +1,134 @@
+{
+  "pt-br": {
+    "intro": [
+      "Montar uma conta de busca paga começa por uma lista grande de palavras-chave, e a maior parte dela é combinação: ação, produto, característica, cidade. Fazer isso à mão em planilha dá erro e leva horas. O combinador cruza até três listas, aplica os tipos de correspondência e entrega a lista pronta para colar no Google Ads ou no Editor.",
+      "Todo o processamento é local: suas listas não saem do navegador."
+    ],
+    "howTo": {
+      "name": "Como combinar listas de palavras-chave",
+      "steps": [
+        { "name": "Preencha as listas A, B e C. ", "text": "Escreva um termo por linha. Por exemplo: A com as ações (comprar, preço), B com os produtos e C com as características. A lista C é opcional." },
+        { "name": "Escolha as correspondências. ", "text": "Ampla, frase e exata podem ser geradas juntas. Cada combinação sai em cada tipo marcado." },
+        { "name": "Ajuste o limite de saída. ", "text": "O total de combinações é o produto do tamanho das listas vezes o número de tipos. O limite evita travar o navegador com listas enormes." },
+        { "name": "Confira os avisos. ", "text": "A ferramenta avisa quantas combinações passam de 80 caracteres ou 10 palavras, que o Google rejeita." },
+        { "name": "Copie ou exporte. ", "text": "Copie a lista para colar na plataforma ou exporte em CSV com o tipo de correspondência em coluna própria." }
+      ]
+    },
+    "formula": {
+      "title": "Como a combinação é calculada",
+      "paragraphs": [
+        "O número de combinações é o produto cartesiano das listas preenchidas, depois de normalizar e remover repetidos. A lista A é o laço mais externo: todas as combinações do primeiro termo de A saem antes das do segundo. Listas vazias são ignoradas, então A × B funciona sem C.",
+        "A sintaxe dos tipos de correspondência é a oficial do Google Ads: ampla é o termo puro, frase é o termo entre aspas e exata é o termo entre colchetes. A ampla modificada, com o sinal de +, foi descontinuada e não é gerada. Símbolos que o Google rejeita (como ! @ % ( ) = ; ?) são removidos dos termos."
+      ],
+      "items": [
+        { "label": "Total de combinações", "expr": "|A| × |B| × |C|" },
+        { "label": "Total de linhas", "expr": "|A| × |B| × |C| × número de tipos marcados" },
+        { "label": "Ampla", "expr": "comprar tênis azul" },
+        { "label": "Frase", "expr": "“comprar tênis azul”" },
+        { "label": "Exata", "expr": "[comprar tênis azul]" },
+        { "label": "Limites do Google por palavra-chave", "expr": "até 80 caracteres e 10 palavras" }
+      ]
+    },
+    "examples": [
+      { "title": "3 × 2 × 2 em três tipos", "text": "A com comprar, preço e orçamento; B com tênis e sapato; C com masculino e feminino. São 12 combinações, como “comprar tênis masculino”, e 36 linhas ao gerar ampla, frase e exata." },
+      { "title": "Lista que explode", "text": "Três listas de 100 termos dão 1.000.000 de combinações e 3.000.000 de linhas nos três tipos. A ferramenta mostra só até o limite escolhido e avisa o total. Reduza as listas ou agrupe por tema." },
+      { "title": "Termo com símbolo", "text": "O termo “tênis (azul)!” vira “tênis azul” antes de combinar, porque parênteses e exclamação não são aceitos em palavras-chave do Google Ads." }
+    ],
+    "faq": [
+      { "q": "Qual a diferença entre correspondência ampla, de frase e exata?", "a": "Na ampla, o anúncio pode aparecer para buscas relacionadas ao termo, mesmo sem as mesmas palavras. Na de frase (entre aspas), a busca precisa conter o sentido do termo na mesma ordem. Na exata (entre colchetes), só buscas com o mesmo significado do termo. Quanto mais exata, menor o alcance e maior o controle." },
+      { "q": "Como escrever palavra-chave em frase e exata no Google Ads?", "a": "Frase é o termo entre aspas, como “tênis azul”. Exata é o termo entre colchetes, como [tênis azul]. Ampla é o termo sem símbolos. Esta ferramenta aplica essa sintaxe sozinha." },
+      { "q": "E a correspondência ampla modificada (+termo)?", "a": "Foi descontinuada pelo Google e passou a se comportar como frase. Por isso o combinador não gera o sinal de +." },
+      { "q": "Quantas palavras-chave posso gerar?", "a": "A ferramenta aceita até 10.000 linhas por lista e até 100.000 linhas de saída. Na prática, listas enxutas por tema funcionam melhor que um produto cartesiano gigante, porque grupos de anúncios com palavras demais perdem relevância." },
+      { "q": "Qual o tamanho máximo de uma palavra-chave?", "a": "O Google Ads aceita palavras-chave de até 80 caracteres e 10 palavras. A ferramenta conta as combinações acima disso e avisa." },
+      { "q": "Meus dados são enviados para algum servidor?", "a": "Não. O cálculo roda inteiro no seu navegador. Nenhuma lista é enviada nem guardada." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "Building a paid search account starts with a big keyword list, and most of it is combinations: action, product, feature, city. Doing that by hand in a spreadsheet invites mistakes and takes hours. The combiner crosses up to three lists, applies the match types and hands you a list ready to paste into Google Ads or the Editor.",
+      "All processing is local: your lists never leave the browser."
+    ],
+    "howTo": {
+      "name": "How to combine keyword lists",
+      "steps": [
+        { "name": "Fill in lists A, B and C. ", "text": "Write one term per line. For example: A with actions (buy, price), B with products and C with features. List C is optional." },
+        { "name": "Choose the match types. ", "text": "Broad, phrase and exact can be generated together. Each combination comes out in each ticked type." },
+        { "name": "Set the output limit. ", "text": "The total number of combinations is the product of the list sizes times the number of types. The limit keeps huge lists from freezing the browser." },
+        { "name": "Check the warnings. ", "text": "The tool tells you how many combinations exceed 80 characters or 10 words, which Google rejects." },
+        { "name": "Copy or export. ", "text": "Copy the list to paste into the platform, or export CSV with the match type in its own column." }
+      ]
+    },
+    "formula": {
+      "title": "How the combination is computed",
+      "paragraphs": [
+        "The number of combinations is the Cartesian product of the filled lists, after normalizing and removing duplicates. List A is the outer loop: every combination of A's first term comes out before A's second. Empty lists are ignored, so A × B works without C.",
+        "Match type syntax is the official Google Ads one: broad is the plain term, phrase is the term in quotes and exact is the term in square brackets. Modified broad match, with the + sign, was retired and is not generated. Symbols Google rejects (such as ! @ % ( ) = ; ?) are removed from terms."
+      ],
+      "items": [
+        { "label": "Total combinations", "expr": "|A| × |B| × |C|" },
+        { "label": "Total lines", "expr": "|A| × |B| × |C| × number of ticked types" },
+        { "label": "Broad", "expr": "buy blue sneakers" },
+        { "label": "Phrase", "expr": "“buy blue sneakers”" },
+        { "label": "Exact", "expr": "[buy blue sneakers]" },
+        { "label": "Google limits per keyword", "expr": "up to 80 characters and 10 words" }
+      ]
+    },
+    "examples": [
+      { "title": "3 × 2 × 2 in three types", "text": "A with buy, price and quote; B with sneakers and shoes; C with men and women. That is 12 combinations, such as “buy sneakers men”, and 36 lines when generating broad, phrase and exact." },
+      { "title": "A list that explodes", "text": "Three lists of 100 terms make 1,000,000 combinations and 3,000,000 lines in all three types. The tool shows only up to the chosen limit and tells you the total. Shrink the lists or group by theme." },
+      { "title": "A term with a symbol", "text": "The term “sneakers (blue)!” becomes “sneakers blue” before combining, because parentheses and exclamation marks are not accepted in Google Ads keywords." }
+    ],
+    "faq": [
+      { "q": "What is the difference between broad, phrase and exact match?", "a": "With broad match, your ad can show for searches related to the term, even without the same words. With phrase match (in quotes), the search must include the meaning of the term in the same order. With exact match (in brackets), only searches with the same meaning as the term. The more exact, the smaller the reach and the greater the control." },
+      { "q": "How do I write phrase and exact match keywords in Google Ads?", "a": "Phrase is the term in quotes, like “blue sneakers”. Exact is the term in square brackets, like [blue sneakers]. Broad is the term with no symbols. This tool applies the syntax for you." },
+      { "q": "What about modified broad match (+term)?", "a": "Google retired it and it now behaves as phrase match. That is why the combiner does not output the + sign." },
+      { "q": "How many keywords can I generate?", "a": "The tool accepts up to 10,000 lines per list and up to 100,000 output lines. In practice, lean lists per theme work better than a giant Cartesian product, because ad groups with too many words lose relevance." },
+      { "q": "What is the maximum keyword length?", "a": "Google Ads accepts keywords of up to 80 characters and 10 words. The tool counts combinations above that and warns you." },
+      { "q": "Is my data sent to any server?", "a": "No. The calculation runs entirely in your browser. No list is sent or stored." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Armar una cuenta de búsqueda paga empieza por una lista grande de palabras clave, y la mayor parte son combinaciones: acción, producto, característica, ciudad. Hacerlo a mano en una hoja de cálculo genera errores y lleva horas. El combinador cruza hasta tres listas, aplica los tipos de concordancia y te entrega la lista lista para pegar en Google Ads o en el Editor.",
+      "Todo el procesamiento es local: tus listas no salen del navegador."
+    ],
+    "howTo": {
+      "name": "Cómo combinar listas de palabras clave",
+      "steps": [
+        { "name": "Completa las listas A, B y C. ", "text": "Escribe un término por línea. Por ejemplo: A con las acciones (comprar, precio), B con los productos y C con las características. La lista C es opcional." },
+        { "name": "Elige las concordancias. ", "text": "Amplia, frase y exacta pueden generarse juntas. Cada combinación sale en cada tipo marcado." },
+        { "name": "Ajusta el límite de salida. ", "text": "El total de combinaciones es el producto del tamaño de las listas por el número de tipos. El límite evita bloquear el navegador con listas enormes." },
+        { "name": "Revisa los avisos. ", "text": "La herramienta avisa cuántas combinaciones pasan de 80 caracteres o 10 palabras, que Google rechaza." },
+        { "name": "Copia o exporta. ", "text": "Copia la lista para pegarla en la plataforma o exporta en CSV con el tipo de concordancia en su propia columna." }
+      ]
+    },
+    "formula": {
+      "title": "Cómo se calcula la combinación",
+      "paragraphs": [
+        "El número de combinaciones es el producto cartesiano de las listas completadas, después de normalizar y quitar repetidos. La lista A es el ciclo externo: todas las combinaciones del primer término de A salen antes que las del segundo. Las listas vacías se ignoran, así que A × B funciona sin C.",
+        "La sintaxis de los tipos de concordancia es la oficial de Google Ads: amplia es el término sin símbolos, frase es el término entre comillas y exacta es el término entre corchetes. La concordancia amplia modificada, con el signo +, se descontinuó y no se genera. Los símbolos que Google rechaza (como ! @ % ( ) = ; ?) se quitan de los términos."
+      ],
+      "items": [
+        { "label": "Total de combinaciones", "expr": "|A| × |B| × |C|" },
+        { "label": "Total de líneas", "expr": "|A| × |B| × |C| × número de tipos marcados" },
+        { "label": "Amplia", "expr": "comprar zapatillas azules" },
+        { "label": "Frase", "expr": "“comprar zapatillas azules”" },
+        { "label": "Exacta", "expr": "[comprar zapatillas azules]" },
+        { "label": "Límites de Google por palabra clave", "expr": "hasta 80 caracteres y 10 palabras" }
+      ]
+    },
+    "examples": [
+      { "title": "3 × 2 × 2 en tres tipos", "text": "A con comprar, precio y presupuesto; B con zapatillas y zapatos; C con hombre y mujer. Son 12 combinaciones, como “comprar zapatillas hombre”, y 36 líneas al generar amplia, frase y exacta." },
+      { "title": "Una lista que explota", "text": "Tres listas de 100 términos dan 1.000.000 de combinaciones y 3.000.000 de líneas en los tres tipos. La herramienta muestra solo hasta el límite elegido y te avisa el total. Reduce las listas o agrupa por tema." },
+      { "title": "Un término con símbolo", "text": "El término “zapatillas (azules)!” pasa a “zapatillas azules” antes de combinar, porque los paréntesis y el signo de exclamación no se aceptan en palabras clave de Google Ads." }
+    ],
+    "faq": [
+      { "q": "¿Cuál es la diferencia entre concordancia amplia, de frase y exacta?", "a": "En la amplia, tu anuncio puede aparecer en búsquedas relacionadas con el término, aunque no tengan las mismas palabras. En la de frase (entre comillas), la búsqueda debe incluir el sentido del término en el mismo orden. En la exacta (entre corchetes), solo búsquedas con el mismo significado del término. Cuanto más exacta, menor el alcance y mayor el control." },
+      { "q": "¿Cómo escribo palabras clave de frase y exacta en Google Ads?", "a": "Frase es el término entre comillas, como “zapatillas azules”. Exacta es el término entre corchetes, como [zapatillas azules]. Amplia es el término sin símbolos. Esta herramienta aplica la sintaxis por ti." },
+      { "q": "¿Y la concordancia amplia modificada (+término)?", "a": "Google la descontinuó y ahora se comporta como frase. Por eso el combinador no genera el signo +." },
+      { "q": "¿Cuántas palabras clave puedo generar?", "a": "La herramienta acepta hasta 10.000 líneas por lista y hasta 100.000 líneas de salida. En la práctica, las listas acotadas por tema funcionan mejor que un producto cartesiano gigante, porque los grupos de anuncios con demasiadas palabras pierden relevancia." },
+      { "q": "¿Cuál es el tamaño máximo de una palabra clave?", "a": "Google Ads acepta palabras clave de hasta 80 caracteres y 10 palabras. La herramienta cuenta las combinaciones que pasan de eso y te avisa." },
+      { "q": "¿Mis datos se envían a algún servidor?", "a": "No. El cálculo corre por completo en tu navegador. Ninguna lista se envía ni se guarda." }
+    ]
+  }
+}

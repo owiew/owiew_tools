@@ -1,0 +1,33 @@
+{
+  "id": "keyword-combiner",
+  "category": "keywords",
+  "icon": "combine",
+  "order": 100,
+  "related": ["keyword-cleaner", "ad-preview", "utm-builder"],
+  "i18n": {
+    "pt-br": {
+      "slug": "combinador-de-palavras-chave",
+      "name": "Combinador de palavras-chave",
+      "title": "Combinador de palavras-chave: listas A×B×C em ampla, frase e exata",
+      "description": "Combine listas de termos (A × B × C) e gere palavras-chave em correspondência ampla, de frase e exata para o Google Ads. Exporta CSV. Grátis e local.",
+      "summary": "Cruze listas de termos e gere todas as combinações em ampla, frase e exata, com limite de saída e aviso de palavras-chave fora do limite do Google.",
+      "keywords": ["combinador de palavras-chave", "gerador de palavras-chave", "correspondência ampla frase exata", "palavras-chave google ads", "mesclar palavras-chave", "keyword merge"]
+    },
+    "en": {
+      "slug": "keyword-combiner",
+      "name": "Keyword combiner",
+      "title": "Keyword combiner: A×B×C lists in broad, phrase and exact match",
+      "description": "Combine term lists (A × B × C) and generate Google Ads keywords in broad, phrase and exact match. Exports CSV. Free, and it runs in your browser.",
+      "summary": "Cross term lists and generate every combination in broad, phrase and exact match, with an output limit and a warning for keywords over Google's limit.",
+      "keywords": ["keyword combiner", "keyword generator", "keyword merge tool", "broad phrase exact match", "google ads keywords", "keyword permutation"]
+    },
+    "es": {
+      "slug": "combinador-de-palabras-clave",
+      "name": "Combinador de palabras clave",
+      "title": "Combinador de palabras clave: listas A×B×C en amplia, frase y exacta",
+      "description": "Combina listas de términos (A × B × C) y genera palabras clave en concordancia amplia, de frase y exacta para Google Ads. Exporta CSV. Gratis y local.",
+      "summary": "Cruza listas de términos y genera todas las combinaciones en amplia, frase y exacta, con límite de salida y aviso de palabras clave fuera del límite de Google.",
+      "keywords": ["combinador de palabras clave", "generador de palabras clave", "concordancia amplia frase exacta", "palabras clave google ads", "mezclar palabras clave", "keyword merge"]
+    }
+  }
+}
