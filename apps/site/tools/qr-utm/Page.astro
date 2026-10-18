@@ -1,0 +1,15 @@
+---
+/**
+ * Monta a ilha do Gerador de QR Code com UTM. Onde: rota de ferramenta
+ * (registry via import.meta.glob). Entrada: idioma da página.
+ */
+import { type Lang } from "../../src/i18n/locales";
+import QrUtm from "./Ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<QrUtm client:load lang={lang} />

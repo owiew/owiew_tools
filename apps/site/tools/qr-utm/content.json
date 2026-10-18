@@ -1,0 +1,131 @@
+{
+  "pt-br": {
+    "intro": [
+      "QR Code é a ponte entre o impresso e a tela: cartaz, embalagem, cardápio, vitrine e cartão de visita viram um link a um toque de distância. O problema é que, sem UTM, todo acesso vindo do código aparece no analytics como tráfego direto, e você não sabe qual peça funcionou.",
+      "Este gerador cria o código no seu navegador, com UTM opcional no link, escolha do nível de correção de erro, tamanho e margem, e confere o contraste antes de liberar o download. O código é estático: o link fica gravado no desenho e não pode ser trocado depois, então confira antes de imprimir."
+    ],
+    "howTo": {
+      "name": "Como gerar um QR Code com UTM",
+      "steps": [
+        { "name": "Cole o link de destino. ", "text": "Use a página final, com https://. Quanto mais curto o endereço, mais simples e fácil de ler fica o desenho." },
+        { "name": "Ative a UTM para medir. ", "text": "Preencha origem, mídia e campanha. Para material impresso, um padrão comum é origem com o nome da peça (flyer, embalagem), mídia qr e campanha com a ação." },
+        { "name": "Ajuste correção de erro, tamanho e margem. ", "text": "Para impresso, use nível M ou Q e margem de pelo menos 4 módulos. Aumente a correção se o código vai sofrer desgaste ou receber logo por cima." },
+        { "name": "Confira os avisos e baixe. ", "text": "Escolha SVG para gráfica e impressão em qualquer tamanho, ou PNG para web e documentos. Teste com o celular antes de mandar imprimir." }
+      ]
+    },
+    "formula": {
+      "title": "O que cada opção muda",
+      "paragraphs": [
+        "A correção de erro, definida pela norma ISO/IEC 18004, permite ler o código mesmo com parte dele sujo ou coberto: L recupera até 7% dos dados, M até 15%, Q até 25% e H até 30%. Níveis mais altos deixam o desenho mais denso, com módulos menores.",
+        "A margem (zona de silêncio) é o espaço vazio em volta do código. A norma pede pelo menos 4 módulos; abaixo disso, muitos leitores falham. O tamanho em pixels é ajustado para um múltiplo inteiro do módulo, para as bordas ficarem nítidas.",
+        "O contraste entre módulos e fundo precisa ser de pelo menos 4:1 (razão de contraste WCAG). Módulos escuros sobre fundo claro é o padrão universal; invertido (claro sobre escuro) é recusado por alguns leitores, por isso a ferramenta avisa."
+      ],
+      "items": [
+        { "label": "Correção de erro", "expr": "L 7% · M 15% · Q 25% · H 30% dos dados recuperáveis" },
+        { "label": "Margem mínima", "expr": "4 módulos de zona de silêncio" },
+        { "label": "Contraste mínimo", "expr": "(L1 + 0,05) ÷ (L2 + 0,05) ≥ 4, com L = luminância relativa" },
+        { "label": "Tamanho da imagem", "expr": "pixels por módulo inteiros × (módulos + 2 × margem)" }
+      ]
+    },
+    "examples": [
+      { "title": "Cardápio na mesa do restaurante", "text": "Link da página do cardápio com UTM de origem mesa, mídia qr e campanha cardapio-2026. Nível M, margem 4, preto sobre branco, baixado em SVG para a gráfica." },
+      { "title": "Embalagem pequena com logo", "text": "Use nível H, que tolera até 30% de dados cobertos, e deixe o logo ocupar no máximo uma área pequena no centro. Teste a leitura com mais de um celular antes de imprimir." },
+      { "title": "Marca em fundo escuro", "text": "Um azul-escuro (#102a43) sobre branco tem contraste de sobra. Já cinza-claro sobre branco é recusado com o aviso de contraste baixo, porque o código não leria direito." }
+    ],
+    "faq": [
+      { "q": "Como gerar um QR Code com UTM?", "a": "Cole o link, ative a UTM e preencha origem, mídia e campanha. O código passa a abrir o link já com os parâmetros, e o acesso aparece no seu analytics atribuído à campanha em vez de tráfego direto." },
+      { "q": "O QR Code gerado expira ou conta scans?", "a": "Não expira, porque o link está gravado no próprio desenho. Mas ele também não conta leituras: a medição vem da UTM no seu analytics. Para trocar o destino depois, você precisaria de um redirecionamento no seu próprio domínio." },
+      { "q": "Qual nível de correção de erro devo usar?", "a": "Para a maioria dos casos, M (15%). Use Q ou H se o código vai ficar em superfície que desgasta, receber logo por cima ou ser impresso muito pequeno. Quanto maior a correção, mais denso o código." },
+      { "q": "Qual o tamanho mínimo para imprimir?", "a": "Como regra prática, a distância de leitura é de até cerca de 10 vezes o lado do código, então um código de 2 cm lê bem a uns 20 cm. Links longos geram desenhos densos e pedem mais tamanho." },
+      { "q": "SVG ou PNG: qual baixar?", "a": "SVG é vetorial e fica nítido em qualquer tamanho, ideal para gráfica. PNG é imagem fixa, prática para site, e-mail e documentos. A ferramenta gera o PNG em múltiplos inteiros do módulo para não borrar." },
+      { "q": "Posso usar cores ou logo no QR Code?", "a": "Pode trocar as cores, desde que o contraste fique em pelo menos 4:1 com módulos mais escuros que o fundo. Para logo, use correção Q ou H, mantenha-o pequeno e teste a leitura." },
+      { "q": "O link que eu coloco é enviado para algum servidor?", "a": "Não. O código é gerado no seu navegador por uma biblioteca de código aberto (uqr, licença MIT), sem requisição de rede e sem salvar nada." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "A QR code is the bridge between print and screen: posters, packaging, menus, storefronts and business cards become a link one tap away. The problem is that, without a UTM, every visit coming from the code shows up in analytics as direct traffic, and you cannot tell which piece worked.",
+      "This generator builds the code in your browser, with an optional UTM on the link, a choice of error correction level, size and margin, and it checks contrast before allowing the download. The code is static: the link is baked into the drawing and cannot be changed later, so check it before you print."
+    ],
+    "howTo": {
+      "name": "How to generate a QR code with UTM",
+      "steps": [
+        { "name": "Paste the destination link. ", "text": "Use the final page, with https://. The shorter the address, the simpler and easier to scan the drawing is." },
+        { "name": "Turn on the UTM to measure. ", "text": "Fill in source, medium and campaign. For printed material, a common pattern is the piece name as source (flyer, packaging), qr as medium and the action as campaign." },
+        { "name": "Adjust error correction, size and margin. ", "text": "For print, use level M or Q and a margin of at least 4 modules. Raise the correction if the code will wear out or have a logo placed over it." },
+        { "name": "Check the warnings and download. ", "text": "Pick SVG for print shops and any size, or PNG for web and documents. Test it with your phone before sending it to print." }
+      ]
+    },
+    "formula": {
+      "title": "What each option changes",
+      "paragraphs": [
+        "Error correction, defined by the ISO/IEC 18004 standard, lets the code be read even when part of it is dirty or covered: L recovers up to 7% of the data, M up to 15%, Q up to 25% and H up to 30%. Higher levels make the drawing denser, with smaller modules.",
+        "The margin (quiet zone) is the empty space around the code. The standard asks for at least 4 modules; below that, many readers fail. The pixel size is adjusted to a whole multiple of the module so edges stay sharp.",
+        "The contrast between modules and background must be at least 4:1 (WCAG contrast ratio). Dark modules on a light background is the universal standard; inverted (light on dark) is refused by some readers, so the tool warns you."
+      ],
+      "items": [
+        { "label": "Error correction", "expr": "L 7% · M 15% · Q 25% · H 30% of data recoverable" },
+        { "label": "Minimum margin", "expr": "4 modules of quiet zone" },
+        { "label": "Minimum contrast", "expr": "(L1 + 0.05) ÷ (L2 + 0.05) ≥ 4, with L = relative luminance" },
+        { "label": "Image size", "expr": "whole pixels per module × (modules + 2 × margin)" }
+      ]
+    },
+    "examples": [
+      { "title": "Menu on a restaurant table", "text": "Link to the menu page with a UTM of source table, medium qr and campaign menu-2026. Level M, margin 4, black on white, downloaded as SVG for the print shop." },
+      { "title": "Small package with a logo", "text": "Use level H, which tolerates up to 30% of data covered, and let the logo take only a small area in the center. Test scanning with more than one phone before printing." },
+      { "title": "Brand on a dark background", "text": "A dark blue (#102a43) on white has plenty of contrast. Light gray on white is refused with the low-contrast warning, because the code would not scan properly." }
+    ],
+    "faq": [
+      { "q": "How do I generate a QR code with UTM?", "a": "Paste the link, turn on the UTM and fill in source, medium and campaign. The code then opens the link with the parameters already in it, and the visit shows up in your analytics attributed to the campaign instead of direct traffic." },
+      { "q": "Does the generated QR code expire or count scans?", "a": "It does not expire, because the link is baked into the drawing itself. But it does not count scans either: measurement comes from the UTM in your analytics. To change the destination later, you would need a redirect on your own domain." },
+      { "q": "Which error correction level should I use?", "a": "For most cases, M (15%). Use Q or H if the code will sit on a surface that wears, have a logo over it or be printed very small. The higher the correction, the denser the code." },
+      { "q": "What is the minimum size to print?", "a": "As a rule of thumb, scanning distance is up to about 10 times the side of the code, so a 2 cm code scans well from about 20 cm. Long links make dense drawings and need more size." },
+      { "q": "SVG or PNG: which one should I download?", "a": "SVG is vector and stays sharp at any size, ideal for print shops. PNG is a fixed image, handy for websites, email and documents. The tool renders the PNG at whole multiples of the module so it does not blur." },
+      { "q": "Can I use colors or a logo in the QR code?", "a": "You can change the colors as long as contrast stays at 4:1 or more with modules darker than the background. For a logo, use correction Q or H, keep it small and test scanning." },
+      { "q": "Is the link I enter sent to any server?", "a": "No. The code is generated in your browser by an open-source library (uqr, MIT license), with no network request and nothing saved." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "El código QR es el puente entre lo impreso y la pantalla: carteles, empaques, cartas, vitrinas y tarjetas de visita se convierten en un enlace a un toque de distancia. El problema es que, sin UTM, cada visita que viene del código aparece en la analítica como tráfico directo, y no sabes qué pieza funcionó.",
+      "Este generador crea el código en tu navegador, con UTM opcional en el enlace, elección del nivel de corrección de errores, tamaño y margen, y verifica el contraste antes de permitir la descarga. El código es estático: el enlace queda grabado en el dibujo y no se puede cambiar después, así que revísalo antes de imprimir."
+    ],
+    "howTo": {
+      "name": "Cómo generar un código QR con UTM",
+      "steps": [
+        { "name": "Pega el enlace de destino. ", "text": "Usa la página final, con https://. Cuanto más corta la dirección, más simple y fácil de leer queda el dibujo." },
+        { "name": "Activa la UTM para medir. ", "text": "Completa origen, medio y campaña. Para material impreso, un patrón común es el nombre de la pieza como origen (flyer, empaque), qr como medio y la acción como campaña." },
+        { "name": "Ajusta corrección de errores, tamaño y margen. ", "text": "Para impresión, usa nivel M o Q y un margen de al menos 4 módulos. Sube la corrección si el código sufrirá desgaste o llevará un logo encima." },
+        { "name": "Revisa los avisos y descarga. ", "text": "Elige SVG para imprenta y cualquier tamaño, o PNG para web y documentos. Pruébalo con el móvil antes de mandarlo a imprimir." }
+      ]
+    },
+    "formula": {
+      "title": "Qué cambia cada opción",
+      "paragraphs": [
+        "La corrección de errores, definida por la norma ISO/IEC 18004, permite leer el código aunque parte esté sucia o tapada: L recupera hasta el 7% de los datos, M hasta el 15%, Q hasta el 25% y H hasta el 30%. Niveles más altos vuelven el dibujo más denso, con módulos más pequeños.",
+        "El margen (zona de silencio) es el espacio vacío alrededor del código. La norma pide al menos 4 módulos; por debajo, muchos lectores fallan. El tamaño en píxeles se ajusta a un múltiplo entero del módulo para que los bordes queden nítidos.",
+        "El contraste entre módulos y fondo debe ser de al menos 4:1 (razón de contraste WCAG). Módulos oscuros sobre fondo claro es el estándar universal; el invertido (claro sobre oscuro) lo rechazan algunos lectores, por eso la herramienta avisa."
+      ],
+      "items": [
+        { "label": "Corrección de errores", "expr": "L 7% · M 15% · Q 25% · H 30% de los datos recuperables" },
+        { "label": "Margen mínimo", "expr": "4 módulos de zona de silencio" },
+        { "label": "Contraste mínimo", "expr": "(L1 + 0,05) ÷ (L2 + 0,05) ≥ 4, con L = luminancia relativa" },
+        { "label": "Tamaño de la imagen", "expr": "píxeles enteros por módulo × (módulos + 2 × margen)" }
+      ]
+    },
+    "examples": [
+      { "title": "Carta en la mesa del restaurante", "text": "Enlace de la página de la carta con UTM de origen mesa, medio qr y campaña carta-2026. Nivel M, margen 4, negro sobre blanco, descargado en SVG para la imprenta." },
+      { "title": "Empaque pequeño con logo", "text": "Usa nivel H, que tolera hasta un 30% de datos tapados, y deja que el logo ocupe solo un área pequeña en el centro. Prueba la lectura con más de un móvil antes de imprimir." },
+      { "title": "Marca sobre fondo oscuro", "text": "Un azul oscuro (#102a43) sobre blanco tiene contraste de sobra. En cambio, gris claro sobre blanco se rechaza con el aviso de contraste bajo, porque el código no se leería bien." }
+    ],
+    "faq": [
+      { "q": "¿Cómo generar un código QR con UTM?", "a": "Pega el enlace, activa la UTM y completa origen, medio y campaña. El código pasa a abrir el enlace ya con los parámetros, y la visita aparece en tu analítica atribuida a la campaña en lugar de tráfico directo." },
+      { "q": "¿El código QR generado caduca o cuenta escaneos?", "a": "No caduca, porque el enlace está grabado en el propio dibujo. Pero tampoco cuenta lecturas: la medición viene de la UTM en tu analítica. Para cambiar el destino después, necesitarías una redirección en tu propio dominio." },
+      { "q": "¿Qué nivel de corrección de errores debo usar?", "a": "Para la mayoría de los casos, M (15%). Usa Q o H si el código estará en una superficie que se desgasta, llevará un logo encima o se imprimirá muy pequeño. A mayor corrección, más denso el código." },
+      { "q": "¿Cuál es el tamaño mínimo para imprimir?", "a": "Como regla práctica, la distancia de lectura llega a unas 10 veces el lado del código, así que un código de 2 cm se lee bien a unos 20 cm. Los enlaces largos generan dibujos densos y piden más tamaño." },
+      { "q": "¿SVG o PNG: cuál descargar?", "a": "SVG es vectorial y se ve nítido en cualquier tamaño, ideal para imprenta. PNG es una imagen fija, práctica para web, correo y documentos. La herramienta genera el PNG en múltiplos enteros del módulo para que no se desenfoque." },
+      { "q": "¿Puedo usar colores o logo en el código QR?", "a": "Puedes cambiar los colores siempre que el contraste sea de al menos 4:1 con módulos más oscuros que el fondo. Para un logo, usa corrección Q o H, mantenlo pequeño y prueba la lectura." },
+      { "q": "¿El enlace que escribo se envía a algún servidor?", "a": "No. El código se genera en tu navegador con una biblioteca de código abierto (uqr, licencia MIT), sin peticiones de red y sin guardar nada." }
+    ]
+  }
+}
