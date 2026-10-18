@@ -6,9 +6,6 @@ import { type Lang } from "../../src/i18n/locales";
 import "./styles.css";
 import { strings } from "./strings";
 
-/** Posições com valor lido do estudo (as demais da curva são interpoladas). */
-const MEASURED = new Set([1, 2, 3, 10]);
-
 /**
  * Lê um inteiro digitado; o que não for só dígitos vira NaN (o core recusa).
  *
@@ -116,7 +113,7 @@ export default function OrganicTraffic({ lang }: { lang: Lang }) {
             <thead><tr><th scope="col">{s.ctrCols.position}</th><th scope="col" class="num">{s.ctrCols.ctr}</th><th scope="col">{s.ctrCols.origin}</th></tr></thead>
             <tbody>
               {CTR_BP.map((bp, i) => (
-                <tr><th scope="row">{i + 1}</th><td class="num">{formatBp(bp, lang)}</td><td>{MEASURED.has(i + 1) ? s.measured : s.interpolated}</td></tr>
+                <tr><th scope="row">{i + 1}</th><td class="num">{formatBp(bp, lang)}</td><td>{s.measured}</td></tr>
               ))}
             </tbody>
           </table>

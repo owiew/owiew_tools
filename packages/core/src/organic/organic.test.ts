@@ -3,25 +3,25 @@ import { describe, expect, it } from "vitest";
 import { CTR_BP, ctrBp, estimateClicks, estimateOrganic, parseKeywordRows } from "./index";
 
 describe("curva de CTR", () => {
-  it("traz os valores medidos pelo estudo citado nas posições 1, 2, 3 e 10", () => {
-    expect([1, 2, 3, 10].map((p) => ctrBp(p))).toEqual([2850, 1570, 1100, 250]);
+  it("traz os dez valores publicados pela fonte (First Page Sage 2026, CTR combinado)", () => {
+    expect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((p) => ctrBp(p))).toEqual([710, 300, 170, 110, 70, 60, 40, 30, 20, 20]);
+    expect(CTR_BP).toHaveLength(10);
   });
-  it("é estritamente decrescente e as posições 4 a 9 seguem a interpolação geométrica", () => {
-    for (let i = 1; i < CTR_BP.length; i++) expect(CTR_BP[i]!).toBeLessThan(CTR_BP[i - 1]!);
-    const r = (250 / 1100) ** (1 / 7);
-    for (let p = 4; p <= 9; p++) expect(Math.abs(ctrBp(p) - 1100 * r ** (p - 3))).toBeLessThanOrEqual(0.5);
+  it("nunca cresce ao descer de posição", () => {
+    for (let i = 1; i < CTR_BP.length; i++) expect(CTR_BP[i]!).toBeLessThanOrEqual(CTR_BP[i - 1]!);
   });
   it("posição fora da primeira página ou inválida vale zero", () => {
     for (const p of [0, -1, 11, 100, 1.5, NaN, Infinity]) expect(ctrBp(p)).toBe(0);
   });
   it("estimateClicks multiplica volume por CTR com inteiros", () => {
-    expect(estimateClicks(10_000, 1)).toBe(2850);
-    expect(estimateClicks(1000, 3)).toBe(110);
+    expect(estimateClicks(10_000, 1)).toBe(710);
+    expect(estimateClicks(1000, 3)).toBe(17);
     expect(estimateClicks(1, 10)).toBe(0);
     expect(estimateClicks(2, 2)).toBe(0);
-    expect(estimateClicks(7, 1)).toBe(2);
+    expect(estimateClicks(7, 1)).toBe(0);
+    expect(estimateClicks(8, 1)).toBe(1);
     expect(estimateClicks(5000, 15)).toBe(0);
-    expect(estimateClicks(1_000_000_000, 1)).toBe(285_000_000);
+    expect(estimateClicks(1_000_000_000, 1)).toBe(71_000_000);
   });
   it("propriedade: mais volume nunca dá menos cliques e subir de posição nunca piora", () => {
     fc.assert(fc.property(fc.nat(1_000_000), fc.nat(1_000_000), fc.integer({ min: 2, max: 10 }), (a, b, p) => {
@@ -40,11 +40,11 @@ describe("estimateOrganic", () => {
   it("cenário de posição alvo: ganho e totais", () => {
     const r = estimateOrganic(kw, { kind: "target", position: 1 });
     if (!r.ok) throw new Error(r.error);
-    expect(r.value.rows[0]).toMatchObject({ currentClicks: 720, newClicks: 2850, gainClicks: 2130, newPosition: 1 });
-    expect(r.value.rows[1]).toMatchObject({ currentClicks: 0, newClicks: 570, newPosition: 1 });
-    expect(r.value.totalCurrent).toBe(720);
-    expect(r.value.totalNew).toBe(3420);
-    expect(r.value.totalGain).toBe(2700);
+    expect(r.value.rows[0]).toMatchObject({ currentClicks: 70, newClicks: 710, gainClicks: 640, newPosition: 1 });
+    expect(r.value.rows[1]).toMatchObject({ currentClicks: 0, newClicks: 142, newPosition: 1 });
+    expect(r.value.totalCurrent).toBe(70);
+    expect(r.value.totalNew).toBe(852);
+    expect(r.value.totalGain).toBe(782);
   });
   it("cenário de subir N posições nunca passa da posição 1", () => {
     const r = estimateOrganic(kw, { kind: "rise", steps: 3 });

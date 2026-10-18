@@ -22,7 +22,6 @@ export interface OrganicStrings {
   readonly ctrTitle: string;
   readonly ctrCols: { readonly position: string; readonly ctr: string; readonly origin: string };
   readonly measured: string;
-  readonly interpolated: string;
   readonly ctrSource: string;
   readonly lineError: (line: number, reason: string) => string;
   readonly lineReasons: Record<string, string>;
@@ -47,9 +46,8 @@ const pt: OrganicStrings = {
   summary: (now, next, gain) => `Hoje: ${now} cliques por mês. No cenário: ${next}. Ganho estimado: ${gain} cliques por mês.`,
   ctrTitle: "Curva de CTR usada",
   ctrCols: { position: "Posição", ctr: "CTR", origin: "Origem" },
-  measured: "Medido (Sistrix, 2020)",
-  interpolated: "Estimativa (interpolação)",
-  ctrSource: "Fonte: Sistrix, \"Why almost everything you knew about Google CTR is no longer valid\", 14/07/2020. Posição 11 em diante vale 0%.",
+  measured: "Publicado (First Page Sage, 2026)",
+  ctrSource: "Fonte: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", coluna CTR combinado, edição de 22/09/2026 (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). Posição 11 em diante vale 0%.",
   lineError: (line, reason) => `Linha ${line}: ${reason}`,
   lineReasons: {
     columns: "use três colunas: palavra-chave; volume; posição.",
@@ -84,9 +82,8 @@ const en: OrganicStrings = {
   summary: (now, next, gain) => `Today: ${now} clicks per month. In the scenario: ${next}. Estimated gain: ${gain} clicks per month.`,
   ctrTitle: "CTR curve used",
   ctrCols: { position: "Position", ctr: "CTR", origin: "Origin" },
-  measured: "Measured (Sistrix, 2020)",
-  interpolated: "Estimate (interpolation)",
-  ctrSource: "Source: Sistrix, \"Why almost everything you knew about Google CTR is no longer valid\", July 14, 2020. Position 11 onward counts as 0%.",
+  measured: "Published (First Page Sage, 2026)",
+  ctrSource: "Source: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", blended CTR column, September 22, 2026 edition (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). Position 11 onward counts as 0%.",
   lineError: (line, reason) => `Line ${line}: ${reason}`,
   lineReasons: {
     columns: "use three columns: keyword; volume; position.",
@@ -121,9 +118,8 @@ const es: OrganicStrings = {
   summary: (now, next, gain) => `Hoy: ${now} clics por mes. En el escenario: ${next}. Ganancia estimada: ${gain} clics por mes.`,
   ctrTitle: "Curva de CTR usada",
   ctrCols: { position: "Posición", ctr: "CTR", origin: "Origen" },
-  measured: "Medido (Sistrix, 2020)",
-  interpolated: "Estimación (interpolación)",
-  ctrSource: "Fuente: Sistrix, \"Why almost everything you knew about Google CTR is no longer valid\", 14/07/2020. La posición 11 en adelante vale 0%.",
+  measured: "Publicado (First Page Sage, 2026)",
+  ctrSource: "Fuente: First Page Sage, \"Google Click-Through Rates (CTR) by Ranking Position\", columna CTR combinado, edición del 22/09/2026 (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/). La posición 11 en adelante vale 0%.",
   lineError: (line, reason) => `Línea ${line}: ${reason}`,
   lineReasons: {
     columns: "usa tres columnas: palabra clave; volumen; posición.",

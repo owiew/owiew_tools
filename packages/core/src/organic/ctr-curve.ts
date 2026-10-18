@@ -2,19 +2,22 @@ import { mulDivRound } from "../money/bigint-math";
 
 /**
  * Curva de CTR orgânico por posição da primeira página, em pontos-base
- * (2850 = 28,50%). O índice 0 é a posição 1.
+ * (710 = 7,10%). O índice 0 é a posição 1.
  *
- * FONTE: Sistrix, "Why almost everything you knew about Google CTR is no longer
- * valid" (14/07/2020), estudo com mais de 80 milhões de palavras-chave. Valores
- * LIDOS no estudo: posição 1 = 28,5%, posição 2 = 15,7%, posição 3 = 11,0% e
- * posição 10 = 2,5%. As posições 4 a 9 NÃO são medições: são interpolação
- * geométrica entre a posição 3 e a 10 (cada posição vale cerca de 80,9% da
- * anterior), pois o texto do estudo só traz esses pontos. Conferência cruzada:
- * Backlinko (4 milhões de resultados, atualizado em 2025) mede 27,6% para a
- * posição 1. O CTR real muda com intenção, marca, dispositivo e recursos da
- * página de resultados (anúncios, quadros, "As pessoas também perguntam").
+ * FONTE: First Page Sage, "Google Click-Through Rates (CTR) by Ranking Position"
+ * (https://www.firstpagesage.com/reports/google-click-through-rates-ctrs-by-ranking-position/),
+ * edição de 22/09/2026, conferida por WebFetch em 18/10/2026. Coluna "Blended CTR"
+ * (a que o relatório indica para previsão de tráfego): posições 1 a 10 =
+ * 7,1; 3,0; 1,7; 1,1; 0,7; 0,6; 0,4; 0,3; 0,2; 0,2 por cento. Todas as dez
+ * posições são valores publicados, sem interpolação. Base do relatório: 1.184
+ * domínios, 3,67 bilhões de impressões, 1/mar a 31/ago/2026, desktop e mobile, EUA.
+ * A coluna "No AI Answer" (22,6; 10,2; 5,8; 3,7; 2,5; 1,8; 1,3; 0,9; 0,7; 0,5) vale
+ * para buscas sem resposta de IA. Atenção: Backlinko (4 milhões de resultados,
+ * atualização de 16/04/2025) publica no texto só a posição 1 (27,6%); as demais
+ * ficam em imagem de gráfico, por isso não serve de fonte completa conferível.
+ * O CTR real muda com intenção, marca, dispositivo e recursos da página de resultados.
  */
-export const CTR_BP: readonly number[] = [2850, 1570, 1100, 890, 720, 583, 472, 382, 309, 250];
+export const CTR_BP: readonly number[] = [710, 300, 170, 110, 70, 60, 40, 30, 20, 20];
 
 /** Posições cobertas pela curva (primeira página). */
 export const CURVE_POSITIONS = CTR_BP.length;
