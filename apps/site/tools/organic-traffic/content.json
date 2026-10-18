@@ -1,0 +1,137 @@
+{
+  "pt-br": {
+    "intro": [
+      "Antes de investir em SEO, vale saber quanto tráfego uma posição realmente rende. O CTR (taxa de cliques) cai rápido ao descer na página: o primeiro resultado do Google recebe quase o dobro dos cliques do segundo, e a segunda página recebe muito pouco.",
+      "Esta ferramenta multiplica o volume mensal de busca de cada palavra-chave pelo CTR da posição em que você aparece e compara com um cenário em que você sobe no ranking. É uma estimativa para priorizar e justificar esforço, não uma previsão exata."
+    ],
+    "howTo": {
+      "name": "Como estimar o tráfego orgânico por posição",
+      "steps": [
+        { "name": "Liste as palavras-chave. ", "text": "Escreva uma por linha no formato palavra-chave; volume; posição atual. O volume mensal e a posição vêm de uma ferramenta de SEO ou do Search Console. Pode colar de uma planilha." },
+        { "name": "Escolha o cenário. ", "text": "Informe a posição que quer alcançar (por exemplo, a 1) ou quantas posições pretende subir. Palavras que já estão melhor que o cenário não pioram." },
+        { "name": "Leia a tabela. ", "text": "Para cada palavra-chave você vê os cliques estimados hoje, no cenário e o ganho. O total mostra o impacto da campanha de SEO como um todo." },
+        { "name": "Use como ordem de prioridade. ", "text": "Dê mais atenção às palavras com maior ganho estimado. Compare o ganho com o custo de produzir conteúdo e links para chegar lá." }
+      ]
+    },
+    "formula": {
+      "title": "A curva de CTR e a conta",
+      "paragraphs": [
+        "Cliques estimados = volume mensal de busca × CTR da posição. Os cálculos usam números inteiros, e a página 2 em diante vale zero porque a curva cobre só a primeira página.",
+        "Fonte da curva: estudo da Sistrix, \"Why almost everything you knew about Google CTR is no longer valid\" (14/07/2020), com mais de 80 milhões de palavras-chave. Os valores lidos do estudo são 28,5% na posição 1, 15,7% na 2, 11,0% na 3 e 2,5% na 10. As posições 4 a 9 não vêm publicadas no texto do estudo: foram interpoladas de forma geométrica entre a 3 e a 10, e por isso são estimativas. Como conferência, o estudo da Backlinko (4 milhões de resultados) mede 27,6% na posição 1.",
+        "O CTR real varia muito com a intenção da busca, a marca, o dispositivo e os recursos da página de resultados, como anúncios, quadros de resposta e resumos de IA. Buscas de marca têm CTR bem maior, e buscas com muitos recursos têm menor."
+      ],
+      "items": [
+        { "label": "Cliques", "expr": "volume mensal × CTR da posição" },
+        { "label": "Posição 1", "expr": "28,5% (estudo Sistrix 2020)" },
+        { "label": "Posições 2 e 3", "expr": "15,7% e 11,0% (estudo Sistrix 2020)" },
+        { "label": "Posições 4 a 9", "expr": "interpolação geométrica entre 11,0% e 2,5% (estimativa)" },
+        { "label": "Posição 10", "expr": "2,5% (estudo Sistrix 2020)" },
+        { "label": "Posição 11 ou pior", "expr": "0% (fora da curva)" }
+      ]
+    },
+    "examples": [
+      { "title": "Do 5º para o 1º lugar", "text": "Uma palavra com 10.000 buscas por mês na posição 5 rende cerca de 720 cliques. Na posição 1, cerca de 2.850. O ganho estimado é de 2.130 cliques por mês." },
+      { "title": "Subir 3 posições", "text": "Com 4.000 buscas por mês, passar da posição 8 para a 5 leva os cliques de 153 para 288, um ganho de 135 por mês. Subir devagar já paga quando o volume é alto." },
+      { "title": "Entrar na primeira página", "text": "Uma palavra de 2.000 buscas na posição 12 rende praticamente zero na curva. Chegar à posição 10 já gera cerca de 50 cliques por mês, e à 3 gera cerca de 220." }
+    ],
+    "faq": [
+      { "q": "Qual o CTR médio de cada posição do Google?", "a": "No estudo da Sistrix de 2020, a posição 1 recebe cerca de 28,5% dos cliques, a 2 recebe 15,7%, a 3 recebe 11,0% e a 10 recebe 2,5%. Os números variam conforme a busca e os recursos da página de resultados." },
+      { "q": "Como estimar tráfego orgânico com volume de busca?", "a": "Multiplique o volume mensal de busca pelo CTR da posição em que o site aparece. Com 10.000 buscas na posição 3 (CTR de 11%), a estimativa é de cerca de 1.100 cliques por mês." },
+      { "q": "Quão precisa é a estimativa?", "a": "É uma ordem de grandeza. O CTR muda com intenção de busca, marca, dispositivo e quadros especiais, e o volume das ferramentas de SEO também é estimado. Use para comparar e priorizar, não como meta garantida." },
+      { "q": "De onde vêm os números da curva de CTR?", "a": "Das posições 1, 2, 3 e 10 do estudo da Sistrix de 2020, com mais de 80 milhões de palavras-chave. As posições 4 a 9 são interpoladas entre a 3 e a 10 e estão marcadas como estimativa na tabela da ferramenta." },
+      { "q": "Por que a segunda página vale zero?", "a": "Porque a curva usada cobre só as dez primeiras posições, e o CTR da segunda página é muito baixo. Por isso a ferramenta não conta cliques de posições 11 em diante." },
+      { "q": "Onde encontro o volume de busca e a posição de cada palavra?", "a": "O Google Search Console mostra impressões, cliques e posição média das suas páginas. O volume mensal de busca vem de ferramentas de palavras-chave, como o Planejador de Palavras-chave do Google Ads." },
+      { "q": "Meus dados são enviados para algum lugar?", "a": "Não. O cálculo roda no seu navegador, sem requisições a servidores, e as palavras-chave não são salvas." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "Before investing in SEO, it helps to know how much traffic a position really earns. CTR (click-through rate) drops fast as you go down the page: the first Google result gets almost twice the clicks of the second, and the second page gets very little.",
+      "This tool multiplies each keyword's monthly search volume by the CTR of the position where you appear and compares it with a scenario in which you move up the ranking. It is an estimate to prioritize and justify effort, not an exact forecast."
+    ],
+    "howTo": {
+      "name": "How to estimate organic traffic by position",
+      "steps": [
+        { "name": "List the keywords. ", "text": "Write one per line in the format keyword; volume; current position. Monthly volume and position come from an SEO tool or Search Console. You can paste from a spreadsheet." },
+        { "name": "Choose the scenario. ", "text": "Enter the position you want to reach (for example, 1) or how many positions you plan to climb. Keywords already better than the scenario do not get worse." },
+        { "name": "Read the table. ", "text": "For each keyword you see estimated clicks today, in the scenario and the gain. The total shows the impact of the SEO campaign as a whole." },
+        { "name": "Use it as a priority order. ", "text": "Give more attention to keywords with the largest estimated gain. Compare the gain with the cost of producing content and links to get there." }
+      ]
+    },
+    "formula": {
+      "title": "The CTR curve and the math",
+      "paragraphs": [
+        "Estimated clicks = monthly search volume × CTR of the position. Calculations use whole numbers, and page 2 onward counts as zero because the curve covers only the first page.",
+        "Curve source: the Sistrix study \"Why almost everything you knew about Google CTR is no longer valid\" (July 14, 2020), covering more than 80 million keywords. The values read from the study are 28.5% at position 1, 15.7% at 2, 11.0% at 3 and 2.5% at 10. Positions 4 to 9 are not published in the study text: they were geometrically interpolated between 3 and 10, so they are estimates. As a cross-check, the Backlinko study (4 million results) measures 27.6% at position 1.",
+        "Real CTR varies a lot with search intent, brand, device and the features on the results page, such as ads, answer boxes and AI summaries. Brand searches have much higher CTR, and searches with many features have lower."
+      ],
+      "items": [
+        { "label": "Clicks", "expr": "monthly volume × CTR of the position" },
+        { "label": "Position 1", "expr": "28.5% (Sistrix 2020 study)" },
+        { "label": "Positions 2 and 3", "expr": "15.7% and 11.0% (Sistrix 2020 study)" },
+        { "label": "Positions 4 to 9", "expr": "geometric interpolation between 11.0% and 2.5% (estimate)" },
+        { "label": "Position 10", "expr": "2.5% (Sistrix 2020 study)" },
+        { "label": "Position 11 or worse", "expr": "0% (outside the curve)" }
+      ]
+    },
+    "examples": [
+      { "title": "From 5th to 1st place", "text": "A keyword with 10,000 searches a month at position 5 earns about 720 clicks. At position 1, about 2,850. The estimated gain is 2,130 clicks a month." },
+      { "title": "Climbing 3 positions", "text": "With 4,000 searches a month, moving from position 8 to 5 takes clicks from 153 to 288, a gain of 135 a month. Climbing slowly already pays off when volume is high." },
+      { "title": "Reaching the first page", "text": "A keyword of 2,000 searches at position 12 earns practically zero on the curve. Reaching position 10 already brings about 50 clicks a month, and position 3 brings about 220." }
+    ],
+    "faq": [
+      { "q": "What is the average CTR of each Google position?", "a": "In the 2020 Sistrix study, position 1 gets about 28.5% of clicks, position 2 gets 15.7%, position 3 gets 11.0% and position 10 gets 2.5%. Numbers vary with the search and the features on the results page." },
+      { "q": "How do I estimate organic traffic from search volume?", "a": "Multiply the monthly search volume by the CTR of the position where the site appears. With 10,000 searches at position 3 (CTR of 11%), the estimate is about 1,100 clicks a month." },
+      { "q": "How accurate is the estimate?", "a": "It is an order of magnitude. CTR changes with search intent, brand, device and special boxes, and the volume from SEO tools is also an estimate. Use it to compare and prioritize, not as a guaranteed target." },
+      { "q": "Where do the CTR curve numbers come from?", "a": "From positions 1, 2, 3 and 10 of the 2020 Sistrix study, covering more than 80 million keywords. Positions 4 to 9 are interpolated between 3 and 10 and are marked as an estimate in the tool's table." },
+      { "q": "Why is the second page worth zero?", "a": "Because the curve used covers only the top ten positions, and second-page CTR is very low. That is why the tool does not count clicks from position 11 onward." },
+      { "q": "Where do I find the search volume and position of each keyword?", "a": "Google Search Console shows impressions, clicks and the average position of your pages. Monthly search volume comes from keyword tools, such as Google Ads Keyword Planner." },
+      { "q": "Is my data sent anywhere?", "a": "No. The calculation runs in your browser, with no server requests, and the keywords are not saved." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Antes de invertir en SEO, conviene saber cuánto tráfico rinde realmente una posición. El CTR (tasa de clics) cae rápido al bajar en la página: el primer resultado de Google recibe casi el doble de clics que el segundo, y la segunda página recibe muy poco.",
+      "Esta herramienta multiplica el volumen mensual de búsqueda de cada palabra clave por el CTR de la posición en la que apareces y lo compara con un escenario en el que subes en el ranking. Es una estimación para priorizar y justificar el esfuerzo, no un pronóstico exacto."
+    ],
+    "howTo": {
+      "name": "Cómo estimar el tráfico orgánico por posición",
+      "steps": [
+        { "name": "Lista las palabras clave. ", "text": "Escribe una por línea con el formato palabra clave; volumen; posición actual. El volumen mensual y la posición salen de una herramienta de SEO o de Search Console. Puedes pegar desde una hoja de cálculo." },
+        { "name": "Elige el escenario. ", "text": "Indica la posición que quieres alcanzar (por ejemplo, la 1) o cuántas posiciones piensas subir. Las palabras que ya están mejor que el escenario no empeoran." },
+        { "name": "Lee la tabla. ", "text": "Para cada palabra clave ves los clics estimados hoy, en el escenario y la ganancia. El total muestra el impacto de la campaña de SEO en conjunto." },
+        { "name": "Úsalo como orden de prioridad. ", "text": "Dedica más atención a las palabras con mayor ganancia estimada. Compara la ganancia con el costo de producir contenido y enlaces para llegar allí." }
+      ]
+    },
+    "formula": {
+      "title": "La curva de CTR y la cuenta",
+      "paragraphs": [
+        "Clics estimados = volumen mensual de búsqueda × CTR de la posición. Los cálculos usan números enteros, y la página 2 en adelante vale cero porque la curva cubre solo la primera página.",
+        "Fuente de la curva: el estudio de Sistrix \"Why almost everything you knew about Google CTR is no longer valid\" (14/07/2020), con más de 80 millones de palabras clave. Los valores leídos del estudio son 28,5% en la posición 1, 15,7% en la 2, 11,0% en la 3 y 2,5% en la 10. Las posiciones 4 a 9 no figuran en el texto del estudio: se interpolaron de forma geométrica entre la 3 y la 10, por eso son estimaciones. Como contraste, el estudio de Backlinko (4 millones de resultados) mide 27,6% en la posición 1.",
+        "El CTR real varía mucho con la intención de búsqueda, la marca, el dispositivo y los elementos de la página de resultados, como anuncios, cuadros de respuesta y resúmenes de IA. Las búsquedas de marca tienen un CTR mucho mayor, y las que tienen muchos elementos, menor."
+      ],
+      "items": [
+        { "label": "Clics", "expr": "volumen mensual × CTR de la posición" },
+        { "label": "Posición 1", "expr": "28,5% (estudio Sistrix 2020)" },
+        { "label": "Posiciones 2 y 3", "expr": "15,7% y 11,0% (estudio Sistrix 2020)" },
+        { "label": "Posiciones 4 a 9", "expr": "interpolación geométrica entre 11,0% y 2,5% (estimación)" },
+        { "label": "Posición 10", "expr": "2,5% (estudio Sistrix 2020)" },
+        { "label": "Posición 11 o peor", "expr": "0% (fuera de la curva)" }
+      ]
+    },
+    "examples": [
+      { "title": "Del 5.º al 1.er lugar", "text": "Una palabra con 10.000 búsquedas al mes en la posición 5 rinde unos 720 clics. En la posición 1, unos 2.850. La ganancia estimada es de 2.130 clics al mes." },
+      { "title": "Subir 3 posiciones", "text": "Con 4.000 búsquedas al mes, pasar de la posición 8 a la 5 lleva los clics de 153 a 288, una ganancia de 135 al mes. Subir despacio ya vale la pena cuando el volumen es alto." },
+      { "title": "Entrar en la primera página", "text": "Una palabra de 2.000 búsquedas en la posición 12 rinde prácticamente cero en la curva. Llegar a la posición 10 ya trae unos 50 clics al mes, y a la 3, unos 220." }
+    ],
+    "faq": [
+      { "q": "¿Cuál es el CTR medio de cada posición de Google?", "a": "En el estudio de Sistrix de 2020, la posición 1 recibe cerca del 28,5% de los clics, la 2 recibe el 15,7%, la 3 recibe el 11,0% y la 10 recibe el 2,5%. Las cifras varían según la búsqueda y los elementos de la página de resultados." },
+      { "q": "¿Cómo estimar el tráfico orgánico con el volumen de búsqueda?", "a": "Multiplica el volumen mensual de búsqueda por el CTR de la posición en la que aparece el sitio. Con 10.000 búsquedas en la posición 3 (CTR del 11%), la estimación es de unos 1.100 clics al mes." },
+      { "q": "¿Qué tan precisa es la estimación?", "a": "Es un orden de magnitud. El CTR cambia con la intención de búsqueda, la marca, el dispositivo y los cuadros especiales, y el volumen de las herramientas de SEO también es una estimación. Úsala para comparar y priorizar, no como meta garantizada." },
+      { "q": "¿De dónde salen los números de la curva de CTR?", "a": "De las posiciones 1, 2, 3 y 10 del estudio de Sistrix de 2020, con más de 80 millones de palabras clave. Las posiciones 4 a 9 se interpolan entre la 3 y la 10 y están marcadas como estimación en la tabla de la herramienta." },
+      { "q": "¿Por qué la segunda página vale cero?", "a": "Porque la curva usada cubre solo las diez primeras posiciones, y el CTR de la segunda página es muy bajo. Por eso la herramienta no cuenta clics desde la posición 11." },
+      { "q": "¿Dónde encuentro el volumen de búsqueda y la posición de cada palabra?", "a": "Google Search Console muestra impresiones, clics y la posición media de tus páginas. El volumen mensual de búsqueda sale de herramientas de palabras clave, como el Planificador de palabras clave de Google Ads." },
+      { "q": "¿Mis datos se envían a algún lugar?", "a": "No. El cálculo se ejecuta en tu navegador, sin peticiones a servidores, y las palabras clave no se guardan." }
+    ]
+  }
+}

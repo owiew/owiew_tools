@@ -1,0 +1,33 @@
+{
+  "id": "qr-utm",
+  "category": "utilities",
+  "icon": "qr-code",
+  "order": 130,
+  "related": ["whatsapp-link", "utm-builder", "url-inspector"],
+  "i18n": {
+    "pt-br": {
+      "slug": "gerador-de-qr-code",
+      "name": "Gerador de QR Code com UTM",
+      "title": "Gerador de QR Code com UTM, SVG e PNG para baixar",
+      "description": "Gere QR Code de qualquer link com UTM opcional, correção de erro, tamanho e margem. Baixe em SVG ou PNG. Tudo no navegador, sem cadastro e sem marca d'água.",
+      "summary": "Transforme um link em QR Code para impresso, embalagem e vitrine, com UTM para medir os acessos e contraste conferido para ler bem.",
+      "keywords": ["gerador de qr code", "qr code com utm", "qr code grátis", "qr code svg", "qr code png", "criar qr code", "qr code rastreável"]
+    },
+    "en": {
+      "slug": "qr-code-generator",
+      "name": "QR code generator with UTM",
+      "title": "QR code generator with UTM, downloadable as SVG and PNG",
+      "description": "Generate a QR code for any link with optional UTM, error correction, size and margin. Download as SVG or PNG. All in your browser, no sign-up, no watermark.",
+      "summary": "Turn a link into a QR code for print, packaging and storefronts, with a UTM to measure visits and a contrast check so it scans well.",
+      "keywords": ["qr code generator", "qr code with utm", "free qr code", "qr code svg", "qr code png", "create qr code", "trackable qr code"]
+    },
+    "es": {
+      "slug": "generador-de-codigo-qr",
+      "name": "Generador de código QR con UTM",
+      "title": "Generador de código QR con UTM, para descargar en SVG y PNG",
+      "description": "Genera un código QR de cualquier enlace con UTM opcional, corrección de errores, tamaño y margen. Descarga en SVG o PNG. Todo en tu navegador, sin registro.",
+      "summary": "Convierte un enlace en código QR para impresos, empaques y vitrinas, con UTM para medir las visitas y contraste verificado para que se lea bien.",
+      "keywords": ["generador de código qr", "código qr con utm", "código qr gratis", "código qr svg", "código qr png", "crear código qr", "código qr rastreable"]
+    }
+  }
+}

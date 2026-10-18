@@ -1,0 +1,128 @@
+{
+  "pt-br": {
+    "intro": [
+      "O link do WhatsApp (wa.me) abre uma conversa direto com o seu número e, se você quiser, já com a primeira mensagem escrita. É o destino ideal para bio de Instagram, botão do site, e-mail e anúncio: quem clica não precisa salvar contato nem digitar nada.",
+      "Os erros que mais quebram esse link são pequenos: número com zero ou parêntese, falta do código do país e mensagem com acento ou símbolo sem codificar. Esta ferramenta confere o número, codifica o texto e, se você citar um link na mensagem, anexa a UTM para a visita ser medida."
+    ],
+    "howTo": {
+      "name": "Como criar um link de WhatsApp com mensagem",
+      "steps": [
+        { "name": "Informe o código do país e o número. ", "text": "Digite o DDI (55 para o Brasil) e o telefone com DDD. Pode usar parênteses, espaço e hífen: a ferramenta limpa tudo. Se colar o número inteiro com +, o campo de DDI é ignorado." },
+        { "name": "Escreva a mensagem inicial. ", "text": "É o texto que aparece pronto na caixa de conversa. Deixe em branco se quiser só abrir a conversa. Quebras de linha são mantidas." },
+        { "name": "Cite um link, se fizer sentido. ", "text": "Informe a página de destino e, se quiser medir o clique, marque a opção de UTM e preencha origem, mídia e campanha. O link entra numa linha própria da mensagem." },
+        { "name": "Copie e teste. ", "text": "Copie o link, ou use o botão de teste para abrir a conversa. Confira se o número e o texto aparecem como esperado antes de publicar." }
+      ]
+    },
+    "formula": {
+      "title": "Como o link é montado",
+      "paragraphs": [
+        "O formato é o do recurso oficial \"Click to Chat\" do WhatsApp: o endereço wa.me, o número em formato internacional (só dígitos, sem +, zeros à esquerda, parênteses ou hífens) e, opcionalmente, o parâmetro text com a mensagem codificada.",
+        "A codificação transforma espaço em %20, quebra de linha em %0A, e comercial (&), cerquilha (#), porcentagem e acentos em sequências seguras. Sem isso, um & no meio da mensagem cortaria o texto. O número vem sempre antes da mensagem, e nada é encurtado: o link sai legível e confiável.",
+        "A UTM não rastreia a conversa dentro do WhatsApp. Ela mede a visita à página citada na mensagem, quando a pessoa clica nesse link, e aparece no seu analytics."
+      ],
+      "items": [
+        { "label": "Número", "expr": "DDI + DDD + telefone, só dígitos (ex.: 5511912345678)" },
+        { "label": "Link", "expr": "https://wa.me/<número>?text=<mensagem codificada>" },
+        { "label": "Mensagem com link", "expr": "texto + quebra de linha + link de destino com UTM" }
+      ]
+    },
+    "examples": [
+      { "title": "Bio do Instagram", "text": "Número 55 (11) 91234-5678 e mensagem \"Olá! Vim pelo Instagram e quero saber mais.\" geram https://wa.me/5511912345678?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20saber%20mais." },
+      { "title": "Mensagem citando uma oferta com UTM", "text": "Com a página loja.com/oferta e UTM de origem instagram, mídia bio e campanha lançamento, a mensagem leva na segunda linha https://loja.com/oferta?utm_source=instagram&utm_medium=bio&utm_campaign=lancamento." },
+      { "title": "Número colado com formatação", "text": "\"+55 (11) 91234-5678\" vira 5511912345678. Já \"011 91234-5678\" com DDI 55 tem o zero inicial removido, com um aviso para você conferir." }
+    ],
+    "faq": [
+      { "q": "Como criar um link de WhatsApp com mensagem pronta?", "a": "Use o formato https://wa.me/NÚMERO?text=MENSAGEM, com o número em formato internacional e a mensagem codificada. Esta ferramenta faz as duas coisas: você digita o número e o texto normalmente e copia o link pronto." },
+      { "q": "Qual o formato correto do número no wa.me?", "a": "Código do país, DDD e telefone, só com dígitos. Para um celular de São Paulo é 5511912345678. Não use +, zeros à esquerda, parênteses nem hífens, que a documentação oficial pede para omitir." },
+      { "q": "Como colocar UTM em um link de WhatsApp?", "a": "A UTM vai no link de destino que você cita dentro da mensagem, não no wa.me. Assim o clique da pessoa nesse link é atribuído à campanha. A conversa em si não é rastreada pelo Google Analytics." },
+      { "q": "Preciso encurtar o link do WhatsApp?", "a": "Não. O wa.me já é curto, e um encurtador de terceiros esconde o destino, pode ser bloqueado e quebra se o serviço sair do ar. Esta ferramenta nunca encurta." },
+      { "q": "Por que a mensagem chega cortada ou com símbolos estranhos?", "a": "Porque caracteres como &, # e % não foram codificados. Quando isso acontece, o WhatsApp lê o que vem depois como outro parâmetro. A ferramenta codifica todo o texto e preserva acentos e emojis." },
+      { "q": "Existe limite de tamanho da mensagem?", "a": "A ferramenta limita a mensagem inicial a 1.000 caracteres e avisa quando o link passa de 2.000, porque alguns apps e redes sociais cortam endereços muito longos. Mensagens iniciais curtas convertem melhor." },
+      { "q": "Meu número e minha mensagem são enviados para algum lugar?", "a": "Não. Tudo é montado no seu navegador, sem requisição a servidores e sem salvar nada. O link só abre o WhatsApp quando você clica no botão de teste ou o usa em outro lugar." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "A WhatsApp link (wa.me) opens a chat straight with your number and, if you want, with the first message already typed. It is the ideal destination for an Instagram bio, a website button, an email or an ad: people do not have to save a contact or type anything.",
+      "The mistakes that break this link are small: a number with a zero or brackets, a missing country code, and a message with accents or symbols that was never encoded. This tool checks the number, encodes the text and, when you quote a link in the message, adds the UTM so the visit can be measured."
+    ],
+    "howTo": {
+      "name": "How to create a WhatsApp link with a message",
+      "steps": [
+        { "name": "Enter the country code and the number. ", "text": "Type the country code (1 for the US, 44 for the UK) and the phone number. Brackets, spaces and hyphens are fine: the tool cleans them. If you paste the full number starting with +, the country code field is ignored." },
+        { "name": "Write the first message. ", "text": "This is the text that appears ready in the chat box. Leave it empty to just open the chat. Line breaks are kept." },
+        { "name": "Quote a link if it makes sense. ", "text": "Enter the destination page and, to measure the click, tick the UTM option and fill in source, medium and campaign. The link goes on its own line of the message." },
+        { "name": "Copy and test. ", "text": "Copy the link, or use the test button to open the chat. Check that the number and the text show up as expected before you publish." }
+      ]
+    },
+    "formula": {
+      "title": "How the link is built",
+      "paragraphs": [
+        "The format is the one of WhatsApp's official Click to Chat feature: the wa.me address, the number in international format (digits only, with no +, leading zeros, brackets or hyphens) and, optionally, the text parameter with the encoded message.",
+        "Encoding turns a space into %20, a line break into %0A, and ampersands (&), hashes (#), percent signs and accents into safe sequences. Without it, an & in the middle of the message would cut the text. The number always comes before the message and nothing is shortened: the link stays readable and trustworthy.",
+        "The UTM does not track the conversation inside WhatsApp. It measures the visit to the page quoted in the message, when the person clicks that link, and shows up in your analytics."
+      ],
+      "items": [
+        { "label": "Number", "expr": "country code + area code + phone, digits only (e.g. 14155550123)" },
+        { "label": "Link", "expr": "https://wa.me/<number>?text=<encoded message>" },
+        { "label": "Message with link", "expr": "text + line break + destination link with UTM" }
+      ]
+    },
+    "examples": [
+      { "title": "Instagram bio", "text": "Number +1 415 555 0123 and the message \"Hi! I found you on Instagram and want to know more.\" produce https://wa.me/14155550123?text=Hi!%20I%20found%20you%20on%20Instagram%20and%20want%20to%20know%20more." },
+      { "title": "Message quoting an offer with UTM", "text": "With the page shop.com/offer and a UTM with source instagram, medium bio and campaign launch, the message carries https://shop.com/offer?utm_source=instagram&utm_medium=bio&utm_campaign=launch on its second line." },
+      { "title": "Number pasted with formatting", "text": "\"+1 (415) 555-0123\" becomes 14155550123. A national number such as \"0415 555 0123\" with country code 1 has the leading zero removed, with a warning so you can check it." }
+    ],
+    "faq": [
+      { "q": "How do I create a WhatsApp link with a ready message?", "a": "Use the format https://wa.me/NUMBER?text=MESSAGE, with the number in international format and the message encoded. This tool does both: you type the number and the text normally and copy the finished link." },
+      { "q": "What is the correct number format for wa.me?", "a": "Country code, area code and phone number, digits only. A US number looks like 14155550123. Do not use +, leading zeros, brackets or hyphens, which WhatsApp's documentation asks you to omit." },
+      { "q": "How do I add UTM parameters to a WhatsApp link?", "a": "The UTM goes on the destination link you quote inside the message, not on wa.me. That way the click on that link is attributed to the campaign. The chat itself is not tracked by Google Analytics." },
+      { "q": "Do I need to shorten the WhatsApp link?", "a": "No. wa.me is already short, and a third-party shortener hides the destination, can be blocked and breaks if the service goes down. This tool never shortens links." },
+      { "q": "Why does the message arrive cut off or with strange symbols?", "a": "Because characters such as &, # and % were not encoded. When that happens, WhatsApp reads what follows as another parameter. The tool encodes the whole text and keeps accents and emoji." },
+      { "q": "Is there a message length limit?", "a": "The tool limits the first message to 1,000 characters and warns when the link passes 2,000, because some apps and social networks cut very long addresses. Short first messages convert better." },
+      { "q": "Are my number and message sent anywhere?", "a": "No. Everything is built in your browser, with no server requests and nothing saved. The link only opens WhatsApp when you click the test button or use it somewhere else." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "El enlace de WhatsApp (wa.me) abre un chat directo con tu número y, si quieres, con el primer mensaje ya escrito. Es el destino ideal para la bio de Instagram, un botón del sitio, un correo o un anuncio: quien hace clic no necesita guardar un contacto ni escribir nada.",
+      "Los errores que más rompen este enlace son pequeños: un número con cero o paréntesis, falta del código de país y un mensaje con tildes o símbolos sin codificar. Esta herramienta verifica el número, codifica el texto y, si citas un enlace en el mensaje, añade la UTM para poder medir la visita."
+    ],
+    "howTo": {
+      "name": "Cómo crear un enlace de WhatsApp con mensaje",
+      "steps": [
+        { "name": "Indica el código de país y el número. ", "text": "Escribe el código de país (34 para España, 52 para México) y el teléfono. Puedes usar paréntesis, espacios y guiones: la herramienta los limpia. Si pegas el número completo con +, el campo de código se ignora." },
+        { "name": "Escribe el mensaje inicial. ", "text": "Es el texto que aparece listo en la caja del chat. Déjalo vacío si solo quieres abrir la conversación. Los saltos de línea se conservan." },
+        { "name": "Cita un enlace si tiene sentido. ", "text": "Indica la página de destino y, para medir el clic, marca la opción de UTM y completa origen, medio y campaña. El enlace entra en una línea propia del mensaje." },
+        { "name": "Copia y prueba. ", "text": "Copia el enlace o usa el botón de prueba para abrir el chat. Comprueba que el número y el texto aparecen como esperas antes de publicar." }
+      ]
+    },
+    "formula": {
+      "title": "Cómo se arma el enlace",
+      "paragraphs": [
+        "El formato es el de la función oficial Click to Chat de WhatsApp: la dirección wa.me, el número en formato internacional (solo dígitos, sin +, ceros a la izquierda, paréntesis ni guiones) y, de forma opcional, el parámetro text con el mensaje codificado.",
+        "La codificación convierte el espacio en %20, el salto de línea en %0A, y el ampersand (&), la almohadilla (#), el porcentaje y las tildes en secuencias seguras. Sin ella, un & en medio del mensaje cortaría el texto. El número va siempre antes del mensaje y no se acorta nada: el enlace queda legible y confiable.",
+        "La UTM no rastrea la conversación dentro de WhatsApp. Mide la visita a la página citada en el mensaje, cuando la persona hace clic en ese enlace, y aparece en tu analítica."
+      ],
+      "items": [
+        { "label": "Número", "expr": "código de país + prefijo + teléfono, solo dígitos (ej.: 34612345678)" },
+        { "label": "Enlace", "expr": "https://wa.me/<número>?text=<mensaje codificado>" },
+        { "label": "Mensaje con enlace", "expr": "texto + salto de línea + enlace de destino con UTM" }
+      ]
+    },
+    "examples": [
+      { "title": "Bio de Instagram", "text": "El número +34 612 34 56 78 y el mensaje \"¡Hola! Vengo de Instagram y quiero saber más.\" generan https://wa.me/34612345678?text=%C2%A1Hola!%20Vengo%20de%20Instagram%20y%20quiero%20saber%20m%C3%A1s." },
+      { "title": "Mensaje que cita una oferta con UTM", "text": "Con la página tienda.com/oferta y UTM con origen instagram, medio bio y campaña lanzamiento, el mensaje lleva en la segunda línea https://tienda.com/oferta?utm_source=instagram&utm_medium=bio&utm_campaign=lanzamiento." },
+      { "title": "Número pegado con formato", "text": "\"+34 (612) 34-56-78\" se convierte en 34612345678. Un número nacional con cero inicial y código 34 pierde el cero, con un aviso para que lo revises." }
+    ],
+    "faq": [
+      { "q": "¿Cómo crear un enlace de WhatsApp con mensaje listo?", "a": "Usa el formato https://wa.me/NÚMERO?text=MENSAJE, con el número en formato internacional y el mensaje codificado. Esta herramienta hace ambas cosas: escribes el número y el texto con normalidad y copias el enlace terminado." },
+      { "q": "¿Cuál es el formato correcto del número en wa.me?", "a": "Código de país, prefijo y teléfono, solo con dígitos. Un móvil de España queda 34612345678. No uses +, ceros a la izquierda, paréntesis ni guiones, que la documentación oficial pide omitir." },
+      { "q": "¿Cómo poner UTM en un enlace de WhatsApp?", "a": "La UTM va en el enlace de destino que citas dentro del mensaje, no en wa.me. Así el clic en ese enlace se atribuye a la campaña. Google Analytics no rastrea la conversación en sí." },
+      { "q": "¿Necesito acortar el enlace de WhatsApp?", "a": "No. wa.me ya es corto, y un acortador de terceros oculta el destino, puede ser bloqueado y se rompe si el servicio cae. Esta herramienta nunca acorta." },
+      { "q": "¿Por qué el mensaje llega cortado o con símbolos raros?", "a": "Porque caracteres como &, # y % no se codificaron. Cuando eso pasa, WhatsApp lee lo que viene después como otro parámetro. La herramienta codifica todo el texto y conserva tildes y emojis." },
+      { "q": "¿Hay un límite de tamaño para el mensaje?", "a": "La herramienta limita el mensaje inicial a 1.000 caracteres y avisa cuando el enlace supera 2.000, porque algunas apps y redes sociales cortan direcciones muy largas. Los mensajes iniciales cortos convierten mejor." },
+      { "q": "¿Mi número y mi mensaje se envían a algún lugar?", "a": "No. Todo se arma en tu navegador, sin peticiones a servidores y sin guardar nada. El enlace solo abre WhatsApp cuando haces clic en el botón de prueba o lo usas en otro lugar." }
+    ]
+  }
+}

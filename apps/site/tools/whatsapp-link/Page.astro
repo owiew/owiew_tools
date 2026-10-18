@@ -1,0 +1,15 @@
+---
+/**
+ * Monta a ilha do Gerador de link de WhatsApp. Onde: rota de ferramenta
+ * (registry via import.meta.glob). Entrada: idioma da página.
+ */
+import { type Lang } from "../../src/i18n/locales";
+import WhatsappLink from "./Ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<WhatsappLink client:load lang={lang} />
