@@ -1,0 +1,9 @@
+/* Prévia da mensagem do gerador de link de WhatsApp: respeita quebras de linha. */
+.wa-preview {
+  margin: var(--s-2) 0 0;
+  padding: var(--s-3) var(--s-4);
+  background: var(--accent-soft);
+  border-radius: var(--r-md);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

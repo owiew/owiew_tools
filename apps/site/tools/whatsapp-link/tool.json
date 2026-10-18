@@ -1,0 +1,33 @@
+{
+  "id": "whatsapp-link",
+  "category": "utilities",
+  "icon": "message-circle",
+  "order": 120,
+  "related": ["qr-utm", "utm-builder", "url-inspector"],
+  "i18n": {
+    "pt-br": {
+      "slug": "link-de-whatsapp",
+      "name": "Gerador de link de WhatsApp",
+      "title": "Gerador de link de WhatsApp com mensagem e UTM",
+      "description": "Crie o link wa.me com número validado, mensagem pronta e UTM opcional no link citado. Sem encurtador, sem cadastro e 100% no seu navegador. Grátis.",
+      "summary": "Monte o link que abre uma conversa no WhatsApp já com a mensagem escrita, com o número conferido e o texto codificado do jeito certo.",
+      "keywords": ["link de whatsapp", "gerador de link whatsapp", "wa.me", "link whatsapp com mensagem", "click to chat", "whatsapp utm", "link para whatsapp"]
+    },
+    "en": {
+      "slug": "whatsapp-link-generator",
+      "name": "WhatsApp link generator",
+      "title": "WhatsApp link generator with message and UTM",
+      "description": "Create a wa.me link with a validated number, a ready message and optional UTM on the link you quote. No shortener, no sign-up, 100% in your browser. Free.",
+      "summary": "Build the link that opens a WhatsApp chat with the message already typed, the number checked and the text encoded the right way.",
+      "keywords": ["whatsapp link", "whatsapp link generator", "wa.me", "whatsapp link with message", "click to chat", "whatsapp utm", "link to whatsapp"]
+    },
+    "es": {
+      "slug": "generador-de-enlace-de-whatsapp",
+      "name": "Generador de enlace de WhatsApp",
+      "title": "Generador de enlace de WhatsApp con mensaje y UTM",
+      "description": "Crea el enlace wa.me con número validado, mensaje listo y UTM opcional en el enlace citado. Sin acortador, sin registro y 100% en tu navegador. Gratis.",
+      "summary": "Arma el enlace que abre un chat de WhatsApp con el mensaje ya escrito, el número verificado y el texto codificado de la forma correcta.",
+      "keywords": ["enlace de whatsapp", "generador de enlace whatsapp", "wa.me", "enlace whatsapp con mensaje", "click to chat", "whatsapp utm", "link para whatsapp"]
+    }
+  }
+}
