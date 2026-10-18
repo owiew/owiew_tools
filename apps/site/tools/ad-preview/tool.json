@@ -1,0 +1,33 @@
+{
+  "id": "ad-preview",
+  "category": "ads",
+  "icon": "eye",
+  "order": 90,
+  "related": ["keyword-combiner", "utm-builder", "keyword-cleaner"],
+  "i18n": {
+    "pt-br": {
+      "slug": "previa-de-anuncio",
+      "name": "Prévia e contador de anúncio",
+      "title": "Prévia e contador de caracteres de anúncio Google e Meta",
+      "description": "Conte os caracteres do anúncio responsivo do Google (15 títulos de 30, 4 descrições de 90) e do Meta e veja uma prévia genérica com truncamento. Grátis.",
+      "summary": "Escreva o anúncio dentro dos limites: contador de caracteres como o Google conta, limites recomendados do Meta e prévia com truncamento.",
+      "keywords": ["contador de caracteres anúncio", "prévia de anúncio google", "anúncio responsivo de pesquisa", "limite de caracteres google ads", "limite de caracteres meta ads", "texto principal facebook", "rsa"]
+    },
+    "en": {
+      "slug": "ad-preview-and-counter",
+      "name": "Ad preview and character counter",
+      "title": "Google and Meta ad preview and character counter",
+      "description": "Count characters for Google responsive search ads (15 headlines of 30, 4 descriptions of 90) and Meta ads, with a generic preview that simulates truncation. Free.",
+      "summary": "Write ads within the limits: a character counter that counts the way Google does, Meta's recommended limits and a preview with truncation.",
+      "keywords": ["ad character counter", "google ads preview", "responsive search ad", "google ads character limit", "meta ads character limit", "facebook primary text", "rsa"]
+    },
+    "es": {
+      "slug": "vista-previa-de-anuncio",
+      "name": "Vista previa y contador de anuncio",
+      "title": "Vista previa y contador de caracteres de anuncios Google y Meta",
+      "description": "Cuenta los caracteres del anuncio responsivo de búsqueda de Google (15 títulos de 30, 4 descripciones de 90) y de Meta y mira una vista previa genérica con truncado. Gratis.",
+      "summary": "Escribe el anuncio dentro de los límites: contador como lo cuenta Google, límites recomendados de Meta y vista previa con truncado.",
+      "keywords": ["contador de caracteres anuncio", "vista previa anuncio google", "anuncio responsivo de búsqueda", "límite de caracteres google ads", "límite de caracteres meta ads", "texto principal facebook", "rsa"]
+    }
+  }
+}
