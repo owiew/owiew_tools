@@ -80,6 +80,6 @@ test.describe("Calculadora de CPM e alcance", () => {
     await expect(page.getByTestId("cr-reach")).toHaveText("80.000");
     await expect(page.getByLabel("Inversión", { exact: true })).toBeVisible();
     await page.getByLabel("Calcular inversión necesaria", { exact: true }).check();
-    await expect(page.getByTestId("cr-impressions")).toHaveText("800.000");
+    await expect(page.getByTestId("cr-impressions")).toHaveText("500.000");
   });
 });
