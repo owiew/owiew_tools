@@ -1,0 +1,27 @@
+name: Sugerir uma ferramenta
+description: Uma ferramenta nova para quem trabalha com tráfego pago
+labels: [enhancement]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Nome da ferramenta
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Que problema ela resolve?
+      description: Conte uma situação real do dia a dia, sem citar clientes.
+    validations:
+      required: true
+  - type: textarea
+    id: formula
+    attributes:
+      label: Fórmula ou regra, se houver
+      description: Link para a documentação oficial da plataforma ajuda muito.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria
+      options: [Links e UTM, Calculadoras, Anúncios, Palavras-chave, Utilidades]

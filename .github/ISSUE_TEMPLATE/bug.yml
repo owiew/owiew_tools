@@ -1,0 +1,28 @@
+name: Erro em uma ferramenta
+description: Um cálculo, link ou texto saiu errado
+labels: [bug]
+body:
+  - type: input
+    id: tool
+    attributes:
+      label: Ferramenta e idioma
+      placeholder: Calculadora de ROAS, /pt-br/
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos e valores digitados
+      description: Use valores de exemplo. Nunca cole dados reais de clientes.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: O que você esperava e o que aconteceu
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Navegador e versão
