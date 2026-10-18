@@ -1,0 +1,58 @@
+/* Gerador de nomenclatura: linhas de bloco com botões de ordem e campo de data. */
+.nm-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s-3);
+  padding: var(--s-3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.nm-block > .field {
+  flex: 1 1 14rem;
+  min-width: 0;
+}
+.nm-pos {
+  align-self: center;
+  min-width: 2.25rem;
+  font-weight: 700;
+  color: var(--fg-muted);
+}
+.nm-move {
+  display: flex;
+  gap: var(--s-2);
+}
+.nm-date-extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s-3);
+  flex: 1 1 100%;
+}
+.nm-date-extra > .field {
+  flex: 1 1 12rem;
+}
+input[type="date"] {
+  width: 100%;
+  min-height: var(--tap);
+  padding: var(--s-2) var(--s-3);
+  font: inherit;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+}
+.nm-blocks {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nm-name {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}

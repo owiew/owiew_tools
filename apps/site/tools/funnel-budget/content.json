@@ -1,0 +1,350 @@
+{
+  "pt-br": {
+    "intro": [
+      "Quanto investir em anúncios para bater a meta de vendas? A conta é de trás para frente: quantas vendas você quer, quantos leads precisa para gerá-las, quantos cliques precisa para gerar esses leads e, por fim, quanto esses cliques custam. Este planejador faz essa cadeia por você e mostra a verba, o custo por lead (CPL) e o CPA que ela implica.",
+      "O resultado é tão bom quanto as taxas que você informa. Por isso a página mostra também três cenários, com as taxas de conversão 20% menores, iguais e 20% maiores. Assim você vê o quanto a verba balança se a campanha render um pouco menos ou um pouco mais do que o histórico sugere."
+    ],
+    "howTo": {
+      "name": "Como planejar a verba de anúncios a partir da meta de vendas",
+      "steps": [
+        {
+          "name": "Defina a meta de vendas. ",
+          "text": "Informe quantas vendas inteiras você quer no período. É a partir dela que o funil é calculado de trás para frente."
+        },
+        {
+          "name": "Preencha as taxas do funil. ",
+          "text": "Use a taxa de lead para venda (de cada 100 leads, quantos compram) e a taxa de clique para lead (a conversão da página). Pegue os dois números do seu histórico recente."
+        },
+        {
+          "name": "Informe o custo da mídia. ",
+          "text": "Digite o CPC médio ou, se preferir, escolha o modo CTR e CPM e informe a taxa de cliques e o custo por mil impressões."
+        },
+        {
+          "name": "Se quiser, informe o ticket médio. ",
+          "text": "Com o valor médio de cada venda, a ferramenta projeta a receita e o ROAS da verba planejada."
+        },
+        {
+          "name": "Leia os cenários. ",
+          "text": "Compare a verba do cenário pessimista, do base e do otimista. Planeje o caixa para o pessimista e trate o otimista como bônus."
+        }
+      ]
+    },
+    "formula": {
+      "title": "Como o cálculo funciona",
+      "paragraphs": [
+        "O funil é resolvido de trás para frente e cada etapa é arredondada para cima, em aritmética de inteiros. Se 7 vendas com taxa de 3% pedem 233,33 leads, o plano usa 234: não existe um terço de pessoa, e arredondar para baixo faria a meta ficar sempre um pouco curta. As contas em dinheiro usam centavos inteiros.",
+        "No modo CTR e CPM, os cliques ainda precisam ser convertidos em impressões, e a verba vem do custo por mil impressões. Se o resultado passar do limite seguro de números inteiros, a ferramenta avisa em vez de mostrar um valor errado. Nos cenários, as duas taxas de conversão mudam e o CPC, o CPM, o CTR e o ticket ficam como estão."
+      ],
+      "items": [
+        {
+          "label": "Leads",
+          "expr": "vendas ÷ taxa de lead para venda (para cima)"
+        },
+        {
+          "label": "Cliques",
+          "expr": "leads ÷ taxa de clique para lead (para cima)"
+        },
+        {
+          "label": "Impressões (modo CTR e CPM)",
+          "expr": "cliques ÷ CTR (para cima)"
+        },
+        {
+          "label": "Verba com CPC",
+          "expr": "cliques × CPC"
+        },
+        {
+          "label": "Verba com CPM",
+          "expr": "impressões × CPM ÷ 1.000"
+        },
+        {
+          "label": "CPL e CPA implícito",
+          "expr": "verba ÷ leads e verba ÷ vendas"
+        },
+        {
+          "label": "ROAS projetado",
+          "expr": "vendas × ticket ÷ verba"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Meta de 50 vendas com CPC",
+        "text": "Meta de 50 vendas, 10% dos leads compram, 5% dos cliques viram lead e o CPC é R$ 1,50. São 500 leads e 10.000 cliques, o que dá uma verba de R$ 15.000,00. O CPL é R$ 30,00 e o CPA implícito é R$ 300,00. Com ticket de R$ 600,00, a receita é R$ 30.000,00 e o ROAS é 2,00x."
+      },
+      {
+        "title": "Modo CTR e CPM",
+        "text": "Meta de 30 vendas, 5% dos leads compram, 25% dos cliques viram lead, CTR de 1,20% e CPM de R$ 30,00. São 600 leads, 2.400 cliques e 200.000 impressões. A verba é R$ 6.000,00, com CPL de R$ 10,00 e CPA de R$ 200,00."
+      },
+      {
+        "title": "Por que arredondar para cima",
+        "text": "Para 7 vendas com taxa de lead para venda de 3%, a conta dá 233,33 leads. O plano usa 234 leads. Com uma página que converte 10% dos cliques, são 2.340 cliques."
+      },
+      {
+        "title": "Sensibilidade: um ponto a menos na página",
+        "text": "No primeiro exemplo, se a conversão da página cair de 5% para 4%, os cliques sobem de 10.000 para 12.500 e a verba vai de R$ 15.000,00 para R$ 18.750,00: 25% a mais por um ponto percentual. Nos cenários padrão, a verba fica entre R$ 10.425,00 (otimista) e R$ 23.437,50 (pessimista)."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como calcular quanto investir em anúncios para uma meta de vendas?",
+        "a": "Divida a meta de vendas pela taxa de lead para venda para achar os leads, divida os leads pela taxa de clique para lead para achar os cliques e multiplique os cliques pelo CPC. Com 50 vendas, 10% e 5% de taxas e CPC de R$ 1,50, a verba é R$ 15.000,00. O planejador faz essa conta e arredonda cada etapa para cima."
+      },
+      {
+        "q": "Onde encontro a taxa de lead para venda e a de clique para lead?",
+        "a": "Nos seus próprios dados dos últimos meses. A taxa de clique para lead é leads divididos por cliques no painel de anúncios ou no analytics, para a mesma página e o mesmo canal. A de lead para venda é vendas divididas por leads no CRM ou na planilha de pedidos, olhando os leads do mesmo período. Use períodos longos o bastante para ter volume, porque poucas vendas deixam a taxa instável."
+      },
+      {
+        "q": "Como o funil muda em e-commerce, geração de leads e infoproduto?",
+        "a": "O formato muda porque a etapa do meio muda. Em e-commerce o clique costuma ir direto à compra, então a taxa de clique para lead vira a taxa de compra e a de lead para venda fica em 100%. Em geração de leads (serviços, B2B), a página converte em contato e o comercial fecha uma fração, então a taxa de lead para venda é baixa e o CPA vem do funil inteiro. Em infoproduto há as duas etapas, página de captura e depois lançamento ou sequência de e-mails, e o ticket e a recompra pesam no ROAS. Em todos os casos, use as taxas do seu histórico e não as de mercado."
+      },
+      {
+        "q": "Por que o planejador arredonda leads e cliques para cima?",
+        "a": "Porque você não compra meia pessoa e arredondar para baixo deixa a meta curta. Com 7 vendas e taxa de 3%, a conta dá 233,33 leads, mas só 233 leads rendem 6,99 vendas esperadas. Com 234 a meta é atingida. A ferramenta faz isso com números inteiros, sem passar por decimais."
+      },
+      {
+        "q": "Por que uma pequena queda na conversão aumenta tanto a verba?",
+        "a": "Porque a taxa fica no denominador de cada etapa e o efeito se multiplica ao longo do funil. Cair de 5% para 4% na página parece pouco, mas aumenta os cliques em 25%, e a verba cresce na mesma proporção. Se as duas taxas caírem 20%, a verba sobe 56,25% no exemplo básico. Por isso a tabela de cenários existe."
+      },
+      {
+        "q": "Qual a diferença entre CPA implícito e CPL?",
+        "a": "O CPL é o custo de cada lead (verba dividida por leads). O CPA implícito é o custo de cada venda (verba dividida por vendas) e já embute a perda entre lead e venda. Com CPL de R$ 30,00 e 10% de leads comprando, o CPA é R$ 300,00."
+      },
+      {
+        "q": "Posso usar CTR e CPM em vez de CPC?",
+        "a": "Sim. Escolha o modo CTR e CPM: as impressões necessárias saem de cliques divididos pelo CTR, e a verba é impressões vezes CPM dividido por mil. É útil em mídia de alcance, em que o custo é por impressão e o clique é consequência."
+      }
+    ]
+  },
+  "en": {
+    "intro": [
+      "How much should you spend on ads to hit a sales goal? You work backwards: how many sales you want, how many leads you need to produce them, how many clicks you need to produce those leads and, finally, what those clicks cost. This planner runs that chain for you and shows the budget, the cost per lead (CPL) and the CPA it implies.",
+      "The result is only as good as the rates you enter. That is why the page also shows three scenarios, with conversion rates 20% lower, unchanged and 20% higher. You see how much the budget swings if the campaign performs a little worse or a little better than your history suggests."
+    ],
+    "howTo": {
+      "name": "How to plan an ad budget from a sales goal",
+      "steps": [
+        {
+          "name": "Set the sales goal. ",
+          "text": "Enter how many whole sales you want in the period. The funnel is calculated backwards from this number."
+        },
+        {
+          "name": "Fill in the funnel rates. ",
+          "text": "Use the lead-to-sale rate (out of 100 leads, how many buy) and the click-to-lead rate (the page conversion rate). Take both numbers from your recent history."
+        },
+        {
+          "name": "Enter the media cost. ",
+          "text": "Type the average CPC or, if you prefer, choose the CTR and CPM mode and enter the click-through rate and the cost per thousand impressions."
+        },
+        {
+          "name": "Optionally, enter the average ticket. ",
+          "text": "With the average value of each sale, the tool projects revenue and ROAS for the planned budget."
+        },
+        {
+          "name": "Read the scenarios. ",
+          "text": "Compare the budget in the pessimistic, base and optimistic scenarios. Plan your cash for the pessimistic one and treat the optimistic one as a bonus."
+        }
+      ]
+    },
+    "formula": {
+      "title": "How the calculation works",
+      "paragraphs": [
+        "The funnel is solved backwards and every stage is rounded up, using integer arithmetic. If 7 sales at a 3% rate call for 233.33 leads, the plan uses 234: there is no such thing as a third of a person, and rounding down would always leave the goal slightly short. Money math uses whole cents.",
+        "In CTR and CPM mode, clicks still have to be converted into impressions, and the budget comes from the cost per thousand impressions. If the result goes past the safe limit for whole numbers, the tool warns you instead of showing a wrong value. In the scenarios, the two conversion rates change while CPC, CPM, CTR and ticket stay as they are."
+      ],
+      "items": [
+        {
+          "label": "Leads",
+          "expr": "sales ÷ lead-to-sale rate (rounded up)"
+        },
+        {
+          "label": "Clicks",
+          "expr": "leads ÷ click-to-lead rate (rounded up)"
+        },
+        {
+          "label": "Impressions (CTR and CPM mode)",
+          "expr": "clicks ÷ CTR (rounded up)"
+        },
+        {
+          "label": "Budget with CPC",
+          "expr": "clicks × CPC"
+        },
+        {
+          "label": "Budget with CPM",
+          "expr": "impressions × CPM ÷ 1,000"
+        },
+        {
+          "label": "CPL and implied CPA",
+          "expr": "budget ÷ leads and budget ÷ sales"
+        },
+        {
+          "label": "Projected ROAS",
+          "expr": "sales × ticket ÷ budget"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "A 50-sale goal with CPC",
+        "text": "A goal of 50 sales, 10% of leads buy, 5% of clicks become a lead and CPC is $1.50. That is 500 leads and 10,000 clicks, for a budget of $15,000.00. CPL is $30.00 and implied CPA is $300.00. With a $600.00 ticket, revenue is $30,000.00 and ROAS is 2.00x."
+      },
+      {
+        "title": "CTR and CPM mode",
+        "text": "A goal of 30 sales, 5% of leads buy, 25% of clicks become a lead, CTR is 1.20% and CPM is $30.00. That is 600 leads, 2,400 clicks and 200,000 impressions. The budget is $6,000.00, with a CPL of $10.00 and a CPA of $200.00."
+      },
+      {
+        "title": "Why round up",
+        "text": "For 7 sales at a 3% lead-to-sale rate, the math gives 233.33 leads. The plan uses 234 leads. With a page that converts 10% of clicks, that is 2,340 clicks."
+      },
+      {
+        "title": "Sensitivity: one point less on the page",
+        "text": "In the first example, if page conversion falls from 5% to 4%, clicks rise from 10,000 to 12,500 and the budget goes from $15,000.00 to $18,750.00: 25% more for one percentage point. In the default scenarios, the budget ranges from $10,425.00 (optimistic) to $23,437.50 (pessimistic)."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I calculate how much to spend on ads for a sales goal?",
+        "a": "Divide the sales goal by the lead-to-sale rate to get leads, divide leads by the click-to-lead rate to get clicks, and multiply clicks by CPC. With 50 sales, 10% and 5% rates and a $1.50 CPC, the budget is $15,000.00. The planner does this and rounds each stage up."
+      },
+      {
+        "q": "Where do I find my lead-to-sale and click-to-lead rates?",
+        "a": "In your own data from the last few months. Click-to-lead is leads divided by clicks in your ads dashboard or analytics, for the same page and channel. Lead-to-sale is sales divided by leads in your CRM or order sheet, looking at the leads from the same period. Use periods long enough to have volume, because a handful of sales makes the rate unstable."
+      },
+      {
+        "q": "How does the funnel change for e-commerce, lead generation and info products?",
+        "a": "The shape changes because the middle stage changes. In e-commerce the click usually goes straight to purchase, so click-to-lead becomes the purchase rate and lead-to-sale sits at 100%. In lead generation (services, B2B), the page converts into a contact and sales closes a fraction, so lead-to-sale is low and CPA comes from the whole funnel. Info products have both steps, a capture page and then a launch or email sequence, and ticket size and repeat purchases weigh on ROAS. In every case, use rates from your own history rather than market averages."
+      },
+      {
+        "q": "Why does the planner round leads and clicks up?",
+        "a": "Because you cannot buy half a person, and rounding down leaves the goal short. With 7 sales at a 3% rate the math gives 233.33 leads, but only 233 leads yield 6.99 expected sales. With 234 the goal is met. The tool does this with whole numbers, never through decimals."
+      },
+      {
+        "q": "Why does a small drop in conversion raise the budget so much?",
+        "a": "Because each rate sits in the denominator of a stage, so the effect compounds down the funnel. Going from 5% to 4% on the page looks small, but it raises clicks by 25%, and the budget grows in the same proportion. If both rates fall 20%, the budget rises 56.25% in the basic example. That is why the scenarios table exists."
+      },
+      {
+        "q": "What is the difference between implied CPA and CPL?",
+        "a": "CPL is the cost of each lead (budget divided by leads). Implied CPA is the cost of each sale (budget divided by sales) and already includes the drop between lead and sale. With a $30.00 CPL and 10% of leads buying, CPA is $300.00."
+      },
+      {
+        "q": "Can I use CTR and CPM instead of CPC?",
+        "a": "Yes. Choose the CTR and CPM mode: the impressions needed come from clicks divided by CTR, and the budget is impressions times CPM divided by a thousand. It is useful for reach media, where cost is per impression and the click is a consequence."
+      }
+    ]
+  },
+  "es": {
+    "intro": [
+      "¿Cuánto invertir en anuncios para alcanzar la meta de ventas? La cuenta va de atrás hacia adelante: cuántas ventas quieres, cuántos leads necesitas para generarlas, cuántos clics necesitas para generar esos leads y, al final, cuánto cuestan esos clics. Este planificador hace esa cadena por ti y muestra el presupuesto, el costo por lead (CPL) y el CPA que implica.",
+      "El resultado es tan bueno como las tasas que indiques. Por eso la página muestra también tres escenarios, con las tasas de conversión un 20% menores, iguales y un 20% mayores. Así ves cuánto se mueve el presupuesto si la campaña rinde un poco menos o un poco más de lo que sugiere tu historial."
+    ],
+    "howTo": {
+      "name": "Cómo planificar el presupuesto de anuncios a partir de la meta de ventas",
+      "steps": [
+        {
+          "name": "Define la meta de ventas. ",
+          "text": "Indica cuántas ventas enteras quieres en el período. El embudo se calcula de atrás hacia adelante a partir de ese número."
+        },
+        {
+          "name": "Completa las tasas del embudo. ",
+          "text": "Usa la tasa de lead a venta (de cada 100 leads, cuántos compran) y la tasa de clic a lead (la conversión de la página). Toma los dos números de tu historial reciente."
+        },
+        {
+          "name": "Indica el costo de los medios. ",
+          "text": "Escribe el CPC promedio o, si prefieres, elige el modo CTR y CPM e indica la tasa de clics y el costo por mil impresiones."
+        },
+        {
+          "name": "Si quieres, indica el ticket promedio. ",
+          "text": "Con el valor promedio de cada venta, la herramienta proyecta los ingresos y el ROAS del presupuesto planificado."
+        },
+        {
+          "name": "Lee los escenarios. ",
+          "text": "Compara el presupuesto del escenario pesimista, del base y del optimista. Planifica la caja para el pesimista y toma el optimista como un extra."
+        }
+      ]
+    },
+    "formula": {
+      "title": "Cómo funciona el cálculo",
+      "paragraphs": [
+        "El embudo se resuelve de atrás hacia adelante y cada etapa se redondea hacia arriba, con aritmética de enteros. Si 7 ventas con una tasa del 3% piden 233,33 leads, el plan usa 234: no existe un tercio de persona, y redondear hacia abajo dejaría la meta siempre un poco corta. Las cuentas de dinero usan centavos enteros.",
+        "En el modo CTR y CPM, los clics aún deben convertirse en impresiones, y el presupuesto sale del costo por mil impresiones. Si el resultado supera el límite seguro de números enteros, la herramienta avisa en lugar de mostrar un valor erróneo. En los escenarios cambian las dos tasas de conversión, y el CPC, el CPM, el CTR y el ticket quedan como están."
+      ],
+      "items": [
+        {
+          "label": "Leads",
+          "expr": "ventas ÷ tasa de lead a venta (hacia arriba)"
+        },
+        {
+          "label": "Clics",
+          "expr": "leads ÷ tasa de clic a lead (hacia arriba)"
+        },
+        {
+          "label": "Impresiones (modo CTR y CPM)",
+          "expr": "clics ÷ CTR (hacia arriba)"
+        },
+        {
+          "label": "Presupuesto con CPC",
+          "expr": "clics × CPC"
+        },
+        {
+          "label": "Presupuesto con CPM",
+          "expr": "impresiones × CPM ÷ 1.000"
+        },
+        {
+          "label": "CPL y CPA implícito",
+          "expr": "presupuesto ÷ leads y presupuesto ÷ ventas"
+        },
+        {
+          "label": "ROAS proyectado",
+          "expr": "ventas × ticket ÷ presupuesto"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Meta de 50 ventas con CPC",
+        "text": "Meta de 50 ventas, el 10% de los leads compra, el 5% de los clics se vuelve lead y el CPC es 1,50 €. Son 500 leads y 10.000 clics, con un presupuesto de 15.000,00 €. El CPL es 30,00 € y el CPA implícito es 300,00 €. Con un ticket de 600,00 €, los ingresos son 30.000,00 € y el ROAS es 2,00x."
+      },
+      {
+        "title": "Modo CTR y CPM",
+        "text": "Meta de 30 ventas, el 5% de los leads compra, el 25% de los clics se vuelve lead, CTR del 1,20% y CPM de 30,00 €. Son 600 leads, 2.400 clics y 200.000 impresiones. El presupuesto es 6.000,00 €, con CPL de 10,00 € y CPA de 200,00 €."
+      },
+      {
+        "title": "Por qué redondear hacia arriba",
+        "text": "Para 7 ventas con una tasa de lead a venta del 3%, la cuenta da 233,33 leads. El plan usa 234 leads. Con una página que convierte el 10% de los clics, son 2.340 clics."
+      },
+      {
+        "title": "Sensibilidad: un punto menos en la página",
+        "text": "En el primer ejemplo, si la conversión de la página baja del 5% al 4%, los clics suben de 10.000 a 12.500 y el presupuesto pasa de 15.000,00 € a 18.750,00 €: un 25% más por un punto porcentual. En los escenarios por defecto, el presupuesto va de 10.425,00 € (optimista) a 23.437,50 € (pesimista)."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo calcular cuánto invertir en anuncios para una meta de ventas?",
+        "a": "Divide la meta de ventas entre la tasa de lead a venta para obtener los leads, divide los leads entre la tasa de clic a lead para obtener los clics y multiplica los clics por el CPC. Con 50 ventas, tasas del 10% y el 5% y un CPC de 1,50, el presupuesto es 15.000,00. El planificador hace esta cuenta y redondea cada etapa hacia arriba."
+      },
+      {
+        "q": "¿Dónde encuentro la tasa de lead a venta y la de clic a lead?",
+        "a": "En tus propios datos de los últimos meses. La tasa de clic a lead es leads divididos entre clics en el panel de anuncios o en el analytics, para la misma página y el mismo canal. La de lead a venta es ventas divididas entre leads en el CRM o en la hoja de pedidos, mirando los leads del mismo período. Usa períodos lo bastante largos para tener volumen, porque pocas ventas vuelven inestable la tasa."
+      },
+      {
+        "q": "¿Cómo cambia el embudo en e-commerce, generación de leads e infoproductos?",
+        "a": "La forma cambia porque cambia la etapa del medio. En e-commerce el clic suele ir directo a la compra, así que la tasa de clic a lead pasa a ser la tasa de compra y la de lead a venta queda en 100%. En generación de leads (servicios, B2B), la página convierte en contacto y el equipo comercial cierra una fracción, por lo que la tasa de lead a venta es baja y el CPA sale del embudo completo. En infoproductos hay las dos etapas, página de captura y luego lanzamiento o secuencia de correos, y el ticket y la recompra pesan en el ROAS. En todos los casos, usa las tasas de tu historial y no promedios de mercado."
+      },
+      {
+        "q": "¿Por qué el planificador redondea leads y clics hacia arriba?",
+        "a": "Porque no se compra media persona y redondear hacia abajo deja la meta corta. Con 7 ventas y una tasa del 3%, la cuenta da 233,33 leads, pero solo 233 leads rinden 6,99 ventas esperadas. Con 234 la meta se cumple. La herramienta lo hace con números enteros, sin pasar por decimales."
+      },
+      {
+        "q": "¿Por qué una pequeña caída en la conversión sube tanto el presupuesto?",
+        "a": "Porque la tasa está en el denominador de cada etapa y el efecto se multiplica a lo largo del embudo. Pasar del 5% al 4% en la página parece poco, pero sube los clics un 25% y el presupuesto crece en la misma proporción. Si las dos tasas caen un 20%, el presupuesto sube un 56,25% en el ejemplo básico. Por eso existe la tabla de escenarios."
+      },
+      {
+        "q": "¿Cuál es la diferencia entre CPA implícito y CPL?",
+        "a": "El CPL es el costo de cada lead (presupuesto dividido entre leads). El CPA implícito es el costo de cada venta (presupuesto dividido entre ventas) e incluye la pérdida entre lead y venta. Con un CPL de 30,00 y el 10% de los leads comprando, el CPA es 300,00."
+      },
+      {
+        "q": "¿Puedo usar CTR y CPM en lugar de CPC?",
+        "a": "Sí. Elige el modo CTR y CPM: las impresiones necesarias salen de clics divididos entre el CTR, y el presupuesto es impresiones por CPM dividido entre mil. Sirve para medios de alcance, donde el costo es por impresión y el clic es una consecuencia."
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "funnel-budget",
+  "category": "calculators",
+  "icon": "funnel",
+  "order": 60,
+  "related": ["cpa-ltv", "roas-calculator", "cpm-reach"],
+  "i18n": {
+    "pt-br": {
+      "slug": "planejador-de-verba",
+      "name": "Planejador de verba por funil",
+      "title": "Planejador de verba por funil: vendas, leads, cliques e custo",
+      "description": "Informe a meta de vendas e as taxas do funil e veja leads, cliques e a verba de anúncios necessários, com cenários pessimista, base e otimista. Grátis.",
+      "summary": "Da meta de vendas até a verba: quantos leads e cliques você precisa e quanto investir em anúncios, com cenários e arredondamento sempre para cima.",
+      "keywords": ["planejador de verba", "quanto investir em anúncios", "funil de vendas", "meta de vendas", "taxa de conversão", "cpc", "custo por lead", "orçamento de tráfego pago"]
+    },
+    "en": {
+      "slug": "funnel-budget-planner",
+      "name": "Funnel budget planner",
+      "title": "Funnel budget planner: sales, leads, clicks and ad spend",
+      "description": "Enter a sales goal and your funnel rates to see the leads, clicks and ad budget you need, with pessimistic, base and optimistic scenarios. Free.",
+      "summary": "From sales goal to budget: how many leads and clicks you need and how much to spend on ads, with scenarios and rounding always up.",
+      "keywords": ["funnel budget planner", "how much to spend on ads", "sales funnel", "sales goal", "conversion rate", "cpc", "cost per lead", "paid traffic budget"]
+    },
+    "es": {
+      "slug": "planificador-de-presupuesto",
+      "name": "Planificador de presupuesto por embudo",
+      "title": "Planificador de presupuesto por embudo: ventas, leads y clics",
+      "description": "Indica la meta de ventas y las tasas del embudo y calcula los leads, clics y el presupuesto de anuncios necesarios, con escenarios pesimista y optimista.",
+      "summary": "De la meta de ventas al presupuesto: cuántos leads y clics necesitas y cuánto invertir en anuncios, con escenarios y redondeo siempre hacia arriba.",
+      "keywords": ["planificador de presupuesto", "cuánto invertir en anuncios", "embudo de ventas", "meta de ventas", "tasa de conversión", "cpc", "costo por lead", "presupuesto de tráfico pago"]
+    }
+  }
+}

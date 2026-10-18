@@ -1,0 +1,63 @@
+{
+  "id": "campaign-naming",
+  "category": "links",
+  "icon": "tags",
+  "order": 30,
+  "related": [
+    "utm-builder",
+    "url-inspector"
+  ],
+  "i18n": {
+    "pt-br": {
+      "slug": "gerador-de-nomenclatura",
+      "name": "Gerador de nomenclatura de campanhas",
+      "title": "Gerador de nomenclatura de campanhas com blocos e lote em CSV",
+      "description": "Monte nomes de campanha padronizados por blocos (objetivo, público, oferta, data), escolha ordem e separador e gere combinações em lote com CSV. Grátis e local.",
+      "summary": "Defina o padrão uma vez e gere nomes de campanha consistentes, um a um ou em lote, que dá para dividir de volta em colunas no relatório.",
+      "keywords": [
+        "nomenclatura de campanhas",
+        "nome de campanha",
+        "padrão de nomenclatura",
+        "naming convention",
+        "gerador de nomes de campanha",
+        "taxonomia de campanhas",
+        "utm",
+        "relatório de mídia paga"
+      ]
+    },
+    "en": {
+      "slug": "campaign-naming-generator",
+      "name": "Campaign naming generator",
+      "title": "Campaign naming convention generator with blocks and CSV batch",
+      "description": "Build consistent campaign names from blocks (objective, audience, offer, date), pick the order and separator, and generate combinations in bulk as CSV. Free and local.",
+      "summary": "Set your pattern once and generate consistent campaign names, one by one or in bulk, that you can split back into columns in your report.",
+      "keywords": [
+        "campaign naming convention",
+        "campaign name generator",
+        "naming convention",
+        "campaign taxonomy",
+        "ad campaign names",
+        "utm",
+        "paid media reporting",
+        "bulk campaign names"
+      ]
+    },
+    "es": {
+      "slug": "generador-de-nomenclatura-de-campanas",
+      "name": "Generador de nomenclatura de campañas",
+      "title": "Generador de nomenclatura de campañas con bloques y lote en CSV",
+      "description": "Arma nombres de campaña estandarizados por bloques (objetivo, público, oferta, fecha), elige orden y separador y genera combinaciones en lote con CSV. Gratis y local.",
+      "summary": "Define tu patrón una vez y genera nombres de campaña consistentes, uno a uno o en lote, que puedes dividir de vuelta en columnas en el informe.",
+      "keywords": [
+        "nomenclatura de campañas",
+        "nombre de campaña",
+        "convención de nombres",
+        "generador de nombres de campaña",
+        "taxonomía de campañas",
+        "utm",
+        "informe de medios pagados",
+        "nombres de campaña en lote"
+      ]
+    }
+  }
+}

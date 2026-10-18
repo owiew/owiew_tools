@@ -1,0 +1,15 @@
+---
+/**
+ * Monta a ilha da Calculadora de CPM, alcance e frequência. Onde: rota de
+ * ferramenta (registry via import.meta.glob). Entrada: idioma da página.
+ */
+import { type Lang } from "../../src/i18n/locales";
+import CpmReach from "./Ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<CpmReach client:load lang={lang} />

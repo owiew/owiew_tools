@@ -1,0 +1,302 @@
+{
+  "pt-br": {
+    "intro": [
+      "Quando cada pessoa do time batiza as campanhas do seu jeito, o relatório vira uma sopa: \"BF remarketing\", \"black friday - RMKT\", \"Remarketing_BlackFriday\". Um padrão de nomenclatura resolve isso porque cada bloco do nome ocupa sempre o mesmo lugar e dá para filtrar, somar e comparar por objetivo, público ou oferta. Esta ferramenta monta o nome por blocos, aplica o mesmo tratamento a todos e gera listas inteiras de uma vez."
+    ],
+    "howTo": {
+      "name": "Como montar um nome de campanha padronizado",
+      "steps": [
+        {
+          "name": "Preencha os blocos. ",
+          "text": "Objetivo, público, oferta e, se quiser, canal ou plataforma e data. Bloco vazio é ignorado, então nem todo nome precisa de todos os blocos."
+        },
+        {
+          "name": "Defina a ordem. ",
+          "text": "Use os botões de subir e descer para colocar primeiro o bloco pelo qual você mais filtra. A ordem só muda a posição, nunca o conteúdo."
+        },
+        {
+          "name": "Escolha separador, caixa e data. ",
+          "text": "Separador (_ - . |), minúsculas, MAIÚSCULAS ou como digitado, remoção de acentos e o formato da data, como AAAAMMDD ou MMMAA."
+        },
+        {
+          "name": "Copie o nome ou gere em lote. ",
+          "text": "Na aba Em lote, escreva vários valores por linha nos blocos que variam, confira a lista de combinações e baixe tudo em CSV."
+        }
+      ]
+    },
+    "formula": {
+      "title": "Como o nome é montado",
+      "paragraphs": [
+        "Cada bloco passa pelas mesmas etapas: remove acento (se marcado), aplica a caixa e troca qualquer sequência de espaços e símbolos por um único traço de ligação. O separador escolhido só aparece entre blocos. Por isso, se você escolher o hífen como separador, as palavras dentro de um bloco são ligadas por sublinhado, e o contrário nos demais casos.",
+        "Essa regra torna o nome decodificável: dividir o texto pelo separador devolve exatamente os blocos. Na planilha, basta usar Dividir texto em colunas com o separador como delimitador. O gerador mostra essa divisão bloco a bloco logo abaixo do nome.",
+        "No lote, o número de nomes é o produto do tamanho das listas. Duas listas com 2 e 3 valores dão 6 nomes. O teto é de 500 nomes; acima disso o gerador pede para reduzir as listas antes de gerar. Nomes que ficam iguais depois da limpeza (por exemplo Black Friday e black-friday) são contados uma vez só."
+      ],
+      "items": [
+        {
+          "label": "1. Sem acento",
+          "expr": "Promoção de Verão → Promocao de Verao"
+        },
+        {
+          "label": "2. Caixa",
+          "expr": "Promocao de Verao → promocao de verao"
+        },
+        {
+          "label": "3. Ligação das palavras",
+          "expr": "promocao de verao → promocao-de-verao"
+        },
+        {
+          "label": "4. Junção dos blocos",
+          "expr": "canal + objetivo + oferta + data → meta_conversao_promocao-de-verao_20261101"
+        },
+        {
+          "label": "5. Combinações do lote",
+          "expr": "nomes = valores do bloco A × valores do bloco B × ..."
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Campanha de remarketing na Black Friday",
+        "text": "Canal Meta Ads, objetivo Conversão, público Remarketing 30d, oferta Black Friday, data 01/11/2026, separador sublinhado e formato AAAAMMDD. Resultado: meta-ads_conversao_remarketing-30d_black-friday_20261101, com 56 caracteres."
+      },
+      {
+        "title": "Outro padrão: maiúsculas, ponto e mês abreviado",
+        "text": "Só objetivo, oferta e data, com separador ponto, MAIÚSCULAS e formato MMMAA. Resultado: CONVERSAO.BLACK-FRIDAY.NOV26. A ordem dos blocos é a da lista, então trocar a data para o início mudaria o nome para NOV26.CONVERSAO.BLACK-FRIDAY."
+      },
+      {
+        "title": "Lote de 2 canais por 3 ofertas",
+        "text": "Canais Meta e Google, ofertas Black Friday, Natal e Verão, com a data de 01/11/2026. São 2 × 3 = 6 nomes, de meta_black-friday_20261101 a google_verao_20261101, prontos para baixar em CSV com uma coluna por bloco."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como padronizar o nome das campanhas de anúncios?",
+        "a": "Defina os blocos que todo nome precisa ter, a ordem deles, o separador e a caixa das letras, e use sempre a mesma regra. Um padrão comum é canal, objetivo, público, oferta e data, mas o importante é que a ordem seja fixa para o time inteiro."
+      },
+      {
+        "q": "Qual separador usar no nome da campanha: hífen, sublinhado ou ponto?",
+        "a": "Qualquer um serve, desde que ele não apareça dentro dos blocos. Esta ferramenta garante isso trocando o separador por outro caractere dentro de cada bloco. Sublinhado é uma escolha comum porque se destaca do hífen usado nas palavras."
+      },
+      {
+        "q": "Posso usar acentos e espaços no nome da campanha?",
+        "a": "Pode, mas não é recomendado. Acentos e espaços costumam virar problema em exportações, planilhas e filtros por texto, e a mesma palavra escrita de dois jeitos vira duas linhas no relatório. Por isso o padrão remove acentos e troca espaços por um traço."
+      },
+      {
+        "q": "Qual é o tamanho máximo do nome de uma campanha?",
+        "a": "Depende da plataforma e pode mudar, então confira a documentação da sua. A ferramenta mostra o tamanho do nome e dá um aviso genérico acima de 100 caracteres, que não é regra de nenhuma plataforma, só um alerta de que o nome está longo para ler em relatórios."
+      },
+      {
+        "q": "Como separar o nome da campanha em colunas na planilha?",
+        "a": "Cole os nomes em uma coluna e use Dividir texto em colunas (Google Planilhas) ou Texto para Colunas (Excel), escolhendo o separador do padrão como delimitador. Cada coluna resultante é um bloco, na ordem em que o nome foi montado."
+      },
+      {
+        "q": "Qual formato de data usar no nome da campanha?",
+        "a": "AAAAMMDD é o mais prático, porque a ordem alfabética coincide com a ordem cronológica: 20261101 vem antes de 20261115. Se a campanha dura meses, AAAAMM ou MMMAA já bastam."
+      },
+      {
+        "q": "Os nomes que eu digito são enviados a algum servidor?",
+        "a": "Não. Tudo é calculado no seu navegador e nada é enviado ou salvo. O CSV é gerado na sua máquina quando você clica em baixar."
+      }
+    ]
+  },
+  "en": {
+    "intro": [
+      "When everyone on the team names campaigns their own way, reports turn into soup: \"BF remarketing\", \"black friday - RMKT\", \"Remarketing_BlackFriday\". A naming convention fixes that, because each block of the name always sits in the same place and you can filter, sum and compare by objective, audience or offer. This tool builds the name from blocks, applies the same cleaning to all of them and generates whole lists at once."
+    ],
+    "howTo": {
+      "name": "How to build a standardized campaign name",
+      "steps": [
+        {
+          "name": "Fill in the blocks. ",
+          "text": "Objective, audience, offer and, if you like, channel or platform and date. An empty block is skipped, so not every name needs every block."
+        },
+        {
+          "name": "Set the order. ",
+          "text": "Use the up and down buttons to put first the block you filter by most. The order only changes position, never content."
+        },
+        {
+          "name": "Choose separator, case and date. ",
+          "text": "Separator (_ - . |), lowercase, UPPERCASE or as typed, accent removal and the date format, such as YYYYMMDD or MMMYY."
+        },
+        {
+          "name": "Copy the name or generate a batch. ",
+          "text": "In the Batch tab, write several values per line in the blocks that vary, check the list of combinations and download everything as CSV."
+        }
+      ]
+    },
+    "formula": {
+      "title": "How the name is built",
+      "paragraphs": [
+        "Each block goes through the same steps: accents are removed (if checked), the case is applied and any run of spaces and symbols becomes a single linking dash. The chosen separator only appears between blocks. So if you pick the hyphen as separator, words inside a block are joined with an underscore, and the other way around in the remaining cases.",
+        "That rule makes the name decodable: splitting the text by the separator returns exactly the blocks. In a spreadsheet, just use Split text to columns with the separator as delimiter. The generator shows that split block by block right below the name.",
+        "In batch mode, the number of names is the product of the list sizes. Two lists with 2 and 3 values give 6 names. The cap is 500 names; above that the generator asks you to shorten the lists before generating. Names that end up identical after cleaning (for example Black Friday and black-friday) are counted once."
+      ],
+      "items": [
+        {
+          "label": "1. No accents",
+          "expr": "Summer Promoção → Summer Promocao"
+        },
+        {
+          "label": "2. Case",
+          "expr": "Summer Promocao → summer promocao"
+        },
+        {
+          "label": "3. Linking words",
+          "expr": "summer promocao → summer-promocao"
+        },
+        {
+          "label": "4. Joining the blocks",
+          "expr": "channel + objective + offer + date → meta_conversion_summer-sale_20261101"
+        },
+        {
+          "label": "5. Batch combinations",
+          "expr": "names = values of block A × values of block B × ..."
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Black Friday remarketing campaign",
+        "text": "Channel Meta Ads, objective Conversion, audience Remarketing 30d, offer Black Friday, date 11/01/2026, underscore separator and YYYYMMDD format. Result: meta-ads_conversion_remarketing-30d_black-friday_20261101, 56 characters long."
+      },
+      {
+        "title": "Another pattern: uppercase, dot and short month",
+        "text": "Only objective, offer and date, with a dot separator, UPPERCASE and the MMMYY format. Result: CONVERSION.BLACK-FRIDAY.NOV26. The block order is the order of the list, so moving the date to the top would turn the name into NOV26.CONVERSION.BLACK-FRIDAY."
+      },
+      {
+        "title": "A batch of 2 channels by 3 offers",
+        "text": "Channels Meta and Google, offers Black Friday, Christmas and Summer, with the date 11/01/2026. That is 2 × 3 = 6 names, from meta_black-friday_20261101 to google_summer_20261101, ready to download as CSV with one column per block."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I standardize ad campaign names?",
+        "a": "Define the blocks every name must have, their order, the separator and the letter case, and always apply the same rule. A common pattern is channel, objective, audience, offer and date, but what matters is that the order is fixed for the whole team."
+      },
+      {
+        "q": "Which separator should I use in a campaign name: hyphen, underscore or dot?",
+        "a": "Any of them works as long as it does not appear inside the blocks. This tool guarantees that by using a different character to join words inside each block. Underscore is a common choice because it stands out from the hyphen used in words."
+      },
+      {
+        "q": "Can I use accents and spaces in a campaign name?",
+        "a": "You can, but it is not recommended. Accents and spaces often cause trouble in exports, spreadsheets and text filters, and the same word written two ways becomes two rows in the report. That is why the pattern removes accents and turns spaces into a dash."
+      },
+      {
+        "q": "What is the maximum length of a campaign name?",
+        "a": "It depends on the platform and may change, so check its documentation. The tool shows the name length and gives a generic warning above 100 characters, which is not any platform's rule, just a heads-up that the name is long for reading in reports."
+      },
+      {
+        "q": "How do I split a campaign name into columns in a spreadsheet?",
+        "a": "Paste the names into one column and use Split text to columns (Google Sheets) or Text to Columns (Excel), choosing the pattern's separator as the delimiter. Each resulting column is one block, in the order the name was built."
+      },
+      {
+        "q": "Which date format should I use in a campaign name?",
+        "a": "YYYYMMDD is the most practical, because alphabetical order matches chronological order: 20261101 comes before 20261115. If the campaign lasts months, YYYYMM or MMMYY is enough."
+      },
+      {
+        "q": "Are the names I type sent to any server?",
+        "a": "No. Everything is calculated in your browser and nothing is sent or saved. The CSV is generated on your machine when you click download."
+      }
+    ]
+  },
+  "es": {
+    "intro": [
+      "Cuando cada persona del equipo bautiza las campañas a su manera, el informe se vuelve una sopa: \"BF remarketing\", \"black friday - RMKT\", \"Remarketing_BlackFriday\". Una convención de nombres lo resuelve porque cada bloque del nombre ocupa siempre el mismo lugar y puedes filtrar, sumar y comparar por objetivo, público u oferta. Esta herramienta arma el nombre por bloques, aplica la misma limpieza a todos y genera listas enteras de una vez."
+    ],
+    "howTo": {
+      "name": "Cómo armar un nombre de campaña estandarizado",
+      "steps": [
+        {
+          "name": "Completa los bloques. ",
+          "text": "Objetivo, público, oferta y, si quieres, canal o plataforma y fecha. Un bloque vacío se ignora, así que no todos los nombres necesitan todos los bloques."
+        },
+        {
+          "name": "Define el orden. ",
+          "text": "Usa los botones de subir y bajar para poner primero el bloque por el que más filtras. El orden solo cambia la posición, nunca el contenido."
+        },
+        {
+          "name": "Elige separador, mayúsculas y fecha. ",
+          "text": "Separador (_ - . |), minúsculas, MAYÚSCULAS o como se escribió, quitar acentos y el formato de la fecha, como AAAAMMDD o MMMAA."
+        },
+        {
+          "name": "Copia el nombre o genera un lote. ",
+          "text": "En la pestaña En lote, escribe varios valores por línea en los bloques que varían, revisa la lista de combinaciones y descarga todo en CSV."
+        }
+      ]
+    },
+    "formula": {
+      "title": "Cómo se arma el nombre",
+      "paragraphs": [
+        "Cada bloque pasa por los mismos pasos: se quitan los acentos (si está marcado), se aplica la caja y cualquier secuencia de espacios y símbolos se convierte en un único guion de unión. El separador elegido solo aparece entre bloques. Por eso, si eliges el guion como separador, las palabras dentro de un bloque se unen con guion bajo, y al revés en los demás casos.",
+        "Esa regla hace que el nombre sea decodificable: dividir el texto por el separador devuelve exactamente los bloques. En la hoja de cálculo basta usar Dividir texto en columnas con el separador como delimitador. El generador muestra esa división bloque por bloque justo debajo del nombre.",
+        "En el lote, la cantidad de nombres es el producto del tamaño de las listas. Dos listas con 2 y 3 valores dan 6 nombres. El tope es de 500 nombres; por encima, el generador te pide reducir las listas antes de generar. Los nombres que quedan iguales tras la limpieza (por ejemplo Black Friday y black-friday) se cuentan una sola vez."
+      ],
+      "items": [
+        {
+          "label": "1. Sin acentos",
+          "expr": "Promoción de Verano → Promocion de Verano"
+        },
+        {
+          "label": "2. Caja",
+          "expr": "Promocion de Verano → promocion de verano"
+        },
+        {
+          "label": "3. Unión de palabras",
+          "expr": "promocion de verano → promocion-de-verano"
+        },
+        {
+          "label": "4. Unión de los bloques",
+          "expr": "canal + objetivo + oferta + fecha → meta_conversion_promocion-de-verano_20261101"
+        },
+        {
+          "label": "5. Combinaciones del lote",
+          "expr": "nombres = valores del bloque A × valores del bloque B × ..."
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Campaña de remarketing en Black Friday",
+        "text": "Canal Meta Ads, objetivo Conversión, público Remarketing 30d, oferta Black Friday, fecha 01/11/2026, separador guion bajo y formato AAAAMMDD. Resultado: meta-ads_conversion_remarketing-30d_black-friday_20261101, con 56 caracteres."
+      },
+      {
+        "title": "Otro patrón: mayúsculas, punto y mes abreviado",
+        "text": "Solo objetivo, oferta y fecha, con separador punto, MAYÚSCULAS y formato MMMAA. Resultado: CONVERSION.BLACK-FRIDAY.NOV26. El orden de los bloques es el de la lista, así que mover la fecha al inicio cambiaría el nombre a NOV26.CONVERSION.BLACK-FRIDAY."
+      },
+      {
+        "title": "Lote de 2 canales por 3 ofertas",
+        "text": "Canales Meta y Google, ofertas Black Friday, Navidad y Verano, con la fecha 01/11/2026. Son 2 × 3 = 6 nombres, de meta_black-friday_20261101 a google_verano_20261101, listos para descargar en CSV con una columna por bloque."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo estandarizar el nombre de las campañas de anuncios?",
+        "a": "Define los bloques que todo nombre debe tener, su orden, el separador y la caja de las letras, y aplica siempre la misma regla. Un patrón común es canal, objetivo, público, oferta y fecha, pero lo importante es que el orden sea fijo para todo el equipo."
+      },
+      {
+        "q": "¿Qué separador usar en el nombre de la campaña: guion, guion bajo o punto?",
+        "a": "Cualquiera sirve, siempre que no aparezca dentro de los bloques. Esta herramienta lo garantiza usando otro carácter para unir las palabras dentro de cada bloque. El guion bajo es una elección común porque se distingue del guion usado en las palabras."
+      },
+      {
+        "q": "¿Puedo usar acentos y espacios en el nombre de la campaña?",
+        "a": "Puedes, pero no se recomienda. Los acentos y espacios suelen dar problemas en exportaciones, hojas de cálculo y filtros de texto, y la misma palabra escrita de dos formas se vuelve dos filas en el informe. Por eso el patrón quita los acentos y cambia los espacios por un guion."
+      },
+      {
+        "q": "¿Cuál es el largo máximo del nombre de una campaña?",
+        "a": "Depende de la plataforma y puede cambiar, así que revisa su documentación. La herramienta muestra el largo del nombre y da un aviso genérico por encima de 100 caracteres, que no es regla de ninguna plataforma, solo una alerta de que el nombre es largo para leerlo en informes."
+      },
+      {
+        "q": "¿Cómo separar el nombre de la campaña en columnas en la hoja de cálculo?",
+        "a": "Pega los nombres en una columna y usa Dividir texto en columnas (Google Sheets) o Texto en columnas (Excel), eligiendo el separador del patrón como delimitador. Cada columna resultante es un bloque, en el orden en que se armó el nombre."
+      },
+      {
+        "q": "¿Qué formato de fecha usar en el nombre de la campaña?",
+        "a": "AAAAMMDD es el más práctico, porque el orden alfabético coincide con el cronológico: 20261101 va antes que 20261115. Si la campaña dura meses, AAAAMM o MMMAA ya bastan."
+      },
+      {
+        "q": "¿Los nombres que escribo se envían a algún servidor?",
+        "a": "No. Todo se calcula en tu navegador y nada se envía ni se guarda. El CSV se genera en tu equipo cuando haces clic en descargar."
+      }
+    ]
+  }
+}

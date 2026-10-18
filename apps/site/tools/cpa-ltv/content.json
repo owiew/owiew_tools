@@ -1,0 +1,146 @@
+{
+  "pt-br": {
+    "intro": [
+      "Quanto vale um cliente? Se você paga mais por ele do que ele devolve em margem, cada venda aumenta o prejuízo, por maior que seja o faturamento. Esta calculadora transforma ticket médio, margem e recompra no CPA máximo que a sua conta suporta e compara com o CAC que você paga hoje.",
+      "Ela separa o CPA de equilíbrio da primeira compra do CPA que ainda deixa a razão LTV/CAC no nível que você escolheu, porque quem aposta na recompra pode pagar mais pelo primeiro pedido, desde que o caixa aguente esperar."
+    ],
+    "howTo": {
+      "name": "Como calcular o CPA máximo, o LTV e a razão LTV/CAC",
+      "steps": [
+        { "name": "Informe o ticket e a margem. ", "text": "Use o valor médio de cada compra e a margem de contribuição: o que sobra da receita depois de custo do produto, impostos, frete e taxas, antes da mídia." },
+        { "name": "Informe quantas compras o cliente faz. ", "text": "É a média de compras por cliente durante a vida dele com a marca. Aceita duas casas decimais, por exemplo 2,5. Sem recompra, use 1." },
+        { "name": "Informe o CAC atual. ", "text": "Digite o custo por cliente adquirido ou escolha calcular a partir da verba investida e do número de clientes novos." },
+        { "name": "Defina a razão alvo e, se quiser, os prazos. ", "text": "O padrão é 3,0. Informando o período de vida e o payback desejado, em meses, você também vê em quantos meses o CAC volta." },
+        { "name": "Leia os números. ", "text": "Compare o CAC com os dois CPAs máximos e veja o lucro por cliente, o veredito e quantas compras são necessárias para recuperar o investimento." }
+      ]
+    },
+    "formula": {
+      "title": "Como o cálculo funciona",
+      "paragraphs": [
+        "Todo dinheiro é tratado em centavos inteiros, a margem em centésimos de ponto percentual e as compras em centésimos de compra. Cada conta arredonda uma única vez, com aritmética de inteiros, então o resultado não sofre com erro de ponto flutuante.",
+        "CPA e CAC são parentes próximos. CPA (custo por aquisição) é o custo de uma conversão qualquer, como uma venda ou um cadastro. CAC (custo de aquisição de cliente) é o custo de ganhar um cliente novo e, conforme a empresa, inclui também equipe e ferramentas. Aqui o CAC é o valor que você digita e o CPA máximo é o teto que a conta permite.",
+        "O LTV por receita (ticket × compras) mostra o faturamento de um cliente, mas o dinheiro que paga a mídia é a margem. Por isso o LTV de margem é o que deve ser comparado com o CAC. A razão de 3 para 1 é uma regra prática muito repetida, não uma lei: margem alta, recompra previsível e caixa folgado aceitam razões menores; margem baixa, churn incerto e pouco caixa pedem razões maiores. Por isso a razão alvo é um campo que você pode mudar.",
+        "O LTV é uma estimativa do futuro. O caixa é o presente: um LTV excelente não paga o anúncio de hoje se as compras vierem ao longo de dois anos. Informe o payback desejado para ver o CPA que ainda recupera o investimento nesse prazo, supondo margem distribuída por igual no período."
+      ],
+      "items": [
+        { "label": "LTV por receita", "expr": "ticket × compras por cliente" },
+        { "label": "LTV de margem", "expr": "ticket × margem × compras por cliente" },
+        { "label": "CPA de equilíbrio na 1ª compra", "expr": "ticket × margem" },
+        { "label": "CPA máximo para a razão alvo", "expr": "LTV de margem ÷ razão alvo" },
+        { "label": "LTV/CAC", "expr": "LTV de margem ÷ CAC" },
+        { "label": "Lucro por cliente", "expr": "LTV de margem − CAC" },
+        { "label": "Payback em compras", "expr": "CAC ÷ (ticket × margem)" },
+        { "label": "CPA máximo para o payback desejado", "expr": "LTV de margem × meses de payback ÷ meses de vida" }
+      ]
+    },
+    "examples": [
+      { "title": "Razão abaixo do alvo, mas lucrativa", "text": "Ticket de R$ 200, margem de 40%, 2,5 compras por cliente e CAC de R$ 80. O LTV por receita é R$ 500 e o LTV de margem é R$ 200. O CPA de equilíbrio da primeira compra é R$ 80 e o CPA máximo para 3:1 é R$ 66,67. A razão LTV/CAC é 2,50x, o lucro por cliente é R$ 120 e o CAC volta na primeira compra." },
+      { "title": "Razão saudável, mas a 1ª compra não paga o CAC", "text": "Ticket de R$ 150, margem de 50%, 4 compras por cliente e CAC de R$ 90. O LTV de margem é R$ 300 e a razão é 3,33x, com lucro de R$ 210 por cliente. Só que a primeira compra deixa R$ 75 de margem, menos que os R$ 90 do CAC: o investimento volta na compra 1,20. Se o caixa não espera, o número bonito não ajuda." },
+      { "title": "Cliente que não paga a própria aquisição", "text": "Ticket de R$ 80, margem de 30%, 1,2 compra por cliente e CAC de R$ 60. O LTV de margem é R$ 28,80, a razão é 0,48x e cada cliente deixa R$ 31,20 de prejuízo. Seriam necessárias 2,50 compras para recuperar o CAC, mais do que o cliente faz. Para 3:1, o CPA máximo seria R$ 9,60." }
+    ],
+    "faq": [
+      { "q": "Qual a diferença entre CPA e CAC?", "a": "CPA é o custo por aquisição de uma conversão qualquer, e CAC é o custo para conquistar um cliente novo. Muitas empresas usam os dois como sinônimos, mas o CAC costuma incluir mais custos, como equipe de vendas e ferramentas, e o CPA costuma vir só da mídia. Escolha uma definição e use sempre a mesma." },
+      { "q": "Como calcular o LTV?", "a": "Multiplique o ticket médio pelo número médio de compras por cliente e, para o LTV de margem, pela margem de contribuição. Com ticket de R$ 200, 2,5 compras e margem de 40%, o LTV de receita é R$ 500 e o de margem é R$ 200." },
+      { "q": "Por que a razão LTV/CAC ideal é 3 para 1?", "a": "Porque 3:1 é uma regra prática popular, não uma lei. Ela deixa uma folga para custos que o LTV não vê e para o risco de o cliente comprar menos do que o previsto. Com margem alta e recompra previsível, razões menores podem funcionar; com caixa curto, até 3:1 pode ser pouco." },
+      { "q": "Devo usar o LTV por receita ou por margem?", "a": "Use o LTV por margem para decidir quanto pagar por um cliente. A receita inclui o custo do produto, impostos e frete, que não sobram para pagar a mídia. Comparar receita com CAC faz qualquer cliente parecer mais valioso do que é." },
+      { "q": "Qual é o CPA máximo que posso pagar?", "a": "Há dois tetos. O CPA de equilíbrio da primeira compra (ticket × margem) é o máximo para não perder dinheiro já no primeiro pedido. O CPA máximo para a razão alvo (LTV de margem ÷ razão) é maior e só vale se o cliente voltar a comprar e o caixa esperar." },
+      { "q": "O LTV alto compensa um CAC alto se o caixa é curto?", "a": "Nem sempre. O LTV é receita futura estimada, enquanto o CAC é pago hoje. Se o payback leva mais meses do que o caixa aguenta, a empresa fica sem dinheiro antes de lucrar com a recompra. Por isso a calculadora mostra o payback em compras e em meses." }
+    ]
+  },
+  "en": {
+    "intro": [
+      "What is a customer worth? If you pay more for one than they return in margin, every sale deepens the loss, however big the revenue. This calculator turns average order value, margin and repeat purchases into the maximum CPA your numbers can bear, and compares it with the CAC you pay today.",
+      "It separates the first-purchase break-even CPA from the CPA that still keeps the LTV/CAC ratio at the level you chose, because anyone betting on repeat purchases can pay more for the first order, as long as cash can wait."
+    ],
+    "howTo": {
+      "name": "How to calculate max CPA, LTV and the LTV/CAC ratio",
+      "steps": [
+        { "name": "Enter the order value and margin. ", "text": "Use the average value of each purchase and the contribution margin: what is left of revenue after product cost, taxes, shipping and fees, before ad spend." },
+        { "name": "Enter how many purchases a customer makes. ", "text": "It is the average number of purchases per customer over their lifetime with the brand. Two decimals are accepted, for example 2.5. With no repeat purchases, use 1." },
+        { "name": "Enter the current CAC. ", "text": "Type the cost per acquired customer, or choose to calculate it from the acquisition budget and the number of new customers." },
+        { "name": "Set the target ratio and, if you like, the time frames. ", "text": "The default is 3.0. If you add the customer lifetime and the payback you want, in months, you also see how many months it takes for CAC to come back." },
+        { "name": "Read the numbers. ", "text": "Compare CAC with the two maximum CPAs and look at profit per customer, the verdict and how many purchases are needed to recover the investment." }
+      ]
+    },
+    "formula": {
+      "title": "How the calculation works",
+      "paragraphs": [
+        "All money is handled in whole cents, margin in hundredths of a percentage point and purchases in hundredths of a purchase. Each calculation rounds once, using integer arithmetic, so the result does not suffer from floating-point error.",
+        "CPA and CAC are close relatives. CPA (cost per acquisition) is the cost of any conversion, such as a sale or a sign-up. CAC (customer acquisition cost) is the cost of winning a new customer and, depending on the company, also includes staff and tools. Here CAC is the value you type and max CPA is the ceiling your numbers allow.",
+        "Revenue LTV (order value × purchases) shows what a customer brings in, but the money that pays for ads is margin. That is why margin LTV is the one to compare with CAC. The 3 to 1 ratio is a widely repeated rule of thumb, not a law: high margin, predictable repeat purchases and ample cash accept lower ratios; thin margin, uncertain churn and tight cash call for higher ones. That is why the target ratio is a field you can change.",
+        "LTV is an estimate of the future. Cash is the present: an excellent LTV does not pay for today's ad if the purchases arrive over two years. Enter the payback you want to see the CPA that still recovers the investment in that time, assuming margin is spread evenly over the period."
+      ],
+      "items": [
+        { "label": "Revenue LTV", "expr": "order value × purchases per customer" },
+        { "label": "Margin LTV", "expr": "order value × margin × purchases per customer" },
+        { "label": "First-purchase break-even CPA", "expr": "order value × margin" },
+        { "label": "Max CPA for the target ratio", "expr": "margin LTV ÷ target ratio" },
+        { "label": "LTV/CAC", "expr": "margin LTV ÷ CAC" },
+        { "label": "Profit per customer", "expr": "margin LTV − CAC" },
+        { "label": "Payback in purchases", "expr": "CAC ÷ (order value × margin)" },
+        { "label": "Max CPA for the wanted payback", "expr": "margin LTV × payback months ÷ lifetime months" }
+      ]
+    },
+    "examples": [
+      { "title": "Below the target ratio, but profitable", "text": "Order value of $200, 40% margin, 2.5 purchases per customer and a CAC of $80. Revenue LTV is $500 and margin LTV is $200. First-purchase break-even CPA is $80 and max CPA for 3:1 is $66.67. The LTV/CAC ratio is 2.50x, profit per customer is $120 and CAC comes back on the first purchase." },
+      { "title": "A healthy ratio, but the 1st purchase does not repay CAC", "text": "Order value of $150, 50% margin, 4 purchases per customer and a CAC of $90. Margin LTV is $300 and the ratio is 3.33x, with $210 of profit per customer. But the first purchase leaves $75 of margin, less than the $90 CAC: the investment comes back at purchase 1.20. If cash cannot wait, the nice number does not help." },
+      { "title": "A customer who does not pay for their own acquisition", "text": "Order value of $80, 30% margin, 1.2 purchases per customer and a CAC of $60. Margin LTV is $28.80, the ratio is 0.48x and each customer leaves a $31.20 loss. It would take 2.50 purchases to recover CAC, more than the customer makes. For 3:1, max CPA would be $9.60." }
+    ],
+    "faq": [
+      { "q": "What is the difference between CPA and CAC?", "a": "CPA is the cost per acquisition of any conversion, and CAC is the cost of winning a new customer. Many companies use the two as synonyms, but CAC usually includes more costs, such as sales staff and tools, while CPA usually comes from ad spend alone. Pick one definition and always use the same." },
+      { "q": "How do you calculate LTV?", "a": "Multiply average order value by the average number of purchases per customer and, for margin LTV, by the contribution margin. With a $200 order, 2.5 purchases and a 40% margin, revenue LTV is $500 and margin LTV is $200." },
+      { "q": "Why is the ideal LTV/CAC ratio 3 to 1?", "a": "Because 3:1 is a popular rule of thumb, not a law. It leaves room for costs LTV does not see and for the risk that the customer buys less than expected. With high margin and predictable repeat purchases lower ratios can work; with tight cash, even 3:1 can be too little." },
+      { "q": "Should I use revenue LTV or margin LTV?", "a": "Use margin LTV to decide how much to pay for a customer. Revenue includes product cost, taxes and shipping, which are not left over to pay for ads. Comparing revenue with CAC makes every customer look more valuable than they are." },
+      { "q": "What is the maximum CPA I can pay?", "a": "There are two ceilings. The first-purchase break-even CPA (order value × margin) is the most you can pay without losing money on the first order. The max CPA for the target ratio (margin LTV ÷ ratio) is higher and only holds if the customer buys again and cash can wait." },
+      { "q": "Does a high LTV justify a high CAC when cash is tight?", "a": "Not always. LTV is estimated future revenue, while CAC is paid today. If payback takes more months than cash can bear, the company runs out of money before it profits from repeat purchases. That is why the calculator shows payback in purchases and in months." }
+    ]
+  },
+  "es": {
+    "intro": [
+      "¿Cuánto vale un cliente? Si pagas por él más de lo que devuelve en margen, cada venta aumenta la pérdida, por grande que sea la facturación. Esta calculadora convierte ticket medio, margen y recompra en el CPA máximo que soportan tus cuentas y lo compara con el CAC que pagas hoy.",
+      "Separa el CPA de equilibrio de la primera compra del CPA que aún deja la razón LTV/CAC en el nivel que elegiste, porque quien apuesta por la recompra puede pagar más por el primer pedido, siempre que la caja pueda esperar."
+    ],
+    "howTo": {
+      "name": "Cómo calcular el CPA máximo, el LTV y la razón LTV/CAC",
+      "steps": [
+        { "name": "Indica el ticket y el margen. ", "text": "Usa el valor medio de cada compra y el margen de contribución: lo que queda de los ingresos después del costo del producto, impuestos, envío y comisiones, antes de la inversión en anuncios." },
+        { "name": "Indica cuántas compras hace el cliente. ", "text": "Es el promedio de compras por cliente durante su vida con la marca. Acepta dos decimales, por ejemplo 2,5. Sin recompra, usa 1." },
+        { "name": "Indica el CAC actual. ", "text": "Escribe el costo por cliente adquirido o elige calcularlo a partir de la inversión en captación y del número de clientes nuevos." },
+        { "name": "Define la razón objetivo y, si quieres, los plazos. ", "text": "Por defecto es 3,0. Si añades la vida del cliente y el payback deseado, en meses, también ves en cuántos meses vuelve el CAC." },
+        { "name": "Lee los números. ", "text": "Compara el CAC con los dos CPA máximos y mira la ganancia por cliente, el veredicto y cuántas compras hacen falta para recuperar la inversión." }
+      ]
+    },
+    "formula": {
+      "title": "Cómo funciona el cálculo",
+      "paragraphs": [
+        "Todo el dinero se trata en centavos enteros, el margen en centésimas de punto porcentual y las compras en centésimas de compra. Cada cuenta redondea una sola vez, con aritmética de enteros, así que el resultado no sufre errores de coma flotante.",
+        "CPA y CAC son parientes cercanos. CPA (costo por adquisición) es el costo de una conversión cualquiera, como una venta o un registro. CAC (costo de adquisición de cliente) es el costo de ganar un cliente nuevo y, según la empresa, incluye también equipo y herramientas. Aquí el CAC es el valor que escribes y el CPA máximo es el techo que permiten las cuentas.",
+        "El LTV por ingresos (ticket × compras) muestra lo que factura un cliente, pero el dinero que paga los anuncios es el margen. Por eso el LTV de margen es el que se compara con el CAC. La razón de 3 a 1 es una regla práctica muy repetida, no una ley: margen alto, recompra previsible y caja holgada aceptan razones menores; margen bajo, abandono incierto y poca caja piden razones mayores. Por eso la razón objetivo es un campo que puedes cambiar.",
+        "El LTV es una estimación del futuro. La caja es el presente: un LTV excelente no paga el anuncio de hoy si las compras llegan a lo largo de dos años. Indica el payback deseado para ver el CPA que aún recupera la inversión en ese plazo, suponiendo un margen repartido por igual en el período."
+      ],
+      "items": [
+        { "label": "LTV por ingresos", "expr": "ticket × compras por cliente" },
+        { "label": "LTV de margen", "expr": "ticket × margen × compras por cliente" },
+        { "label": "CPA de equilibrio en la 1.ª compra", "expr": "ticket × margen" },
+        { "label": "CPA máximo para la razón objetivo", "expr": "LTV de margen ÷ razón objetivo" },
+        { "label": "LTV/CAC", "expr": "LTV de margen ÷ CAC" },
+        { "label": "Ganancia por cliente", "expr": "LTV de margen − CAC" },
+        { "label": "Payback en compras", "expr": "CAC ÷ (ticket × margen)" },
+        { "label": "CPA máximo para el payback deseado", "expr": "LTV de margen × meses de payback ÷ meses de vida" }
+      ]
+    },
+    "examples": [
+      { "title": "Razón por debajo del objetivo, pero rentable", "text": "Ticket de 200 €, margen del 40 %, 2,5 compras por cliente y CAC de 80 €. El LTV por ingresos es 500 € y el LTV de margen es 200 €. El CPA de equilibrio de la primera compra es 80 € y el CPA máximo para 3:1 es 66,67 €. La razón LTV/CAC es 2,50x, la ganancia por cliente es 120 € y el CAC vuelve en la primera compra." },
+      { "title": "Razón saludable, pero la 1.ª compra no paga el CAC", "text": "Ticket de 150 €, margen del 50 %, 4 compras por cliente y CAC de 90 €. El LTV de margen es 300 € y la razón es 3,33x, con una ganancia de 210 € por cliente. Pero la primera compra deja 75 € de margen, menos que los 90 € del CAC: la inversión vuelve en la compra 1,20. Si la caja no puede esperar, el número bonito no ayuda." },
+      { "title": "Cliente que no paga su propia adquisición", "text": "Ticket de 80 €, margen del 30 %, 1,2 compras por cliente y CAC de 60 €. El LTV de margen es 28,80 €, la razón es 0,48x y cada cliente deja una pérdida de 31,20 €. Harían falta 2,50 compras para recuperar el CAC, más de las que hace el cliente. Para 3:1, el CPA máximo sería 9,60 €." }
+    ],
+    "faq": [
+      { "q": "¿Cuál es la diferencia entre CPA y CAC?", "a": "El CPA es el costo por adquisición de una conversión cualquiera, y el CAC es el costo de conquistar un cliente nuevo. Muchas empresas usan los dos como sinónimos, pero el CAC suele incluir más costos, como equipo de ventas y herramientas, y el CPA suele venir solo de la inversión en anuncios. Elige una definición y usa siempre la misma." },
+      { "q": "¿Cómo se calcula el LTV?", "a": "Multiplica el ticket medio por el número medio de compras por cliente y, para el LTV de margen, por el margen de contribución. Con ticket de 200, 2,5 compras y margen del 40 %, el LTV por ingresos es 500 y el de margen es 200." },
+      { "q": "¿Por qué la razón LTV/CAC ideal es 3 a 1?", "a": "Porque 3:1 es una regla práctica popular, no una ley. Deja margen para costos que el LTV no ve y para el riesgo de que el cliente compre menos de lo previsto. Con margen alto y recompra previsible pueden servir razones menores; con caja corta, incluso 3:1 puede ser poco." },
+      { "q": "¿Debo usar el LTV por ingresos o por margen?", "a": "Usa el LTV por margen para decidir cuánto pagar por un cliente. Los ingresos incluyen el costo del producto, impuestos y envío, que no sobran para pagar los anuncios. Comparar ingresos con el CAC hace que cualquier cliente parezca más valioso de lo que es." },
+      { "q": "¿Cuál es el CPA máximo que puedo pagar?", "a": "Hay dos techos. El CPA de equilibrio de la primera compra (ticket × margen) es lo máximo para no perder dinero ya en el primer pedido. El CPA máximo para la razón objetivo (LTV de margen ÷ razón) es mayor y solo vale si el cliente vuelve a comprar y la caja puede esperar." },
+      { "q": "¿Un LTV alto compensa un CAC alto si la caja es corta?", "a": "No siempre. El LTV son ingresos futuros estimados, mientras que el CAC se paga hoy. Si el payback tarda más meses de los que aguanta la caja, la empresa se queda sin dinero antes de ganar con la recompra. Por eso la calculadora muestra el payback en compras y en meses." }
+    ]
+  }
+}

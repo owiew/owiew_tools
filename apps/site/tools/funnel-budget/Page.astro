@@ -1,0 +1,15 @@
+---
+/**
+ * Monta a ilha do Planejador de verba por funil. Onde: rota de ferramenta
+ * (registry via import.meta.glob). Entrada: idioma da página.
+ */
+import { type Lang } from "../../src/i18n/locales";
+import FunnelBudget from "./Ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<FunnelBudget client:load lang={lang} />

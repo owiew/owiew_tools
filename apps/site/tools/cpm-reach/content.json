@@ -1,0 +1,338 @@
+{
+  "pt-br": {
+    "intro": [
+      "CPM, impressões, alcance e frequência são quatro jeitos de contar a mesma entrega de anúncios, e quase todo planejamento de mídia de topo de funil passa por eles. Esta calculadora liga os números: da verba e do CPM saem as impressões; com uma frequência assumida, sai o alcance estimado; e, se você tem uma meta de pessoas atingidas, ela devolve a verba necessária.",
+      "O alcance aqui é sempre uma estimativa. Quem sabe quantas pessoas únicas viram o anúncio é a plataforma, e o número dela pode ser diferente do que a conta de frequência sugere."
+    ],
+    "howTo": {
+      "name": "Como calcular impressões, alcance e CPM",
+      "steps": [
+        {
+          "name": "Escolha o que calcular. ",
+          "text": "Selecione impressões (verba e CPM), alcance (verba, CPM e frequência), CPM (impressões e custo) ou verba necessária (meta de alcance, frequência e CPM)."
+        },
+        {
+          "name": "Preencha os campos do modo. ",
+          "text": "Digite os valores no formato do seu idioma, por exemplo 5.000,00. O CPM é o custo de mil impressões, não de uma."
+        },
+        {
+          "name": "Informe a frequência, se o modo pedir. ",
+          "text": "É quantas vezes, em média, cada pessoa vê o anúncio. Precisa ser 1 ou mais, porque ninguém é atingido sem ver ao menos uma vez."
+        },
+        {
+          "name": "Adicione o CTR, se quiser. ",
+          "text": "Com a taxa de cliques você também vê os cliques estimados e o CPC. Deixe em branco para ignorar."
+        },
+        {
+          "name": "Leia o resultado e as notas. ",
+          "text": "O destaque muda conforme o modo. As notas lembram que o alcance é estimativa e como os arredondamentos funcionam."
+        }
+      ]
+    },
+    "formula": {
+      "title": "Como as contas funcionam",
+      "paragraphs": [
+        "Tudo é calculado em números inteiros: dinheiro em centavos, CPM em centavos por mil impressões e frequência em centésimos. Isso evita os erros de casas decimais do ponto flutuante. Impressões e alcance são arredondados para baixo, porque você só conta o que foi de fato entregue, e a verba é arredondada para cima, porque o orçamento deve cobrir a meta. CPM e CPC são arredondados ao centavo mais próximo.",
+        "Frequência é a razão entre impressões e alcance. Por isso, para estimar o alcance a partir das impressões, a calculadora divide pela frequência que você assumiu. Se a frequência real for maior, o alcance real será menor, e o contrário também vale."
+      ],
+      "items": [
+        {
+          "label": "Impressões",
+          "expr": "verba ÷ CPM × 1.000"
+        },
+        {
+          "label": "Alcance estimado",
+          "expr": "impressões ÷ frequência"
+        },
+        {
+          "label": "CPM",
+          "expr": "custo ÷ impressões × 1.000"
+        },
+        {
+          "label": "Verba necessária",
+          "expr": "alcance × frequência ÷ 1.000 × CPM"
+        },
+        {
+          "label": "Cliques estimados",
+          "expr": "impressões × CTR"
+        },
+        {
+          "label": "CPC",
+          "expr": "verba ÷ cliques"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Da verba às pessoas atingidas",
+        "text": "Com R$ 5.000,00 e CPM de R$ 25,00, a campanha entrega 200.000 impressões. Se cada pessoa vê o anúncio 2,5 vezes em média, o alcance estimado é de 80.000 pessoas."
+      },
+      {
+        "title": "Verba para uma meta de alcance",
+        "text": "Para atingir 200.000 pessoas com frequência de 2,5 e CPM de R$ 25,00, são necessárias 500.000 impressões e uma verba de R$ 12.500,00."
+      },
+      {
+        "title": "CPM e CPC de uma campanha medida",
+        "text": "Uma campanha custou R$ 25.000,00 para entregar 1.000.000 de impressões, o que dá CPM de R$ 25,00. Com CTR de 1,5%, são 15.000 cliques e o CPC é de R$ 1,67."
+      }
+    ],
+    "faq": [
+      {
+        "q": "O que é CPM?",
+        "a": "CPM é o custo por mil impressões: quanto você paga para o anúncio ser exibido mil vezes. Se a campanha custou R$ 500,00 e teve 20.000 impressões, o CPM é de R$ 25,00. A conta é custo dividido por impressões, vezes mil."
+      },
+      {
+        "q": "Qual é a diferença entre alcance e impressões?",
+        "a": "Alcance conta pessoas diferentes que viram o anúncio; impressões contam cada exibição, inclusive as repetidas para a mesma pessoa. Por isso as impressões são sempre iguais ou maiores que o alcance."
+      },
+      {
+        "q": "O que é frequência em anúncios?",
+        "a": "Frequência é o número médio de vezes que cada pessoa alcançada viu o anúncio, ou seja, impressões divididas por alcance. Com 200.000 impressões e 80.000 pessoas, a frequência é de 2,5."
+      },
+      {
+        "q": "Qual é a frequência ideal?",
+        "a": "Não existe um número mágico: depende do objetivo, do público, da oferta e do criativo. Em geral, frequência muito baixa tem pouco efeito de lembrança e frequência muito alta cansa o público, então vale acompanhar o desempenho do criativo conforme a frequência sobe e testar variações."
+      },
+      {
+        "q": "O alcance calculado é o alcance real da plataforma?",
+        "a": "Não, é uma estimativa feita com a frequência que você assumiu. O alcance real depende da sobreposição entre anúncios e públicos e só a plataforma mede. Use o cálculo para planejar e confira depois no relatório."
+      },
+      {
+        "q": "Por que o CPM varia tanto de uma campanha para outra?",
+        "a": "Porque o anúncio é vendido em leilão: o CPM muda com a disputa pelo público escolhido, o posicionamento, a época do ano, a qualidade do criativo e o objetivo da campanha. Por isso o CPM do passado serve de referência, não de garantia."
+      },
+      {
+        "q": "Como CPM, CPC e CPA se relacionam?",
+        "a": "CPM é o custo por mil exibições, CPC é o custo por clique e CPA é o custo por aquisição. Um vem do outro pela taxa de cada etapa: CPC = CPM ÷ (1.000 × CTR), e CPA = CPC ÷ taxa de conversão do clique em venda."
+      },
+      {
+        "q": "Posso calcular o CPC com esta ferramenta?",
+        "a": "Sim, informe o CTR e a calculadora estima os cliques e o CPC. Se o CTR for zero não há cliques estimados e o CPC não existe, então ele aparece como n/d."
+      }
+    ]
+  },
+  "en": {
+    "intro": [
+      "CPM, impressions, reach and frequency are four ways of counting the same ad delivery, and almost every upper-funnel media plan runs through them. This calculator links the numbers: budget and CPM give impressions; an assumed frequency gives estimated reach; and if you have a target number of people, it returns the budget you need.",
+      "Reach here is always an estimate. Only the platform knows how many unique people saw the ad, and its number can differ from what the frequency math suggests."
+    ],
+    "howTo": {
+      "name": "How to calculate impressions, reach and CPM",
+      "steps": [
+        {
+          "name": "Choose what to calculate. ",
+          "text": "Pick impressions (budget and CPM), reach (budget, CPM and frequency), CPM (impressions and cost) or budget needed (reach goal, frequency and CPM)."
+        },
+        {
+          "name": "Fill in the fields for that mode. ",
+          "text": "Type the values in your language's format, for example 5,000.00. CPM is the cost of a thousand impressions, not of one."
+        },
+        {
+          "name": "Enter the frequency when the mode asks for it. ",
+          "text": "It is how many times, on average, each person sees the ad. It must be 1 or more, since nobody is reached without seeing the ad at least once."
+        },
+        {
+          "name": "Add the CTR if you want. ",
+          "text": "With the click-through rate you also get estimated clicks and CPC. Leave it blank to skip."
+        },
+        {
+          "name": "Read the result and the notes. ",
+          "text": "The highlighted figure changes with the mode. The notes remind you that reach is an estimate and explain the rounding."
+        }
+      ]
+    },
+    "formula": {
+      "title": "How the math works",
+      "paragraphs": [
+        "Everything is calculated with whole numbers: money in cents, CPM in cents per thousand impressions and frequency in hundredths. That avoids floating-point decimal errors. Impressions and reach round down, because you only count what was actually delivered, and budget rounds up, because the budget must cover the goal. CPM and CPC round to the nearest cent.",
+        "Frequency is the ratio of impressions to reach. That is why, to estimate reach from impressions, the calculator divides by the frequency you assumed. If real frequency is higher, real reach will be lower, and the reverse also holds."
+      ],
+      "items": [
+        {
+          "label": "Impressions",
+          "expr": "budget ÷ CPM × 1,000"
+        },
+        {
+          "label": "Estimated reach",
+          "expr": "impressions ÷ frequency"
+        },
+        {
+          "label": "CPM",
+          "expr": "cost ÷ impressions × 1,000"
+        },
+        {
+          "label": "Budget needed",
+          "expr": "reach × frequency ÷ 1,000 × CPM"
+        },
+        {
+          "label": "Estimated clicks",
+          "expr": "impressions × CTR"
+        },
+        {
+          "label": "CPC",
+          "expr": "budget ÷ clicks"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "From budget to people reached",
+        "text": "With $5,000.00 and a $25.00 CPM, the campaign delivers 200,000 impressions. If each person sees the ad 2.5 times on average, estimated reach is 80,000 people."
+      },
+      {
+        "title": "Budget for a reach goal",
+        "text": "To reach 200,000 people at a frequency of 2.5 and a $25.00 CPM, you need 500,000 impressions and a budget of $12,500.00."
+      },
+      {
+        "title": "CPM and CPC of a measured campaign",
+        "text": "A campaign cost $25,000.00 to deliver 1,000,000 impressions, which is a $25.00 CPM. With a 1.5% CTR that is 15,000 clicks and a CPC of $1.67."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is CPM?",
+        "a": "CPM is the cost per thousand impressions: what you pay for the ad to be shown a thousand times. If a campaign cost $500.00 and had 20,000 impressions, the CPM is $25.00. The math is cost divided by impressions, times a thousand."
+      },
+      {
+        "q": "What is the difference between reach and impressions?",
+        "a": "Reach counts different people who saw the ad; impressions count every showing, including repeats to the same person. That is why impressions are always equal to or higher than reach."
+      },
+      {
+        "q": "What is frequency in advertising?",
+        "a": "Frequency is the average number of times each reached person saw the ad, that is, impressions divided by reach. With 200,000 impressions and 80,000 people, frequency is 2.5."
+      },
+      {
+        "q": "What is the ideal frequency?",
+        "a": "There is no magic number: it depends on the goal, the audience, the offer and the creative. In general, very low frequency has little recall effect and very high frequency tires the audience, so track creative performance as frequency rises and test variations."
+      },
+      {
+        "q": "Is the calculated reach the platform's real reach?",
+        "a": "No, it is an estimate based on the frequency you assumed. Real reach depends on overlap between ads and audiences, and only the platform measures it. Use the math to plan, then check the platform report."
+      },
+      {
+        "q": "Why does CPM vary so much between campaigns?",
+        "a": "Because ads are sold in an auction: CPM moves with competition for the chosen audience, placement, time of year, creative quality and campaign objective. Past CPM is a reference, not a guarantee."
+      },
+      {
+        "q": "How do CPM, CPC and CPA relate?",
+        "a": "CPM is the cost per thousand impressions, CPC is the cost per click and CPA is the cost per acquisition. Each comes from the previous one through a rate: CPC = CPM ÷ (1,000 × CTR), and CPA = CPC ÷ the click-to-sale conversion rate."
+      },
+      {
+        "q": "Can I calculate CPC with this tool?",
+        "a": "Yes, enter the CTR and the calculator estimates clicks and CPC. If CTR is zero there are no estimated clicks and CPC does not exist, so it shows as n/a."
+      }
+    ]
+  },
+  "es": {
+    "intro": [
+      "CPM, impresiones, alcance y frecuencia son cuatro formas de contar la misma entrega de anuncios, y casi todo plan de medios de parte alta del embudo pasa por ellos. Esta calculadora conecta los números: de la inversión y el CPM salen las impresiones; con una frecuencia asumida, el alcance estimado; y si tienes una meta de personas alcanzadas, devuelve la inversión necesaria.",
+      "El alcance aquí es siempre una estimación. Solo la plataforma sabe cuántas personas únicas vieron el anuncio, y su cifra puede ser distinta de lo que sugiere la cuenta de frecuencia."
+    ],
+    "howTo": {
+      "name": "Cómo calcular impresiones, alcance y CPM",
+      "steps": [
+        {
+          "name": "Elige qué calcular. ",
+          "text": "Selecciona impresiones (inversión y CPM), alcance (inversión, CPM y frecuencia), CPM (impresiones y costo) o inversión necesaria (meta de alcance, frecuencia y CPM)."
+        },
+        {
+          "name": "Completa los campos del modo. ",
+          "text": "Escribe los valores en el formato de tu idioma, por ejemplo 5.000,00. El CPM es el costo de mil impresiones, no de una."
+        },
+        {
+          "name": "Indica la frecuencia si el modo la pide. ",
+          "text": "Es cuántas veces, en promedio, cada persona ve el anuncio. Debe ser 1 o más, porque nadie es alcanzado sin ver el anuncio al menos una vez."
+        },
+        {
+          "name": "Agrega el CTR si quieres. ",
+          "text": "Con la tasa de clics también ves los clics estimados y el CPC. Déjalo en blanco para omitirlo."
+        },
+        {
+          "name": "Lee el resultado y las notas. ",
+          "text": "La cifra destacada cambia según el modo. Las notas recuerdan que el alcance es una estimación y explican el redondeo."
+        }
+      ]
+    },
+    "formula": {
+      "title": "Cómo funcionan las cuentas",
+      "paragraphs": [
+        "Todo se calcula con números enteros: dinero en centavos, CPM en centavos por mil impresiones y frecuencia en centésimas. Así se evitan los errores de decimales del punto flotante. Impresiones y alcance se redondean hacia abajo, porque solo cuenta lo que se entregó, y la inversión se redondea hacia arriba, porque el presupuesto debe cubrir la meta. CPM y CPC se redondean al centavo más cercano.",
+        "La frecuencia es la razón entre impresiones y alcance. Por eso, para estimar el alcance a partir de las impresiones, la calculadora divide por la frecuencia que asumiste. Si la frecuencia real es mayor, el alcance real será menor, y viceversa."
+      ],
+      "items": [
+        {
+          "label": "Impresiones",
+          "expr": "inversión ÷ CPM × 1.000"
+        },
+        {
+          "label": "Alcance estimado",
+          "expr": "impresiones ÷ frecuencia"
+        },
+        {
+          "label": "CPM",
+          "expr": "costo ÷ impresiones × 1.000"
+        },
+        {
+          "label": "Inversión necesaria",
+          "expr": "alcance × frecuencia ÷ 1.000 × CPM"
+        },
+        {
+          "label": "Clics estimados",
+          "expr": "impresiones × CTR"
+        },
+        {
+          "label": "CPC",
+          "expr": "inversión ÷ clics"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "De la inversión a las personas alcanzadas",
+        "text": "Con 5.000,00 y un CPM de 25,00, la campaña entrega 200.000 impresiones. Si cada persona ve el anuncio 2,5 veces en promedio, el alcance estimado es de 80.000 personas."
+      },
+      {
+        "title": "Inversión para una meta de alcance",
+        "text": "Para alcanzar a 200.000 personas con frecuencia 2,5 y CPM de 25,00 se necesitan 500.000 impresiones y una inversión de 12.500,00."
+      },
+      {
+        "title": "CPM y CPC de una campaña medida",
+        "text": "Una campaña costó 25.000,00 para entregar 1.000.000 de impresiones, lo que da un CPM de 25,00. Con un CTR de 1,5% son 15.000 clics y el CPC es de 1,67."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué es el CPM?",
+        "a": "El CPM es el costo por mil impresiones: lo que pagas para que el anuncio se muestre mil veces. Si una campaña costó 500,00 y tuvo 20.000 impresiones, el CPM es de 25,00. La cuenta es costo dividido por impresiones, por mil."
+      },
+      {
+        "q": "¿Cuál es la diferencia entre alcance e impresiones?",
+        "a": "El alcance cuenta personas distintas que vieron el anuncio; las impresiones cuentan cada exhibición, incluidas las repetidas a la misma persona. Por eso las impresiones siempre son iguales o mayores que el alcance."
+      },
+      {
+        "q": "¿Qué es la frecuencia en publicidad?",
+        "a": "La frecuencia es el número promedio de veces que cada persona alcanzada vio el anuncio, es decir, impresiones divididas por alcance. Con 200.000 impresiones y 80.000 personas, la frecuencia es 2,5."
+      },
+      {
+        "q": "¿Cuál es la frecuencia ideal?",
+        "a": "No hay un número mágico: depende del objetivo, la audiencia, la oferta y el creativo. En general, una frecuencia muy baja tiene poco efecto de recuerdo y una muy alta cansa a la audiencia, así que conviene seguir el rendimiento del creativo a medida que sube la frecuencia y probar variaciones."
+      },
+      {
+        "q": "¿El alcance calculado es el alcance real de la plataforma?",
+        "a": "No, es una estimación hecha con la frecuencia que asumiste. El alcance real depende de la superposición entre anuncios y audiencias y solo la plataforma lo mide. Usa el cálculo para planificar y verifica después en el informe."
+      },
+      {
+        "q": "¿Por qué el CPM varía tanto entre campañas?",
+        "a": "Porque los anuncios se venden en subasta: el CPM cambia con la competencia por la audiencia elegida, la ubicación, la época del año, la calidad del creativo y el objetivo de la campaña. El CPM pasado es una referencia, no una garantía."
+      },
+      {
+        "q": "¿Cómo se relacionan CPM, CPC y CPA?",
+        "a": "CPM es el costo por mil impresiones, CPC el costo por clic y CPA el costo por adquisición. Cada uno sale del anterior por una tasa: CPC = CPM ÷ (1.000 × CTR), y CPA = CPC ÷ tasa de conversión del clic a venta."
+      },
+      {
+        "q": "¿Puedo calcular el CPC con esta herramienta?",
+        "a": "Sí, indica el CTR y la calculadora estima los clics y el CPC. Si el CTR es cero no hay clics estimados y el CPC no existe, así que aparece como n/d."
+      }
+    ]
+  }
+}

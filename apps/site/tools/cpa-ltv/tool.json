@@ -1,0 +1,33 @@
+{
+  "id": "cpa-ltv",
+  "category": "calculators",
+  "icon": "hand-coins",
+  "order": 50,
+  "related": ["roas-calculator", "funnel-budget", "ab-test"],
+  "i18n": {
+    "pt-br": {
+      "slug": "calculadora-de-cpa-e-ltv",
+      "name": "Calculadora de CPA máximo e LTV",
+      "title": "Calculadora de CPA máximo, LTV e LTV/CAC",
+      "description": "Calcule o CPA máximo, o LTV por receita e por margem, a razão LTV/CAC, o lucro por cliente e o payback. Contas em centavos, sem arredondar errado. Grátis.",
+      "summary": "Descubra quanto você pode pagar por cliente: CPA máximo de equilíbrio, CPA para a razão LTV/CAC desejada, lucro por cliente e payback.",
+      "keywords": ["cpa máximo", "ltv", "cac", "ltv cac", "lifetime value", "custo por aquisição", "payback", "tráfego pago"]
+    },
+    "en": {
+      "slug": "cpa-and-ltv-calculator",
+      "name": "Max CPA and LTV calculator",
+      "title": "Max CPA, LTV and LTV/CAC calculator",
+      "description": "Calculate max CPA, revenue and margin LTV, the LTV/CAC ratio, profit per customer and payback. Math done in cents, with no rounding drift. Free.",
+      "summary": "Find out how much you can pay per customer: break-even CPA, the CPA for your target LTV/CAC ratio, profit per customer and payback.",
+      "keywords": ["max cpa", "ltv", "cac", "ltv cac", "lifetime value", "cost per acquisition", "payback", "paid media"]
+    },
+    "es": {
+      "slug": "calculadora-de-cpa-y-ltv",
+      "name": "Calculadora de CPA máximo y LTV",
+      "title": "Calculadora de CPA máximo, LTV y LTV/CAC",
+      "description": "Calcula el CPA máximo, el LTV por ingresos y por margen, la razón LTV/CAC, la ganancia por cliente y el payback. Cuentas en centavos, sin errores. Gratis.",
+      "summary": "Descubre cuánto puedes pagar por cliente: CPA máximo de equilibrio, CPA para la razón LTV/CAC deseada, ganancia por cliente y payback.",
+      "keywords": ["cpa máximo", "ltv", "cac", "ltv cac", "valor de vida del cliente", "costo por adquisición", "payback", "tráfico pago"]
+    }
+  }
+}

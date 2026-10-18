@@ -1,0 +1,33 @@
+{
+  "id": "cpm-reach",
+  "category": "calculators",
+  "icon": "users",
+  "order": 70,
+  "related": ["funnel-budget", "roas-calculator", "cpa-ltv"],
+  "i18n": {
+    "pt-br": {
+      "slug": "calculadora-de-cpm-e-alcance",
+      "name": "Calculadora de CPM e alcance",
+      "title": "Calculadora de CPM, alcance, impressões e frequência",
+      "description": "Relacione verba, CPM, impressões, alcance e frequência: estime quantas pessoas a verba atinge ou quanto investir para um alcance. Contas em centavos. Grátis.",
+      "summary": "Converta verba em impressões, estime o alcance pela frequência, descubra o CPM de uma campanha ou a verba necessária para uma meta de alcance.",
+      "keywords": ["calculadora de cpm", "cpm", "alcance e frequência", "impressões", "custo por mil impressões", "alcance estimado", "verba para alcance", "cpc", "tráfego pago"]
+    },
+    "en": {
+      "slug": "cpm-and-reach-calculator",
+      "name": "CPM and reach calculator",
+      "title": "CPM, reach, impressions and frequency calculator",
+      "description": "Link budget, CPM, impressions, reach and frequency: estimate how many people a budget reaches or how much to spend for a reach goal. Math in cents. Free.",
+      "summary": "Turn budget into impressions, estimate reach from frequency, find a campaign's CPM or the budget needed for a reach goal.",
+      "keywords": ["cpm calculator", "cpm", "reach and frequency", "impressions", "cost per thousand impressions", "estimated reach", "budget for reach", "cpc", "paid media"]
+    },
+    "es": {
+      "slug": "calculadora-de-cpm-y-alcance",
+      "name": "Calculadora de CPM y alcance",
+      "title": "Calculadora de CPM, alcance, impresiones y frecuencia",
+      "description": "Relaciona inversión, CPM, impresiones, alcance y frecuencia: estima a cuántas personas llega el presupuesto o cuánto invertir para un alcance. En centavos. Gratis.",
+      "summary": "Convierte inversión en impresiones, estima el alcance con la frecuencia, descubre el CPM de una campaña o la inversión necesaria para una meta de alcance.",
+      "keywords": ["calculadora de cpm", "cpm", "alcance y frecuencia", "impresiones", "costo por mil impresiones", "alcance estimado", "inversión para alcance", "cpc", "medios pagos"]
+    }
+  }
+}
