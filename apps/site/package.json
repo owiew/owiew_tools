@@ -16,7 +16,7 @@
   "dependencies": {
     "@astrojs/preact": "6.1.0",
     "@owiew/core": "0.1.0",
-    "astro": "7.4.0",
+    "astro": "7.4.2",
     "lucide-preact": "1.59.0",
     "preact": "11.0.1"
   },
