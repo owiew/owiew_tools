@@ -4,7 +4,7 @@
       "startServerCommand": "npx astro preview --host 127.0.0.1 --port 4321 --ignore-lock",
       "startServerReadyPattern": "4321",
       "startServerReadyTimeout": 60000,
-      "numberOfRuns": 3,
+      "numberOfRuns": 5,
       "url": [
         "http://127.0.0.1:4321/pt-br/",
         "http://127.0.0.1:4321/pt-br/links-e-utm/gerador-de-utm/",
